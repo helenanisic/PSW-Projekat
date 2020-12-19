@@ -1,0 +1,88 @@
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.deps.json
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.dll
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.pdb
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Entities.dll
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Enums.dll
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.Contracts.dll
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.SQL.dll
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.dll
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Implementation.dll
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.Contracts.pdb
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.SQL.pdb
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.pdb
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Implementation.pdb
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Entities.pdb
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csprojAssemblyReference.cache
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csproj.CoreCompileInputs.cache
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.AssemblyInfoInputs.cache
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.AssemblyInfo.cs
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csproj.CopyComplete
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.dll
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.pdb
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.deps.json
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.dll
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.pdb
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Entities.dll
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Enums.dll
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.Contracts.dll
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.SQL.dll
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.dll
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Implementation.dll
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.Contracts.pdb
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.SQL.pdb
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.pdb
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Implementation.pdb
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Entities.pdb
+A:\7. semestar\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
+A:\7. semestar\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csprojAssemblyReference.cache
+A:\7. semestar\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.AssemblyInfoInputs.cache
+A:\7. semestar\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.AssemblyInfo.cs
+A:\7. semestar\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csproj.CoreCompileInputs.cache
+A:\7. semestar\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csproj.CopyComplete
+A:\7. semestar\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.dll
+A:\7. semestar\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.pdb
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.deps.json
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.dll
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.pdb
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Entities.dll
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Enums.dll
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.Contracts.dll
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.SQL.dll
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.dll
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Implementation.dll
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.Contracts.pdb
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.SQL.pdb
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.pdb
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Implementation.pdb
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Entities.pdb
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csprojAssemblyReference.cache
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.AssemblyInfoInputs.cache
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.AssemblyInfo.cs
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csproj.CoreCompileInputs.cache
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csproj.CopyComplete
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.dll
+A:\7. semestar\PSF - P R O J E K A T\Aplikacija\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.deps.json
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Application.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Entities.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Enums.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.Contracts.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.SQL.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Implementation.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.Contracts.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Repository.SQL.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Services.Implementation.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Entities.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csprojAssemblyReference.cache
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csproj.CoreCompileInputs.cache
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.AssemblyInfoInputs.cache
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.AssemblyInfo.cs
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.csproj.CopyComplete
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Application\obj\Debug\netcoreapp3.1\MQuince.Application.pdb

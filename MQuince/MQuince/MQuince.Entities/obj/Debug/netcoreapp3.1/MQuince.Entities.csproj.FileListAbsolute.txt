@@ -1,0 +1,36 @@
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Entities.deps.json
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Entities.dll
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Entities.pdb
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Enums.dll
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.csprojAssemblyReference.cache
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.csproj.CoreCompileInputs.cache
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.AssemblyInfoInputs.cache
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.AssemblyInfo.cs
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.csproj.CopyComplete
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.dll
+C:\Users\helen\Desktop\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.pdb
+A:\7. semestar\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Entities.deps.json
+A:\7. semestar\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Entities.dll
+A:\7. semestar\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Entities.pdb
+A:\7. semestar\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Enums.dll
+A:\7. semestar\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
+A:\7. semestar\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.csprojAssemblyReference.cache
+A:\7. semestar\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.AssemblyInfoInputs.cache
+A:\7. semestar\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.AssemblyInfo.cs
+A:\7. semestar\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.csproj.CoreCompileInputs.cache
+A:\7. semestar\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.csproj.CopyComplete
+A:\7. semestar\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.dll
+A:\7. semestar\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Entities.deps.json
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Entities.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Entities.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Enums.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.csprojAssemblyReference.cache
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.csproj.CoreCompileInputs.cache
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.AssemblyInfoInputs.cache
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.AssemblyInfo.cs
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.csproj.CopyComplete
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Entities\obj\Debug\netcoreapp3.1\MQuince.Entities.pdb
