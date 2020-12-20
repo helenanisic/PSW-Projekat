@@ -8,19 +8,38 @@ namespace MQuince.Entities.Users
 {
     public class Patient : User
     {
-        private Guid _id;
-        public bool Guest { get; set; }
-        public BloodType BloodType { get; set; }
-        public Rhfactor RhFactor { get; set; }
-        public MedicalRecord MedicalRecord { get; set; }
+        public string Jmbg { get; set; }
+        public DateTime BirthDate { get; set; }
+        public Gender Gender { get; set; }
+        public string Telephone { get; set; }
+        public Adress Residence { get; set; }
+        public Doctor ChosenDoctor { get; set; }
+        public string Lbo { get; set; }
 
-        public Guid Id
+        public Patient()
         {
-            get { return _id; }
-            private set
-            {
-                _id = value == Guid.Empty ? throw new ArgumentException("Argument can not be Guid.Empty", nameof(Id)) : value;
-            }
+            Id = Guid.NewGuid();
+        }
+
+        public Patient(Usertype userType, string name, string surname, string email, string password, string jmbg, DateTime birthDate, Gender gender,
+            string telephone, Adress residence, Doctor chosenDoctor, string lbo) : this(Guid.NewGuid(), userType, name, surname, email, password, jmbg, birthDate,gender,
+            telephone, residence, chosenDoctor, lbo) { }
+        public Patient(Guid id, Usertype userType, string name, string surname, string email, string password, string jmbg, DateTime birthDate, Gender gender,
+            string telephone, Adress residence, Doctor chosenDoctor, string lbo)
+        {
+            Id = id;
+            UserType = userType;
+            Name = name;
+            Surname = surname;
+            Email = email;
+            Password = password;
+            Jmbg = jmbg;
+            BirthDate = birthDate;
+            Gender = gender;
+            Telephone = telephone;
+            Residence = residence;
+            ChosenDoctor = chosenDoctor;
+            Lbo = lbo;
         }
     }
 }

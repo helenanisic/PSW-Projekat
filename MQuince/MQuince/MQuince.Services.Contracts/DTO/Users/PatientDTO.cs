@@ -3,14 +3,18 @@ using MQuince.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MQuince.Entities.Users;
 
 namespace MQuince.Services.Contracts.DTO.Users
 {
-    public class PatientDTO
+    public class PatientDTO : UserDTO
     {
-        public bool Guest { get; set; }
-        public BloodType BloodType { get; set; }
-        public Rhfactor RhFactor { get; set; }
-        public MedicalRecord MedicalRecord { get; set; }
+        public string Jmbg { get; set; }
+        public DateTime BirthDate { get; set; }
+        public Gender Gender { get; set; }
+        public string Telephone { get; set; }
+        public Adress Residence { get; set; }
+        public Doctor ChosenDoctor { get; set; }
+        public string Lbo { get; set; }
     }
 }

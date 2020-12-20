@@ -14,19 +14,13 @@ namespace MQuince.Repository.SQL.PersistenceEntities
     [Table("User")]
     public class UserPersistence
     {
-        [Key] //Anotacija za primarni kljuc 
+        [Key] 
         public Guid Id { get; set; }
-        [Required]//Anotacija pomocu koje se ogranicava tabela da se ne moze proslediti null za username
         public Usertype UserType { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public int Jmbg { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public DateTime BirthDate { get; set; }
-        public Gender Gender { get; set; }
-        public City BirthPlace { get; set; }
-        public Adress Residence { get; set; }
-        public Contact Contact { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+
     }
 }

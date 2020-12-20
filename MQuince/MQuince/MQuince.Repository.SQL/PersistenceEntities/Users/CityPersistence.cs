@@ -13,7 +13,6 @@ namespace MQuince.Repository.SQL.PersistenceEntities.Users
         public Guid Id { get; set; }
         public string Name { get; set; }
         public int PostNumber { get; set; }
-        [ForeignKey("CountryId")]
-        public Guid CountryId { get; set; }
+        public CountryPersistence Country { get; set; }
     }
 }

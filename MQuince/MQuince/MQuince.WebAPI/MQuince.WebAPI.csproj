@@ -23,9 +23,5 @@
     <ProjectReference Include="..\MQuince.Services.Implementation\MQuince.Services.Implementation.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 
 </Project>

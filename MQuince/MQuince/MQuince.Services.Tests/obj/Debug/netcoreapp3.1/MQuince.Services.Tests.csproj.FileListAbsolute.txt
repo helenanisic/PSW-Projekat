@@ -278,7 +278,6 @@ C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\bin\D
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
-C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\obj\Debug\netcoreapp3.1\MQuince.Services.Tests.csprojAssemblyReference.cache
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\obj\Debug\netcoreapp3.1\MQuince.Services.Tests.csproj.CoreCompileInputs.cache
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\obj\Debug\netcoreapp3.1\MQuince.Services.Tests.AssemblyInfoInputs.cache
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\obj\Debug\netcoreapp3.1\MQuince.Services.Tests.AssemblyInfo.cs
@@ -286,3 +285,4 @@ C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\obj\D
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\obj\Debug\netcoreapp3.1\MQuince.Services.Tests.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\obj\Debug\netcoreapp3.1\MQuince.Services.Tests.pdb
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\obj\Debug\netcoreapp3.1\MQuince.Services.Tests.genruntimeconfig.cache
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Tests\obj\Debug\netcoreapp3.1\MQuince.Services.Tests.csprojAssemblyReference.cache

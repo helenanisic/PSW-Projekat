@@ -10,51 +10,30 @@ namespace MQuince.Entities
     {
         private Guid _id;
         public Usertype UserType { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public int Jmbg { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public DateTime BirthDate { get; set; }
-        public Gender Gender { get; set; }
-        public City BirthPlace { get; set; }
-        public Adress Residence { get; set; }
-        public Contact Contact { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public Guid Id
+        {
+            get => _id;
+            protected set => _id = value == Guid.Empty ? throw new ArgumentException("Argument can not be Guid.Empty", nameof(Id)) : value;
 
+        }
         public User()
         {
             _id = Guid.NewGuid();
         }
-        public User(Guid id, Usertype usertype, string username, string password, int jmbg, string name, string surname,
-            DateTime birthDate, Gender gender, City birthPlace, Adress residence, Contact contact)
+
+        public User(Usertype userType, string name, string surname, string email, string password) : this(Guid.NewGuid(), userType, name, surname, email, password) { }
+        public User(Guid id, Usertype userType, string name, string surname, string email, string password)
         {
             _id = id;
-            Username = username;
-            UserType = usertype;
-            Password = password;
-            Jmbg = jmbg;
+            UserType = userType;
             Name = name;
             Surname = surname;
-            BirthDate = birthDate;
-            Gender = gender;
-            BirthPlace = birthPlace;
-            Residence = residence;
-            Contact = contact;
-        }
-
-        public User(Usertype usertype, string username, string password, int jmbg, string name, string surname,
-            DateTime birthDate, Gender gender, City birthPlace, Adress residence, Contact contact) : this(Guid.NewGuid(), usertype, username, password, jmbg, 
-                name, surname, birthDate, gender, birthPlace, residence, contact)
-        {
-        }
-
-        public Guid Id
-        {
-            get { return _id; }
-            private set
-            {
-                _id = value == Guid.Empty ? throw new ArgumentException("Argument can not be Guid.Empty", nameof(Id)) : value;
-            }
+            Email = email;
+            Password = password;
         }
     }
 }

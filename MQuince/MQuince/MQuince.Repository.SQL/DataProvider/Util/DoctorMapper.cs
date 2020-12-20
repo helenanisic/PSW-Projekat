@@ -11,23 +11,41 @@ namespace MQuince.Repository.SQL.DataProvider.Util
     {
         public static Doctor MapDoctorPersistenceToDoctorEntity(DoctorPersistence doctor)
         {
-            if (doctor == null) return null;
+            return doctor == null
+                ? null
+                : new Doctor(doctor.Id, doctor.UserType, doctor.Name, doctor.Surname, doctor.Email, doctor.Password,
+                    SpecializationMapper.MapSpecializationPersistenceToSpecializationEntity(doctor.Specialization));
+        }
 
-            return new Doctor();
-
+        public static IEnumerable<Doctor> MapDoctorPersistenceCollectionToDoctorEntityCollection(
+            IEnumerable<DoctorPersistence> doctors)
+        {
+            return doctors.Select(c => MapDoctorPersistenceToDoctorEntity(c));
         }
 
         public static DoctorPersistence MapDoctorEntityToDoctorPersistence(Doctor doctor)
         {
             if (doctor == null) return null;
 
-            DoctorPersistence retVal = new DoctorPersistence() { Biography = doctor.Biography, EducationLevel = doctor.EducationLevel,
-                Id = doctor.Id, Picture = doctor.Picture, PictureNumber = doctor.PictureNumber, SpecializationId = doctor.SpecializationId,
-                WorkPlaceId = doctor.WorkPlaceId, WorkRoomId = doctor.WorkRoomId};
+            var retVal = new DoctorPersistence()
+            {
+                Id = doctor.Id,
+                UserType = doctor.UserType,
+                Name = doctor.Name,
+                Surname = doctor.Surname,
+                Email = doctor.Email,
+                Password = doctor.Password,
+                Specialization =
+                    SpecializationMapper.MapSpecializationEntityToSpecializationPersistence(doctor.Specialization)
+            };
             return retVal;
         }
 
-        public static IEnumerable<Doctor> MapDoctorPersistenceCollectionToDoctorEntityCollection(IEnumerable<DoctorPersistence> clients)
-            => clients.Select(c => MapDoctorPersistenceToDoctorEntity(c));
+        public static IEnumerable<DoctorPersistence> MapDoctorEntityCollectionToDoctorPersistenceCollection(
+            IEnumerable<Doctor> doctors)
+        {
+            return doctors.Select(c => MapDoctorEntityToDoctorPersistence(c));
+        }
     }
+
 }

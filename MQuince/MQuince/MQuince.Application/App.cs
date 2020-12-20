@@ -19,14 +19,18 @@ namespace MQuince.Application
         {
             _optionsBuilder = new DbContextOptionsBuilder();
             //_optionsBuilder.UseSqlServer(configuration.GetConnectionString("FeedbackExampleDB"));
-            _optionsBuilder.UseSqlServer(@"server=localhost;port=3306;database=mquince;user=root;password=root");
+            _optionsBuilder.UseMySql(@"server=localhost;port=3306;database=mquince;user=root;password=root");
         }
 
-        public IUserService GetUserService()
-            => new UserService(this.GetUserRepository());
+        public ICountryService GetCountryService()
+            => new CountryService(this.GetCountryRepository());
 
-        private IUserRepository GetUserRepository()
-            => new UserRepository(_optionsBuilder);
+        private ICountryRepository GetCountryRepository()
+            => new CountryRepository(_optionsBuilder);
+        public ICityService GetCityService()
+            => new CityService(this.GetCityRepository());
 
+        private ICityRepository GetCityRepository()
+            => new CityRepository(_optionsBuilder);
     }
 }

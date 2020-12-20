@@ -17,35 +17,13 @@ namespace MQuince.Repository.SQL.Migrations
                 .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("MQuince.Entities.Users.Adress", b =>
+            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Users.CityPersistence", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid?>("CityId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<int>("Number")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Street")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CityId");
-
-                    b.ToTable("Adress");
-                });
-
-            modelBuilder.Entity("MQuince.Entities.Users.City", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("CountryId")
+                    b.Property<Guid?>("CountryId")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
@@ -56,96 +34,30 @@ namespace MQuince.Repository.SQL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CountryId");
+
                     b.ToTable("City");
                 });
 
-            modelBuilder.Entity("MQuince.Entities.Users.Contact", b =>
+            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Users.CountryPersistence", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<string>("Number")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Contact");
-                });
-
-            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.UserPersistence", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<Guid?>("BirthPlaceId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid?>("ContactId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Jmbg")
-                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Password")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<Guid?>("ResidenceId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<string>("Surname")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<int>("UserType")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("BirthPlaceId");
-
-                    b.HasIndex("ContactId");
-
-                    b.HasIndex("ResidenceId");
-
-                    b.ToTable("User");
+                    b.ToTable("Country");
                 });
 
-            modelBuilder.Entity("MQuince.Entities.Users.Adress", b =>
+            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Users.CityPersistence", b =>
                 {
-                    b.HasOne("MQuince.Entities.Users.City", "City")
+                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.CountryPersistence", "Country")
                         .WithMany()
-                        .HasForeignKey("CityId");
-                });
-
-            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.UserPersistence", b =>
-                {
-                    b.HasOne("MQuince.Entities.Users.City", "BirthPlace")
-                        .WithMany()
-                        .HasForeignKey("BirthPlaceId");
-
-                    b.HasOne("MQuince.Entities.Users.Contact", "Contact")
-                        .WithMany()
-                        .HasForeignKey("ContactId");
-
-                    b.HasOne("MQuince.Entities.Users.Adress", "Residence")
-                        .WithMany()
-                        .HasForeignKey("ResidenceId");
+                        .HasForeignKey("CountryId");
                 });
 #pragma warning restore 612, 618
         }

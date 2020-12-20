@@ -8,19 +8,8 @@ using System.Text;
 namespace MQuince.Repository.SQL.PersistenceEntities.Users
 {
     [Table("Doctor")]
-    public class DoctorPersistence
+    public class DoctorPersistence : UserPersistence
     {
-        [Key]
-        public Guid Id { get; set; }
-        public EducationLevel EducationLevel { get; set; }
-        public string Picture { get; set; }
-        public int PictureNumber { get; set; }
-        public string Biography { get; set; }
-        [ForeignKey("SpecializationId")]
-        public List<Guid> SpecializationId { get; set; }
-        [ForeignKey("WorkRoomId")]
-        public Guid WorkRoomId { get; set; }
-        [ForeignKey("WorkPlaceId")]
-        public Guid WorkPlaceId { get; set; }
+        public SpecializationPersistence Specialization { get; set; }
     }
 }

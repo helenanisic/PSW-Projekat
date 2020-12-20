@@ -13,11 +13,22 @@ namespace MQuince.Entities.Users
 
         public Guid Id
         {
-            get { return _id; }
-            private set
-            {
-                _id = value == Guid.Empty ? throw new ArgumentException("Argument can not be Guid.Empty", nameof(Id)) : value;
-            }
+            get => _id;
+            protected set => _id = value == Guid.Empty ? throw new ArgumentException("Argument can not be Guid.Empty", nameof(Id)) : value;
+
+        }
+        public Adress()
+        {
+            _id = Guid.NewGuid();
+        }
+
+        public Adress(int number, string street, City city) : this(Guid.NewGuid(), number, street, city) { }
+        public Adress(Guid id, int number, string street, City city)
+        {
+            _id = id;
+            Number = number;
+            Street = street;
+            City = city;
         }
     }
 }
