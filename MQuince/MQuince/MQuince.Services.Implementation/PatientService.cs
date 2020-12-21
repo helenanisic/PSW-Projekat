@@ -17,7 +17,7 @@ namespace MQuince.Services.Implementation
         }
         public Guid Create(PatientDTO entityDTO)
         {
-            throw new NotImplementedException();
+            return Guid.Empty;
         }
 
         public bool Delete(Guid id)
