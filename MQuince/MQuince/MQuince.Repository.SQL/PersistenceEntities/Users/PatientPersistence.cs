@@ -16,8 +16,8 @@ namespace MQuince.Repository.SQL.PersistenceEntities.Users
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; }
         public string Telephone { get; set; }
-        public AdressDTO Residence { get; set; }
-        public DoctorDTO ChosenDoctor { get; set; }
+        public AdressPersistence Residence { get; set; }
+        public DoctorPersistence ChosenDoctor { get; set; }
         public string Lbo { get; set; }
     }
 }

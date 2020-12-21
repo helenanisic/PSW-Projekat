@@ -32,5 +32,10 @@ namespace MQuince.Application
 
         private ICityRepository GetCityRepository()
             => new CityRepository(_optionsBuilder);
+        public IPatientService GetPatientService()
+            => new PatientService(this.GetPatientRepository());
+
+        private IPatientRepository GetPatientRepository()
+            => new PatientRepository(_optionsBuilder);
     }
 }

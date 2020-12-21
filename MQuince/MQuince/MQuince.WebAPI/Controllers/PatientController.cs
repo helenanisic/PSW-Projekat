@@ -20,9 +20,10 @@ namespace MQuince.WebAPI.Controllers
             this._patientService = patientService;
         }
         [HttpGet]
-        public IActionResult Create(PatientDTO patient)
+        public IActionResult Create()
         {
-            
+            PatientDTO patient = new PatientDTO() {Name = "Helena"};
+            _patientService.Create(patient);
             return Ok();
         }
     }

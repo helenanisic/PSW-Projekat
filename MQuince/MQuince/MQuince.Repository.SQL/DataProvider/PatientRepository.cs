@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using MQuince.Entities.Users;
 using MQuince.Repository.Contracts;
+using MQuince.Repository.SQL.DataAccess;
+using MQuince.Repository.SQL.DataProvider.Util;
 
 namespace MQuince.Repository.SQL.DataProvider
 {
@@ -18,7 +21,11 @@ namespace MQuince.Repository.SQL.DataProvider
         
         public void Create(Patient entity)
         {
-            throw new NotImplementedException();
+            using (MQuinceDbContext _context = new MQuinceDbContext(_dbContext))
+            {
+                _context.Patients.Add(PatientMapper.MapPatientEntityToPatientPersistence(entity));
+                _context.SaveChanges();
+            }
         }
 
         public bool Delete(Guid id)
@@ -28,7 +35,10 @@ namespace MQuince.Repository.SQL.DataProvider
 
         public IEnumerable<Patient> GetAll()
         {
-            throw new NotImplementedException();
+            using (MQuinceDbContext _context = new MQuinceDbContext(_dbContext))
+            {
+                return PatientMapper.MapPatientPersistenceCollectionToPatientEntityCollection(_context.Patients.ToList());
+            }
         }
 
         public Patient GetById(Guid id)

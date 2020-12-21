@@ -25,6 +25,7 @@ namespace MQuince.WebAPI
 
             services.AddTransient(typeof(ICountryService), s => application.GetCountryService());
             services.AddTransient(typeof(ICityService), s => application.GetCityService());
+            services.AddTransient(typeof(IPatientService), s => application.GetPatientService());
 
             services.AddControllers();
             services.AddSpaStaticFiles(configuration =>

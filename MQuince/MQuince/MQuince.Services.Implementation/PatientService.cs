@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using MQuince.Entities.Users;
 using MQuince.Repository.Contracts;
 using MQuince.Services.Contracts.DTO.Users;
 using MQuince.Services.Contracts.IdentifiableDTO;
@@ -17,7 +19,11 @@ namespace MQuince.Services.Implementation
         }
         public Guid Create(PatientDTO entityDTO)
         {
-            return Guid.Empty;
+            Patient patient = CreatePatientFromDTO(entityDTO);
+
+            _patientRepository.Create(patient);
+
+            return patient.Id;
         }
 
         public bool Delete(Guid id)
@@ -26,9 +32,7 @@ namespace MQuince.Services.Implementation
         }
 
         public IEnumerable<IdentifiableDTO<PatientDTO>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+            => _patientRepository.GetAll().Select(c => CreatePatientDTO(c));
 
         public IdentifiableDTO<PatientDTO> GetById(Guid id)
         {
@@ -39,5 +43,38 @@ namespace MQuince.Services.Implementation
         {
             throw new NotImplementedException();
         }
+
+        private IdentifiableDTO<PatientDTO> CreatePatientDTO(Patient patient)
+        {
+            if (patient == null) return null;
+
+            return new IdentifiableDTO<PatientDTO>()
+            {
+                Id = patient.Id,
+                EntityDTO = new PatientDTO()
+                {
+                    UserType = patient.UserType,
+                    Name = patient.Name,
+                    Surname = patient.Surname,
+                    Email = patient.Email,
+                    Password = patient.Password,
+                    Residence = patient.Residence,
+                    BirthDate = patient.BirthDate,
+                    Jmbg = patient.Jmbg,
+                    Gender = patient.Gender,
+                    Lbo = patient.Lbo,
+                    Telephone = patient.Telephone,
+                    ChosenDoctor = patient.ChosenDoctor
+
+                }
+            };
+        }
+
+        private Patient CreatePatientFromDTO(PatientDTO patient, Guid? id = null)
+            => id == null ? new Patient(patient.UserType, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
+                patient.Residence, patient.ChosenDoctor,patient.Lbo)
+                          : new Patient(id.Value, patient.UserType, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
+                              patient.Residence, patient.ChosenDoctor, patient.Lbo);
+
     }
 }
