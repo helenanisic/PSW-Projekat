@@ -13,8 +13,8 @@ namespace MQuince.Services.Contracts.DTO.Users
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; }
         public string Telephone { get; set; }
-        public Adress Residence { get; set; }
-        public Doctor ChosenDoctor { get; set; }
+        public Guid ResidenceId { get; set; }
+        public Guid ChosenDoctorId { get; set; }
         public string Lbo { get; set; }
     }
 }

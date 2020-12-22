@@ -16,8 +16,14 @@ namespace MQuince.Repository.SQL.PersistenceEntities.Users
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; }
         public string Telephone { get; set; }
+        
+        [ForeignKey("ResidenceId")]
         public AdressPersistence Residence { get; set; }
+        public Guid ResidenceId { get; set; }
+        
+        [ForeignKey("ChosenDoctorId")]
         public DoctorPersistence ChosenDoctor { get; set; }
+        public Guid ChosenDoctorId { get; set; }
         public string Lbo { get; set; }
     }
 }

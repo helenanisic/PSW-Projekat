@@ -23,7 +23,7 @@ namespace MQuince.Repository.SQL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid?>("CityId")
+                    b.Property<Guid>("CityId")
                         .HasColumnType("char(36)");
 
                     b.Property<int>("Number")
@@ -77,7 +77,7 @@ namespace MQuince.Repository.SQL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid?>("CountryId")
+                    b.Property<Guid>("CountryId")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
@@ -125,7 +125,7 @@ namespace MQuince.Repository.SQL.Migrations
                 {
                     b.HasBaseType("MQuince.Repository.SQL.PersistenceEntities.UserPersistence");
 
-                    b.Property<Guid?>("SpecializationId")
+                    b.Property<Guid>("SpecializationId")
                         .HasColumnType("char(36)");
 
                     b.HasIndex("SpecializationId");
@@ -142,7 +142,7 @@ namespace MQuince.Repository.SQL.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<Guid?>("ChosenDoctorId")
+                    b.Property<Guid>("ChosenDoctorId")
                         .HasColumnType("char(36)");
 
                     b.Property<int>("Gender")
@@ -154,7 +154,7 @@ namespace MQuince.Repository.SQL.Migrations
                     b.Property<string>("Lbo")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<Guid?>("ResidenceId")
+                    b.Property<Guid>("ResidenceId")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Telephone")
@@ -173,32 +173,42 @@ namespace MQuince.Repository.SQL.Migrations
                 {
                     b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.CityPersistence", "City")
                         .WithMany()
-                        .HasForeignKey("CityId");
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Users.CityPersistence", b =>
                 {
                     b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.CountryPersistence", "Country")
                         .WithMany()
-                        .HasForeignKey("CountryId");
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Users.DoctorPersistence", b =>
                 {
                     b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.SpecializationPersistence", "Specialization")
                         .WithMany()
-                        .HasForeignKey("SpecializationId");
+                        .HasForeignKey("SpecializationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Users.PatientPersistence", b =>
                 {
                     b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.DoctorPersistence", "ChosenDoctor")
                         .WithMany()
-                        .HasForeignKey("ChosenDoctorId");
+                        .HasForeignKey("ChosenDoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("MQuince.Repository.SQL.PersistenceEntities.AdressPersistence", "Residence")
                         .WithMany()
-                        .HasForeignKey("ResidenceId");
+                        .HasForeignKey("ResidenceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

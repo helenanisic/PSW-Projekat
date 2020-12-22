@@ -37,5 +37,16 @@ namespace MQuince.Application
 
         private IPatientRepository GetPatientRepository()
             => new PatientRepository(_optionsBuilder);
+        public IDoctorService GetDoctorService()
+            => new DoctorService(this.GetDoctorRepository());
+
+        private IDoctorRepository GetDoctorRepository()
+            => new DoctorRepository(_optionsBuilder);
+
+        public IAdressService GetAdressService()
+            => new AdressService(this.GetAdressRepository());
+
+        private IAdressRepository GetAdressRepository()
+            => new AdressRepository(_optionsBuilder);
     }
 }

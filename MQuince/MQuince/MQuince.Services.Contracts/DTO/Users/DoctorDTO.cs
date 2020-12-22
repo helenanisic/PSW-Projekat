@@ -7,6 +7,6 @@ namespace MQuince.Services.Contracts.DTO.Users
 {
     public class DoctorDTO : UserDTO
     {
-        public Specialization Specialization { get; set; }
+        public Guid SpecializationId { get; set; }
     }
 }

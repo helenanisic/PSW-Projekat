@@ -13,8 +13,7 @@ namespace MQuince.Repository.SQL.DataProvider.Util
         public static Patient MapPatientPersistenceToPatientEntity(PatientPersistence patient)
         {
             return patient == null ? null : new Patient(patient.Id, patient.UserType, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone, 
-                AdressMapper.MapAdressPersistenceToAdressEntity(patient.Residence),
-                DoctorMapper.MapDoctorPersistenceToDoctorEntity(patient.ChosenDoctor), patient.Lbo);
+                patient.ResidenceId, patient.ChosenDoctorId, patient.Lbo);
         }
 
         public static IEnumerable<Patient> MapPatientPersistenceCollectionToPatientEntityCollection(
@@ -39,8 +38,8 @@ namespace MQuince.Repository.SQL.DataProvider.Util
                 BirthDate = patient.BirthDate,
                 Gender = patient.Gender,
                 Telephone = patient.Telephone,
-                Residence = AdressMapper.MapAdressEntityToAdressPersistence(patient.Residence),
-                ChosenDoctor = DoctorMapper.MapDoctorEntityToDoctorPersistence(patient.ChosenDoctor),
+                ResidenceId = patient.ResidenceId,
+                ChosenDoctorId = patient.ChosenDoctorId,
                 Lbo = patient.Lbo
             };
             return retVal;

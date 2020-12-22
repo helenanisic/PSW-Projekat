@@ -14,7 +14,7 @@ namespace MQuince.Repository.SQL.DataProvider.Util
             return doctor == null
                 ? null
                 : new Doctor(doctor.Id, doctor.UserType, doctor.Name, doctor.Surname, doctor.Email, doctor.Password,
-                    SpecializationMapper.MapSpecializationPersistenceToSpecializationEntity(doctor.Specialization));
+                    doctor.SpecializationId);
         }
 
         public static IEnumerable<Doctor> MapDoctorPersistenceCollectionToDoctorEntityCollection(
@@ -35,8 +35,7 @@ namespace MQuince.Repository.SQL.DataProvider.Util
                 Surname = doctor.Surname,
                 Email = doctor.Email,
                 Password = doctor.Password,
-                Specialization =
-                    SpecializationMapper.MapSpecializationEntityToSpecializationPersistence(doctor.Specialization)
+                SpecializationId = doctor.SpecializationId
             };
             return retVal;
         }

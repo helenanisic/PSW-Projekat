@@ -33,5 +33,10 @@ namespace MQuince.WebAPI.Controllers
             return Ok();
         }
 
+        [HttpGet("GetAllCitiesInCountry")]
+        public IEnumerable<IdentifiableDTO<CityDTO>> GetAllCitiesInCountry(Guid id)
+        {
+            return _cityService.GetAllCitiesInCountry(id);
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace MQuince.Entities.Users
         private Guid _id;
         public int Number { get; set; }
         public string Street { get; set; }
-        public City City { get; set; }
+        public Guid CityId { get; set; }
 
         public Guid Id
         {
@@ -22,13 +22,13 @@ namespace MQuince.Entities.Users
             _id = Guid.NewGuid();
         }
 
-        public Adress(int number, string street, City city) : this(Guid.NewGuid(), number, street, city) { }
-        public Adress(Guid id, int number, string street, City city)
+        public Adress(int number, string street, Guid cityId) : this(Guid.NewGuid(), number, street, cityId) { }
+        public Adress(Guid id, int number, string street, Guid cityId)
         {
             _id = id;
             Number = number;
             Street = street;
-            City = city;
+            CityId = cityId;
         }
     }
 }

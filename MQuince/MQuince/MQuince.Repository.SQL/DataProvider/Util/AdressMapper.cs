@@ -11,7 +11,7 @@ namespace MQuince.Repository.SQL.DataProvider.Util
     {
         public static Adress MapAdressPersistenceToAdressEntity(AdressPersistence adress)
         {
-            return adress == null ? null : new Adress(adress.Id, adress.Number, adress.Street, CityMapper.MapCityPersistenceToCityEntity(adress.City));
+            return adress == null ? null : new Adress(adress.Id, adress.Number, adress.Street, adress.CityId);
         }
 
         public static IEnumerable<Adress> MapAdressPersistenceCollectionToAdressEntityCollection(
@@ -29,7 +29,7 @@ namespace MQuince.Repository.SQL.DataProvider.Util
                 Id = adress.Id,
                 Number = adress.Number,
                 Street = adress.Street,
-                City = CityMapper.MapCityEntityToCityPersistence(adress.City)
+                CityId = adress.CityId
             };
             return retVal;
         }

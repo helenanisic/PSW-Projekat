@@ -11,7 +11,7 @@ namespace MQuince.Repository.SQL.DataProvider.Util
     {
         public static City MapCityPersistenceToCityEntity(CityPersistence city)
         {
-            return city == null ? null : new City(city.Id, city.Name, city.PostNumber, CountryMapper.MapCountryPersistenceToCountryEntity(city.Country));
+            return city == null ? null : new City(city.Id, city.Name, city.PostNumber, city.CountryId);
         }
 
         public static IEnumerable<City> MapCityPersistenceCollectionToCityEntityCollection(
@@ -29,7 +29,7 @@ namespace MQuince.Repository.SQL.DataProvider.Util
                 Id = city.Id,
                 Name = city.Name,
                 PostNumber = city.PostNumber,
-                Country = CountryMapper.MapCountryEntityToCountryPersistence(city.Country)
+                CountryId = city.CountryId
             };
             return retVal;
         }

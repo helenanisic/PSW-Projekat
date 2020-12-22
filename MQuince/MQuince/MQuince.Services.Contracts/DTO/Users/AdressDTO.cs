@@ -9,6 +9,6 @@ namespace MQuince.Services.Contracts.DTO.Users
     {
         public int Number { get; set; }
         public string Street { get; set; }
-        public City City { get; set; }
+        public Guid CityId { get; set; }
     }
 }

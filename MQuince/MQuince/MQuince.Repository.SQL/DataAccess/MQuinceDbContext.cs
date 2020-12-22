@@ -16,6 +16,8 @@ namespace MQuince.Repository.SQL.DataAccess
         public DbSet<CityPersistence> Cities { get; set; }
         public DbSet<UserPersistence> Users { get; set; }
         public DbSet<PatientPersistence> Patients { get; set; }
+        public DbSet<DoctorPersistence> Doctors { get; set; }
+        public DbSet<AdressPersistence> Adresses { get; set; }
 
         public MQuinceDbContext(DbContextOptions options) : base(options) { }
 

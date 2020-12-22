@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Freelancer - Start Bootstrap Theme</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">MQuince</a>
+            <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Contact Section-->
+    <section class="page-section" id="contact">
+        <div class="container" >
+            <!-- Contact Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Registration</h2>
+
+            <h5 class=" text-center  mb-0 text-uppercase" style="color:#1abc9c; margin-top: 2rem; margin-bottom: 10rem;">Basic information</h5>
+            <!-- Icon Divider-->
+            <!-- Contact Section Form-->
+            <div class="row section-design">
+                <div class="col-lg-8 mx-auto">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
+                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                        <div class="control-group" id="register">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2" style=" color: #6c757d;opacity: 1;">
+                                <table style="margin-top: 2rem;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 100px;">First Name</td>
+                                            <td><input v-model="firstName" class="form-control" id="name" type="text" data-validation-required-message="Please enter your name." /></td>
+                                            <td style="width: 100px;"></td>
+                                            <td>Telephone</td>
+                                            <td><input v-model="telephone" class="form-control" id="name" type="text" data-validation-required-message="Please enter your name." /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Last Name</td>
+                                            <td><input v-model="lastName" class="form-control" id="name" type="text" data-validation-required-message="Please enter your name." /></td>
+                                            <td></td>
+                                            <td>Country</td>
+                                            <td>
+                                                <select v-model="country" class="form-control" @change="countryChanged($event)" style="text-indent: 1%">
+                                                    <option value="null" selected disabled></option>
+                                                    <option v-for="country in countries" :value="country.id">{{country.entityDTO.name}}</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>JMBG</td>
+                                            <td><input v-model="jmbg" class="form-control" id="name" type="text" data-validation-required-message="Please enter your name." /></td>
+                                            <td></td>
+                                            <td>City</td>
+                                            <td>
+                                                <select v-model="city" class="form-control" style="text-indent: 1%">
+                                                    <option value="null" selected disabled></option>
+                                                    <option v-for="c in cities" :value="c.id">{{c.entityDTO.name}}</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date of Birth</td>
+                                            <td><input v-model="birthday" class="form-control" id="name" type="date" data-validation-required-message="Please enter your name." /></td>
+                                            <td></td>
+                                            <td>Street</td>
+                                            <td>
+                                                <input v-model="street" class="form-control" id="name" type="text" data-validation-required-message="Please enter your name." />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 100px;">Email</td>
+                                            <td>
+                                                <input v-model="email" class="form-control" id="name" type="text" data-validation-required-message="Please enter your name." />
+                                            </td>
+                                            <td></td>
+                                            <td>House number</td>
+                                            <td>
+                                                <input v-model="houseNumber" class="form-control" id="name" type="text" data-validation-required-message="Please enter your name." />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gender</td>
+                                            <td>
+                                                <div class="control-group" style=" color: #6c757d;opacity: 1; margin-left: -2%; margin-top: 4%;">
+                                                    <input v-model="gender" type="radio" value="1" id="Anonymous" name="signing" style="margin-right: 2%; margin-left: 20%">Female</input>
+                                                    <input v-model="gender" type="radio" value="0" id="Signed" name="signing" style="margin-right: 2%; margin-left: 15%;">Male</input>
+                                                </div>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <h5 class=" text-center  mb-0 text-uppercase" style="color:#1abc9c; margin-top: 2rem; margin-bottom: 10rem;">Medical information</h5>
+                                <table style="margin-top: 2rem;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 100px;">LBO</td>
+                                            <td><input v-model="lbo" class="form-control" id="lbo" type="text" data-validation-required-message="Please enter your name." /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Chosen doctor</td>
+                                            <td>
+                                                <select v-model="chosenDoctor" class="form-control" style="text-indent: 1%">
+                                                    <option value="null" selected disabled></option>
+                                                    <option v-for="doctor in doctors" :value="doctor.id">{{doctor.entityDTO.name}} &nbsp {{doctor.entityDTO.surname}}</option>
+                                                </select>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                <h5 class=" text-center  mb-0 text-uppercase" style="color:#1abc9c; margin-top: 2rem; margin-bottom: 10rem;">Security information</h5>
+                                <table style="margin-top: 2rem;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 100px;">Password</td>
+                                            <td><input v-model="password" class="form-control" id="password" type="password" data-validation-required-message="Please enter your name." /></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Confirm password</td>
+                                            <td><input v-model="confirmPassword" class="form-control" id="confirmPassword" type="password" data-validation-required-message="Please enter your name." /></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                            <div class="form-group"><input type="button" v-on:click="submit" value="Register" style="margin-left: 40%; margin-top:2rem; width: 20%;"class="btn btn-primary btn-xl" id="sendMessageButton"/></div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS
+    <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
+    <script src="axios.js"></script>
+    <script src="https://npmcdn.com/js-alert/dist/jsalert.min.js"></script>
+    <script src="Register.js"></script>
+</body>
+</html>
+

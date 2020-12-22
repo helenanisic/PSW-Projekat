@@ -10,6 +10,8 @@ namespace MQuince.Repository.SQL.PersistenceEntities.Users
     [Table("Doctor")]
     public class DoctorPersistence : UserPersistence
     {
+        [ForeignKey("SpecializationId")]
         public SpecializationPersistence Specialization { get; set; }
+        public Guid SpecializationId { get; set; }
     }
 }

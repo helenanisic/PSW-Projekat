@@ -50,13 +50,17 @@ namespace MQuince.Services.Implementation
                 {
                     Name = city.Name,
                     PostNumber = city.PostNumber,
-                    Country = city.Country
+                    CountryId = city.CountryId
                 }
             };
         }
 
         private City CreateCityFromDTO(CityDTO city, Guid? id = null)
-            => id == null ? new City(city.Name, city.PostNumber, city.Country)
-                : new City(id.Value, city.Name, city.PostNumber, city.Country);
+            => id == null ? new City(city.Name, city.PostNumber, city.CountryId)
+                : new City(id.Value, city.Name, city.PostNumber, city.CountryId);
+
+        public IEnumerable<IdentifiableDTO<CityDTO>> GetAllCitiesInCountry(Guid id)
+            => _cityRepository.GetAllCitiesInCountry(id).Select(c => CreateCityDTO(c));
     }
+    
 }

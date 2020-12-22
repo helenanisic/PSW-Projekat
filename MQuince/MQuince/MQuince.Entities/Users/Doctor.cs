@@ -8,11 +8,11 @@ namespace MQuince.Entities.Users
 {
     public class Doctor : User
     {
-        public Specialization Specialization { get; set; }
+        public Guid SpecializationId { get; set; }
 
-        public Doctor(Usertype userType, string name, string surname, string email, string password, Specialization specialization) : this(Guid.NewGuid(), userType, name, surname, email, password, specialization)
+        public Doctor(Usertype userType, string name, string surname, string email, string password, Guid specializationId) : this(Guid.NewGuid(), userType, name, surname, email, password, specializationId)
         { }
-        public Doctor(Guid id, Usertype userType, string name, string surname, string email, string password, Specialization specialization)
+        public Doctor(Guid id, Usertype userType, string name, string surname, string email, string password, Guid specializationId)
         {
             Id = id;
             UserType = userType;
@@ -20,7 +20,7 @@ namespace MQuince.Entities.Users
             Surname = surname;
             Email = email;
             Password = password;
-            Specialization = specialization;
+            SpecializationId = specializationId;
         }
 
     }

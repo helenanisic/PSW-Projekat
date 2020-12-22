@@ -7,5 +7,6 @@ namespace MQuince.Repository.Contracts
 {
     public interface ICityRepository : IRepository<City>
     {
+        IEnumerable<City> GetAllCitiesInCountry(Guid id);
     }
 }

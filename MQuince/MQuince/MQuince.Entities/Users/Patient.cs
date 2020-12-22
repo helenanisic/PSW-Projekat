@@ -12,8 +12,8 @@ namespace MQuince.Entities.Users
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; }
         public string Telephone { get; set; }
-        public Adress Residence { get; set; }
-        public Doctor ChosenDoctor { get; set; }
+        public Guid ResidenceId { get; set; }
+        public Guid ChosenDoctorId { get; set; }
         public string Lbo { get; set; }
 
         public Patient()
@@ -22,10 +22,10 @@ namespace MQuince.Entities.Users
         }
 
         public Patient(Usertype userType, string name, string surname, string email, string password, string jmbg, DateTime birthDate, Gender gender,
-            string telephone, Adress residence, Doctor chosenDoctor, string lbo) : this(Guid.NewGuid(), userType, name, surname, email, password, jmbg, birthDate,gender,
-            telephone, residence, chosenDoctor, lbo) { }
+            string telephone, Guid residenceId, Guid chosenDoctorId, string lbo) : this(Guid.NewGuid(), userType, name, surname, email, password, jmbg, birthDate,gender,
+            telephone, residenceId, chosenDoctorId, lbo) { }
         public Patient(Guid id, Usertype userType, string name, string surname, string email, string password, string jmbg, DateTime birthDate, Gender gender,
-            string telephone, Adress residence, Doctor chosenDoctor, string lbo)
+            string telephone, Guid residenceId, Guid chosenDoctorId, string lbo)
         {
             Id = id;
             UserType = userType;
@@ -37,8 +37,8 @@ namespace MQuince.Entities.Users
             BirthDate = birthDate;
             Gender = gender;
             Telephone = telephone;
-            Residence = residence;
-            ChosenDoctor = chosenDoctor;
+            ResidenceId = residenceId;
+            ChosenDoctorId = chosenDoctorId;
             Lbo = lbo;
         }
     }

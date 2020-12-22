@@ -58,13 +58,13 @@ namespace MQuince.Services.Implementation
                     Surname = patient.Surname,
                     Email = patient.Email,
                     Password = patient.Password,
-                    Residence = patient.Residence,
+                    ResidenceId = patient.ResidenceId,
                     BirthDate = patient.BirthDate,
                     Jmbg = patient.Jmbg,
                     Gender = patient.Gender,
                     Lbo = patient.Lbo,
                     Telephone = patient.Telephone,
-                    ChosenDoctor = patient.ChosenDoctor
+                    ChosenDoctorId = patient.ChosenDoctorId
 
                 }
             };
@@ -72,9 +72,9 @@ namespace MQuince.Services.Implementation
 
         private Patient CreatePatientFromDTO(PatientDTO patient, Guid? id = null)
             => id == null ? new Patient(patient.UserType, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
-                patient.Residence, patient.ChosenDoctor,patient.Lbo)
+                patient.ResidenceId, patient.ChosenDoctorId,patient.Lbo)
                           : new Patient(id.Value, patient.UserType, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
-                              patient.Residence, patient.ChosenDoctor, patient.Lbo);
+                              patient.ResidenceId, patient.ChosenDoctorId, patient.Lbo);
 
     }
 }

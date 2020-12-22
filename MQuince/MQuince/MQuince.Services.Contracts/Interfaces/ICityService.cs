@@ -9,5 +9,6 @@ namespace MQuince.Services.Contracts.Interfaces
 {
     public interface ICityService : IService<CityDTO, IdentifiableDTO<CityDTO>>
     {
+        public IEnumerable<IdentifiableDTO<CityDTO>> GetAllCitiesInCountry(Guid id);
     }
 }

@@ -15,6 +15,8 @@ namespace MQuince.Repository.SQL.PersistenceEntities
         public Guid Id { get; set; }
         public int Number { get; set; }
         public string Street { get; set; }
+        [ForeignKey("CityId")]
         public CityPersistence City { get; set; }
+        public Guid CityId { get; set; }
     }
 }
