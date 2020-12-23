@@ -76,5 +76,10 @@ namespace MQuince.Services.Implementation
                           : new Patient(id.Value, patient.UserType, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
                               patient.ResidenceId, patient.ChosenDoctorId, patient.Lbo);
 
+        public bool CheckUniqueEmail(String email)
+        {
+            return _patientRepository.CheckUniqueEmail(email);
+        }
+
     }
 }

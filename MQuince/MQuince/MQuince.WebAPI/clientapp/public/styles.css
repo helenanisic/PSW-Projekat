@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
 * Start Bootstrap - Freelancer v6.0.5 (https://startbootstrap.com/theme/freelancer)
 * Copyright 2013-2020 Start Bootstrap
@@ -10205,7 +10205,7 @@ h3 {
 
 .floating-label-form-group {
   position: relative;
-  border-bottom: 1px solid #e9ecef;
+  /*border-bottom: 1px solid #e9ecef;*/
 }
 .floating-label-form-group input,
 .floating-label-form-group textarea {
@@ -10227,7 +10227,7 @@ h3 {
   z-index: 0;
   top: 2em;
   display: block;
-  margin-left: 110px;
+  margin-left: 10px;
   transition: top 0.3s ease, opacity 0.3s ease;
   opacity: 0;
 }

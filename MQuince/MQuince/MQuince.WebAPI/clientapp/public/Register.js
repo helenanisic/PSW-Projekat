@@ -8,9 +8,9 @@
         jmbg: "",
         city: null,
         birthday: null,
-        street: "",
+        street: null,
         email: "",
-        houseNumber: "",
+        houseNumber: null,
         gender: "",
         lbo: "",
         chosenDoctor: "",
@@ -19,7 +19,8 @@
         countries: [],
         cities: [],
         doctors: [],
-        adressId: ""
+        adressId: "",
+        info: ""
     },
     methods: {
         countryChanged: function (event) {
@@ -62,6 +63,20 @@
                                 ChosenDoctorId: this.chosenDoctor
 
                             })
+                        .then(response => {
+                            this.info = response.data
+                            JSAlert.alert("You have successfully created an account!");
+                        })
+                        .catch(error => {
+                            console.log(error)
+                            if (error.response.status == 400) {
+                                JSAlert.alert("There is already an account with this email adress");
+                            } 
+                            
+                        })
+                
+                    
+                                
                 })
                 
 

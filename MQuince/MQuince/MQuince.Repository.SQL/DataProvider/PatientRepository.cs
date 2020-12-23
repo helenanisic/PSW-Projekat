@@ -50,5 +50,18 @@ namespace MQuince.Repository.SQL.DataProvider
         {
             throw new NotImplementedException();
         }
+        public bool CheckUniqueEmail(String email)
+        {
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            Patient p = PatientMapper.MapPatientPersistenceToPatientEntity(context.Patients.SingleOrDefault(p => p.Email.Equals(email)));
+            if (p == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

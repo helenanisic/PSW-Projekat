@@ -22,8 +22,15 @@ namespace MQuince.WebAPI.Controllers
         [HttpPost]
         public IActionResult Create(PatientDTO patient)
         {
-            _patientService.Create(patient);
-            return Ok();
+            if (_patientService.CheckUniqueEmail(patient.Email) == false)
+            {
+                _patientService.Create(patient);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }
