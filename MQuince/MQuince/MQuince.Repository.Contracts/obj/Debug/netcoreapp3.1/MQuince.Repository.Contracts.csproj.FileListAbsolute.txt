@@ -54,3 +54,5 @@ C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\obj\Debug\netcoreapp3.1\MQuince.Repository.Contracts.csproj.CopyComplete
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\obj\Debug\netcoreapp3.1\MQuince.Repository.Contracts.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\obj\Debug\netcoreapp3.1\MQuince.Repository.Contracts.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.pdb

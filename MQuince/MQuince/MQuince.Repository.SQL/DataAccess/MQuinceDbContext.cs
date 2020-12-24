@@ -23,10 +23,10 @@ namespace MQuince.Repository.SQL.DataAccess
 
         public MQuinceDbContext() { }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql(@"server=localhost;port=3306;database=mquince;user=root;password=root");
         }
-        
+        */
     }
 }

@@ -81,5 +81,10 @@ namespace MQuince.Services.Implementation
             return _patientRepository.CheckUniqueEmail(email);
         }
 
+        public bool AuthenticatePatient(UserLoginDTO user)
+        {
+            return _patientRepository.AuthenticatePatient(user);
+        }
+
     }
 }

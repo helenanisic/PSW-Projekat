@@ -308,6 +308,9 @@
             "projectReferences": {
               "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj": {
                 "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj"
+              },
+              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj"
               }
             }
           }

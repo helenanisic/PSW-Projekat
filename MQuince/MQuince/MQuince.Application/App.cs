@@ -48,5 +48,11 @@ namespace MQuince.Application
 
         private IAdressRepository GetAdressRepository()
             => new AdressRepository(_optionsBuilder);
+
+        public IUserService GetUserService()
+            => new UserService(this.GetUserRepository());
+
+        private IUserRepository GetUserRepository()
+            => new UserRepository(_optionsBuilder);
     }
 }

@@ -7,10 +7,12 @@
     methods: {
         submit: function () {
             axios
-                .get('/api/Patient/Login',
+                .get('/api/User/',
                     {
+                        params:{
                         Email: this.email,
                         Password: this.password
+                        }
                     })
                 .then(response => {
                     this.info = response.data
@@ -22,6 +24,6 @@
                         JSAlert.alert("Password or email address are incorrect. Please try again.");
                     }
                 })
-        })
+        }
     }
 })

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using MQuince.Entities.Users;
 using MQuince.Repository.Contracts;
 using MQuince.Repository.SQL.DataAccess;
 using MQuince.Repository.SQL.DataProvider.Util;
+using MQuince.Services.Contracts.DTO.Users;
 
 namespace MQuince.Repository.SQL.DataProvider
 {
@@ -61,6 +63,20 @@ namespace MQuince.Repository.SQL.DataProvider
             else
             {
                 return true;
+            }
+        }
+
+        public bool AuthenticatePatient(UserLoginDTO user)
+        {
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            Patient p = PatientMapper.MapPatientPersistenceToPatientEntity(context.Patients.SingleOrDefault(p => p.Email.Equals(user.Email)));
+            if (p.Password == user.Password)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

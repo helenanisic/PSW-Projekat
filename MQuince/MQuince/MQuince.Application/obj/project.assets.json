@@ -1420,7 +1420,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "MQuince.Entities": "1.0.0"
+          "MQuince.Entities": "1.0.0",
+          "MQuince.Services.Contracts": "1.0.0"
         },
         "compile": {
           "bin/placeholder/MQuince.Repository.Contracts.dll": {}

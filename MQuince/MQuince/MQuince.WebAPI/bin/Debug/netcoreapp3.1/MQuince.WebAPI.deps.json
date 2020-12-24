@@ -2364,7 +2364,8 @@
       },
       "MQuince.Repository.Contracts/1.0.0": {
         "dependencies": {
-          "MQuince.Entities": "1.0.0"
+          "MQuince.Entities": "1.0.0",
+          "MQuince.Services.Contracts": "1.0.0"
         },
         "runtime": {
           "MQuince.Repository.Contracts.dll": {}

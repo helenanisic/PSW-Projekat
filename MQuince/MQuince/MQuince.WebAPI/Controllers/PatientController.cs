@@ -32,5 +32,20 @@ namespace MQuince.WebAPI.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet]
+        public IActionResult AuthenticatePatient(string Email, string Password)
+        {
+            UserLoginDTO user = new UserLoginDTO() {Email = Email, Password = Password};
+            bool authenticatedUser = _patientService.AuthenticatePatient(user);
+            if (authenticatedUser == true)
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
     }
 }
