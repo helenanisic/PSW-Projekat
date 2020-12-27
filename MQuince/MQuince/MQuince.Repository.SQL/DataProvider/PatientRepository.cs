@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MQuince.Entities.Users;
 using MQuince.Repository.Contracts;
 using MQuince.Repository.SQL.DataAccess;
 using MQuince.Repository.SQL.DataProvider.Util;
 using MQuince.Services.Contracts.DTO.Users;
-
+using Microsoft.AspNetCore.Mvc;
 namespace MQuince.Repository.SQL.DataProvider
 {
     public class PatientRepository : IPatientRepository

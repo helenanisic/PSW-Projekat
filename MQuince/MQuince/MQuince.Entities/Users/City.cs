@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace MQuince.Entities.Users
@@ -8,6 +9,8 @@ namespace MQuince.Entities.Users
     {
         private Guid _id;
         public string Name { get; set; }
+        
+        [RegularExpression("([0-9].{13})")]
         public int PostNumber { get; set; }
         public Guid CountryId { get; set; }
 

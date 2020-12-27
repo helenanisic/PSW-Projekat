@@ -11,19 +11,28 @@ namespace MQuince.Repository.SQL.PersistenceEntities.Users
 {
     [Table("Patient")]
     public class PatientPersistence : UserPersistence
-    { 
+    {
+        [Required]
+        [RegularExpression("(^[0-9].{12,12}$)")]
         public string Jmbg { get; set; }
+        [Required]
         public DateTime BirthDate { get; set; }
         public Gender Gender { get; set; }
+        [Required]
+        [RegularExpression("([0-9].+)")]
         public string Telephone { get; set; }
         
         [ForeignKey("ResidenceId")]
         public AdressPersistence Residence { get; set; }
+        [Required]
         public Guid ResidenceId { get; set; }
         
         [ForeignKey("ChosenDoctorId")]
         public DoctorPersistence ChosenDoctor { get; set; }
+        [Required]
         public Guid ChosenDoctorId { get; set; }
+        [Required]
+        [RegularExpression("([0-9].+)")]
         public string Lbo { get; set; }
     }
 }

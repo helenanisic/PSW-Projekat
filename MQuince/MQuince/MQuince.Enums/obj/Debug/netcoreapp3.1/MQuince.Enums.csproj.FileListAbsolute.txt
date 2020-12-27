@@ -19,7 +19,6 @@ A:\7. semestar\MQuince\MQuince.Enums\obj\Debug\netcoreapp3.1\MQuince.Enums.pdb
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\bin\Debug\netcoreapp3.1\MQuince.Enums.deps.json
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\bin\Debug\netcoreapp3.1\MQuince.Enums.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
-C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\obj\Debug\netcoreapp3.1\MQuince.Enums.csprojAssemblyReference.cache
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\obj\Debug\netcoreapp3.1\MQuince.Enums.csproj.CoreCompileInputs.cache
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\obj\Debug\netcoreapp3.1\MQuince.Enums.AssemblyInfoInputs.cache
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\obj\Debug\netcoreapp3.1\MQuince.Enums.AssemblyInfo.cs

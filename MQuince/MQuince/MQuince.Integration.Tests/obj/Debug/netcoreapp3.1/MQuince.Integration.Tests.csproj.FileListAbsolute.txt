@@ -236,3 +236,15 @@ C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\ob
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Castle.Core.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Moq.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\obj\Debug\netcoreapp3.1\MQuince.Integration.Tests.csproj.CoreCompileInputs.cache
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

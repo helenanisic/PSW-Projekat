@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace MQuince.Entities.Users
@@ -7,6 +8,8 @@ namespace MQuince.Entities.Users
     public class Adress
     {
         private Guid _id;
+        [Required]
+        [RegularExpression("([0-9].+)")]
         public int Number { get; set; }
         public string Street { get; set; }
         public Guid CityId { get; set; }

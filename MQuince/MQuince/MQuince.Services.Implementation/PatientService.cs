@@ -47,7 +47,6 @@ namespace MQuince.Services.Implementation
         private IdentifiableDTO<PatientDTO> CreatePatientDTO(Patient patient)
         {
             if (patient == null) return null;
-
             return new IdentifiableDTO<PatientDTO>()
             {
                 Id = patient.Id,
