@@ -8,6 +8,6 @@ namespace MQuince.Services.Contracts.Interfaces
 {
     public interface IUserService : IService<UserDTO, IdentifiableDTO<UserDTO>>
     {
-        bool AuthenticateUser(UserLoginDTO user);
+        Guid AuthenticateUser(UserLoginDTO user);
     }
 }

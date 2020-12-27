@@ -48,10 +48,8 @@ namespace MQuince.Repository.SQL.DataProvider
 
         public IEnumerable<City> GetAllCitiesInCountry(Guid id)
         {
-            using (MQuinceDbContext _context = new MQuinceDbContext(_dbContext))
-            {
-                return CityMapper.MapCityPersistenceCollectionToCityEntityCollection(_context.Cities.Where(p => p.Country.Id == id).ToList());
-            }
+            using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
+            return CityMapper.MapCityPersistenceCollectionToCityEntityCollection(_context.Cities.Where(p => p.Country.Id == id).ToList());
         }
     }
 }

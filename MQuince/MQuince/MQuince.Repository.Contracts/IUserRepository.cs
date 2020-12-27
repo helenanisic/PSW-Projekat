@@ -8,6 +8,6 @@ namespace MQuince.Repository.Contracts
 {
     public interface IUserRepository : IRepository<User>
     {
-        bool AuthenticateUser(UserLoginDTO user);
+        Guid AuthenticateUser(UserLoginDTO user);
     }
 }

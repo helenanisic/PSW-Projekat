@@ -8,7 +8,6 @@ namespace MQuince.Services.Contracts.Interfaces
 {
     public interface IPatientService : IService<PatientDTO, IdentifiableDTO<PatientDTO>>
     {
-        bool CheckUniqueEmail(string email);
-        bool AuthenticatePatient(UserLoginDTO user);
+        bool IsEmailUnique(string email);
     }
 }

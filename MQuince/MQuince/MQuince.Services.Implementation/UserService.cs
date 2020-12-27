@@ -17,7 +17,7 @@ namespace MQuince.Services.Implementation
             _userRepository = userRepository;
         }
 
-        public bool AuthenticateUser(UserLoginDTO user)
+        public Guid AuthenticateUser(UserLoginDTO user)
         {
             return _userRepository.AuthenticateUser(user);
         }

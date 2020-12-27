@@ -20,11 +20,9 @@ namespace MQuince.Repository.SQL.DataProvider
         }
         public void Create(Doctor entity)
         {
-            using (MQuinceDbContext _context = new MQuinceDbContext(_dbContext))
-            {
-                _context.Doctors.Add(DoctorMapper.MapDoctorEntityToDoctorPersistence(entity));
-                _context.SaveChanges();
-            }
+            using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
+            _context.Doctors.Add(DoctorMapper.MapDoctorEntityToDoctorPersistence(entity));
+            _context.SaveChanges();
         }
 
         public bool Delete(Guid id)
@@ -34,11 +32,8 @@ namespace MQuince.Repository.SQL.DataProvider
 
         public IEnumerable<Doctor> GetAll()
         {
-            using (MQuinceDbContext _context = new MQuinceDbContext(_dbContext))
-            {
-                return DoctorMapper.MapDoctorPersistenceCollectionToDoctorEntityCollection(
-                    _context.Doctors.ToList());
-            }
+            using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
+            return DoctorMapper.MapDoctorPersistenceCollectionToDoctorEntityCollection(_context.Doctors.ToList());
         }
 
         public Doctor GetById(Guid id)

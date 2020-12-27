@@ -20,18 +20,14 @@ namespace MQuince.Repository.SQL.DataProvider
             _dbContext = optionsBuilders == null ? throw new ArgumentNullException(nameof(optionsBuilders) + "is set to null") : optionsBuilders.Options;
         }
 
-        public bool AuthenticateUser(UserLoginDTO user)
+        public Guid AuthenticateUser(UserLoginDTO user)
         {
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
-            User u = UserMapper.MapUserPersistenceToUserEntity(context.Users.SingleOrDefault(u => u.Email.Equals(user.Email)));
-            if (u.Password == user.Password)
-            {
-                return true;
-            }
+            User userFoundInDB = UserMapper.MapUserPersistenceToUserEntity(context.Users.SingleOrDefault(u => u.Email.Equals(user.Email)));
+            if (userFoundInDB.Password.Equals(user.Password))
+                return userFoundInDB.Id;
             else
-            {
-                return false;
-            }
+                return Guid.Empty;
         }
 
         public void Create(User entity)

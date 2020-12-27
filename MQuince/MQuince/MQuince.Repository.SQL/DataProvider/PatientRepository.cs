@@ -23,11 +23,9 @@ namespace MQuince.Repository.SQL.DataProvider
         
         public void Create(Patient entity)
         {
-            using (MQuinceDbContext _context = new MQuinceDbContext(_dbContext))
-            {
-                _context.Patients.Add(PatientMapper.MapPatientEntityToPatientPersistence(entity));
-                _context.SaveChanges();
-            }
+            using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
+            _context.Patients.Add(PatientMapper.MapPatientEntityToPatientPersistence(entity));
+            _context.SaveChanges();
         }
 
         public bool Delete(Guid id)
@@ -37,10 +35,8 @@ namespace MQuince.Repository.SQL.DataProvider
 
         public IEnumerable<Patient> GetAll()
         {
-            using (MQuinceDbContext _context = new MQuinceDbContext(_dbContext))
-            {
-                return PatientMapper.MapPatientPersistenceCollectionToPatientEntityCollection(_context.Patients.ToList());
-            }
+            using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
+            return PatientMapper.MapPatientPersistenceCollectionToPatientEntityCollection(_context.Patients.ToList());
         }
 
         public Patient GetById(Guid id)
@@ -52,32 +48,10 @@ namespace MQuince.Repository.SQL.DataProvider
         {
             throw new NotImplementedException();
         }
-        public bool CheckUniqueEmail(String email)
+        public bool IsEmailUnique(String email)
         {
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
-            Patient p = PatientMapper.MapPatientPersistenceToPatientEntity(context.Patients.SingleOrDefault(p => p.Email.Equals(email)));
-            if (p == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        public bool AuthenticatePatient(UserLoginDTO user)
-        {
-            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
-            Patient p = PatientMapper.MapPatientPersistenceToPatientEntity(context.Patients.SingleOrDefault(p => p.Email.Equals(user.Email)));
-            if (p.Password == user.Password)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return PatientMapper.MapPatientPersistenceToPatientEntity(context.Patients.SingleOrDefault(p => p.Email.Equals(email))) is null;
         }
     }
 }

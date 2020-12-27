@@ -19,27 +19,13 @@ namespace MQuince.WebAPI.Controllers
         {
             this._patientService = patientService;
         }
+
         [HttpPost]
         public IActionResult Create(PatientDTO patient)
         {
-            if (_patientService.CheckUniqueEmail(patient.Email) == false)
+            if (_patientService.IsEmailUnique(patient.Email))
             {
                 _patientService.Create(patient);
-                return Ok();
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
-
-        [HttpGet]
-        public IActionResult AuthenticatePatient(string Email, string Password)
-        {
-            UserLoginDTO user = new UserLoginDTO() {Email = Email, Password = Password};
-            bool authenticatedUser = _patientService.AuthenticatePatient(user);
-            if (authenticatedUser == true)
-            {
                 return Ok();
             }
             else

@@ -8,7 +8,6 @@ namespace MQuince.Repository.Contracts
 {
     public interface IPatientRepository : IRepository<Patient>
     {
-        bool CheckUniqueEmail(string email);
-        bool AuthenticatePatient(UserLoginDTO user);
+        bool IsEmailUnique(string email);
     }
 }

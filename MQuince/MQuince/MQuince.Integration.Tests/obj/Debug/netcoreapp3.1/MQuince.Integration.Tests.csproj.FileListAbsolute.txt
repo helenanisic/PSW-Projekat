@@ -231,6 +231,8 @@ C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bi
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\MQuince.Integration.Tests.pdb
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll
-C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\obj\Debug\netcoreapp3.1\MQuince.Integration.Tests.csproj.CoreCompileInputs.cache
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\obj\Debug\netcoreapp3.1\MQuince.Integration.Tests.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\obj\Debug\netcoreapp3.1\MQuince.Integration.Tests.pdb
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Moq.dll
+C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\obj\Debug\netcoreapp3.1\MQuince.Integration.Tests.csproj.CoreCompileInputs.cache

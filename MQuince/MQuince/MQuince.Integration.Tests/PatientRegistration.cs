@@ -24,35 +24,30 @@ namespace MQuince.Integration.Tests
         private void InitDB()
         {
             DbContextOptionsBuilder optionsBuilder = new DbContextOptionsBuilder<MQuinceDbContext>();
-            optionsBuilder.UseInMemoryDatabase("mquince");
-
-
+            optionsBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString());
             patientRepository = new PatientRepository(optionsBuilder);
-            using (var dataBase = new MQuinceDbContext(optionsBuilder.Options))
+            using var dataBase = new MQuinceDbContext(optionsBuilder.Options);
+            dataBase.Database.EnsureDeleted();
+            dataBase.Database.EnsureCreated();
+            AddPatientstoDB(dataBase);
+        }
+
+        private void AddPatientstoDB(MQuinceDbContext dataBase)
+        {
+            PatientPersistence patient1 = new PatientPersistence()
             {
-
-                if (dataBase == null)
-                {
-                    Console.WriteLine("Test");
-                }
-                dataBase.Database.EnsureDeleted();
-                dataBase.Database.EnsureCreated();
-
-                PatientPersistence patient1 = new PatientPersistence()
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Mara",
-                    Surname = "Maric"
-                };
-                PatientPersistence patient2 = new PatientPersistence()
-                {
-                    Id = Guid.NewGuid(),
-                    Name = "Marko",
-                    Surname = "Markovic"
-                };
-                dataBase.Patients.AddRange(patient1, patient2);
-                dataBase.SaveChanges();
-            }
+                Id = Guid.NewGuid(),
+                Name = "Mara",
+                Surname = "Maric"
+            };
+            PatientPersistence patient2 = new PatientPersistence()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Marko",
+                Surname = "Markovic"
+            };
+            dataBase.Patients.AddRange(patient1, patient2);
+            dataBase.SaveChanges();
         }
 
         public PatientRegistration()
@@ -72,7 +67,6 @@ namespace MQuince.Integration.Tests
             };
 
             patientController.Create(patient);
-
             List<Patient> patients = patientRepository.GetAll().ToList();
 
             Assert.Equal(3, patients.Count());

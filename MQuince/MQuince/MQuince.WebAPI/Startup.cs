@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,9 @@ namespace MQuince.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            
             App application = new App(Configuration);
 
             services.AddTransient(typeof(ICountryService), s => application.GetCountryService());
@@ -31,10 +35,9 @@ namespace MQuince.WebAPI
             services.AddTransient(typeof(IUserService), s => application.GetUserService());
 
             services.AddControllers();
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp";
-            });
+            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp"; });
+            
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +48,7 @@ namespace MQuince.WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSession();
             app.UseCors(builder =>
                 builder.AllowAnyHeader()
                 .AllowAnyOrigin()
@@ -55,6 +59,7 @@ namespace MQuince.WebAPI
             app.UseSpaStaticFiles();
             app.UseAuthorization();
 
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
