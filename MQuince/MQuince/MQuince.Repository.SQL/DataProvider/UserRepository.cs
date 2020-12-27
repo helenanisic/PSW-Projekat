@@ -23,11 +23,10 @@ namespace MQuince.Repository.SQL.DataProvider
         public Guid AuthenticateUser(UserLoginDTO user)
         {
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
-            User userFoundInDB = UserMapper.MapUserPersistenceToUserEntity(context.Users.SingleOrDefault(u => u.Email.Equals(user.Email)));
-            if (userFoundInDB.Password.Equals(user.Password))
-                return userFoundInDB.Id;
-            else
+            var userFoundInDB = UserMapper.MapUserPersistenceToUserEntity(context.Users.SingleOrDefault(u => u.Email.Equals(user.Email)));
+            if (userFoundInDB is null)
                 return Guid.Empty;
+            return userFoundInDB.Password.Equals(user.Password) ? userFoundInDB.Id : Guid.Empty;
         }
 
         public void Create(User entity)

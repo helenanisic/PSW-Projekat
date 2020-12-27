@@ -42,19 +42,20 @@
             <div class="row section-design">
                 <div class="col-lg-8 mx-auto">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                    <form method="POST" id="contactForm" name="sentMessage" novalidate="novalidate" v-on:submit.prevent="submit()">
+                    <form method="POST" id="contactForm" name="sentMessage" v-on:submit.prevent="submit()">
                         <div class="control-group" style="margin-top: 2rem">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2" style="color: #6c757d; opacity: 1; margin-left: 23%">
                                 <div class="control-group">
                                     <div class="form-group floating-label-form-group controls mb-0 pb-2" style="color: #6c757d;opacity: 1 ">
                                         <label>Email</label>
-                                        <input v-model="email" style="width:70%" class="form-control" id="email" type="text" placeholder="Email" required="required" data-validation-required-message="Please enter your email." />
+                                        <input reqired v-model="email" style="width:70%" class="form-control" id="email" type="email" placeholder="Email" required="required" data-validation-required-message="Please enter your email." />
                                     </div>
                                 </div>
                                 <div class="control-group">
                                     <div class="form-group floating-label-form-group controls mb-0 pb-2" style="color: #6c757d;opacity: 1 ">
                                         <label>Password</label>
-                                        <input v-model="password" style="width:70%" class="form-control" id="name" type="password" placeholder="Password" required="required" data-validation-required-message="Please enter your password." />
+                                        <input required v-model="password" style="width:70%" class="form-control" id="name" type="password" placeholder="Password" required="required" data-validation-required-message="Please enter your password." 
+                                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"/>
                                     </div>
                                 </div>
                            </div>
