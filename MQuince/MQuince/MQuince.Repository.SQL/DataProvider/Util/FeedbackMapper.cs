@@ -13,7 +13,7 @@ namespace MQuince.Repository.SQL.DataProvider.Util
         {
             if (feedback == null) return null;
 
-            return new Feedback(feedback.Id, feedback.Comment, feedback.User, feedback.Anonymous, feedback.Publish, feedback.Approved);
+            return new Feedback(feedback.Id, feedback.Comment, feedback.PatientId, feedback.Published);
 
         }
 
@@ -21,11 +21,16 @@ namespace MQuince.Repository.SQL.DataProvider.Util
         {
             if (feedback == null) return null;
 
-            FeedbackPersistence retVal = new FeedbackPersistence() { Id = feedback.Id, User = feedback.User,  Comment = feedback.Comment, Anonymous = feedback.Anonymous, Publish = feedback.Publish, Approved = feedback.Approved };
+            FeedbackPersistence retVal = new FeedbackPersistence() { Id = feedback.Id, PatientId = feedback.PatientId, Comment = feedback.Comment, Published = feedback.Published};
             return retVal;
         }
 
-        public static IEnumerable<Feedback> MapFeedbackPersistenceCollectionToFeedbackEntityCollection(IEnumerable<FeedbackPersistence> clients)
-            => clients.Select(c => MapFeedbackPersistenceToFeedbackEntity(c));
+        public static IEnumerable<Feedback> MapFeedbackPersistenceCollectionToFeedbackEntityCollection(IEnumerable<FeedbackPersistence> feedbacks)
+            => feedbacks.Select(c => MapFeedbackPersistenceToFeedbackEntity(c));
+        public static IEnumerable<FeedbackPersistence> MapFeedbackEntityCollectionToFeedbackPersistenceCollection(
+            IEnumerable<Feedback> feedbacks)
+        {
+            return feedbacks.Select(c => MapFeedbackEntityToFeedbackPersistence(c));
+        }
     }
 }

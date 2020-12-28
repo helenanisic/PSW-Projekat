@@ -11,25 +11,21 @@ namespace MQuince.Entities
     {
         private Guid _id;
         public string Comment { get; set; }
-        public String User { get; set; }
-        public bool Anonymous { get; set; }
-        public bool Publish { get; set; }
-        public bool Approved { get; set; }
+        public Guid PatientId { get; set; }
+        public bool Published { get; set; }
 
         public Feedback() { }
 
-        public Feedback(Guid id, string comment, String user, bool anonymous, bool publish, bool approved)
+        public Feedback(Guid id, string comment, Guid patientId, bool published)
         {
             Id = id;
             Comment = comment;
-            User = user;
-            Anonymous = anonymous;
-            Publish = publish;
-            Approved = approved;
+            PatientId = patientId;
+            Published = published;
         }
 
-        public Feedback(string comment, String user, bool anonymous, bool publish, bool approved)
-            : this(Guid.NewGuid(), comment, user, anonymous, publish, approved)
+        public Feedback(string comment, Guid patientId, bool published)
+            : this(Guid.NewGuid(), comment, patientId, published)
         {
         }
 

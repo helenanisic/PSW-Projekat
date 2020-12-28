@@ -10,9 +10,7 @@ namespace MQuince.Services.Contracts.DTO
     {
         [Required]
         public string Comment { get; set; }
-        public String User { get; set; }
-        public bool Anonymous { get; set; }
-        public bool Publish { get; set; }
-        public bool Approved { get; set; }
+        public Guid PatientId { get; set; }
+        public bool Published { get; set; }
     }
 }
