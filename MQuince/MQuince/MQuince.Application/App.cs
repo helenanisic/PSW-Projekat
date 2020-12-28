@@ -54,5 +54,10 @@ namespace MQuince.Application
 
         private IUserRepository GetUserRepository()
             => new UserRepository(_optionsBuilder);
+        public IFeedbackService GetFeedbackService()
+            => new FeedbackService(this.GetFeedbackRepository());
+
+        private IFeedbackRepository GetFeedbackRepository()
+            => new FeedbackRepository(_optionsBuilder);
     }
 }

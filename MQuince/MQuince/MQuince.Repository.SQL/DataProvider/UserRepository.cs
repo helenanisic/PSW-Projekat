@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using MQuince.Entities;
+using MQuince.Enums;
 using MQuince.Repository.Contracts;
 using MQuince.Repository.SQL.DataAccess;
 using MQuince.Repository.SQL.DataProvider.Util;
@@ -47,6 +48,16 @@ namespace MQuince.Repository.SQL.DataProvider
         public User GetById(Guid id)
         {
             throw new NotImplementedException();
+        }
+
+        public bool IsUserTypePatient(Guid id)
+        {
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            User u = UserMapper.MapUserPersistenceToUserEntity(context.Users.SingleOrDefault(u => u.Id.Equals(id)));
+            if (u.UserType == Usertype.Patient)
+                return true;
+            else
+                return false;
         }
 
         public void Update(User entity)

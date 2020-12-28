@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MQuince.Entities;
 using MQuince.Repository.Contracts;
 using MQuince.Services.Contracts.DTO;
 using MQuince.Services.Contracts.IdentifiableDTO;
@@ -18,7 +19,9 @@ namespace MQuince.Services.Implementation
         
         public Guid Create(FeedbackDTO entityDTO)
         {
-            throw new NotImplementedException();
+            Feedback feedback = CreateFeedbackyFromDTO(entityDTO);
+            _feedbackRepository.Create(feedback);
+            return feedback.Id;
         }
 
         public bool Delete(Guid id)
@@ -40,5 +43,24 @@ namespace MQuince.Services.Implementation
         {
             throw new NotImplementedException();
         }
+        private IdentifiableDTO<FeedbackDTO> CreateFeedbackDTO(Feedback feedback)
+        {
+            if (feedback == null) return null;
+
+            return new IdentifiableDTO<FeedbackDTO>()
+            {
+                Id = feedback.Id,
+                EntityDTO = new FeedbackDTO()
+                {
+                    Comment = feedback.Comment,
+                    PatientId = feedback.PatientId,
+                    Published = feedback.Published
+                }
+            };
+        }
+
+        private Feedback CreateFeedbackyFromDTO(FeedbackDTO feedback, Guid? id = null)
+            => id == null ? new Feedback(feedback.Comment, feedback.PatientId, feedback.Published)
+                : new Feedback(id.Value, feedback.Comment, feedback.PatientId, feedback.Published);
     }
 }

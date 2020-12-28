@@ -79,5 +79,6 @@ namespace MQuince.Services.Implementation
         {
             return _patientRepository.IsEmailUnique(email);
         }
+
     }
 }

@@ -11,6 +11,8 @@ using MQuince.Repository.SQL.DataAccess;
 using MQuince.Repository.SQL.DataProvider.Util;
 using MQuince.Services.Contracts.DTO.Users;
 using Microsoft.AspNetCore.Mvc;
+using MQuince.Enums;
+
 namespace MQuince.Repository.SQL.DataProvider
 {
     public class PatientRepository : IPatientRepository
@@ -54,5 +56,6 @@ namespace MQuince.Repository.SQL.DataProvider
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
             return PatientMapper.MapPatientPersistenceToPatientEntity(context.Patients.SingleOrDefault(p => p.Email.Equals(email))) is null;
         }
+
     }
 }

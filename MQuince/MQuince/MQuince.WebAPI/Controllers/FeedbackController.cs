@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MQuince.Services.Contracts.DTO;
+using MQuince.Services.Contracts.DTO.Communication;
 using MQuince.Services.Contracts.Interfaces;
 
 namespace MQuince.WebAPI.Controllers
@@ -21,9 +22,20 @@ namespace MQuince.WebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(FeedbackDTO feedback)
+        public IActionResult Create(CreateFeedbackDTO feedbackComment)
         {
-            throw new NotImplementedException();
+            if (HttpContext.Session.GetString("UserId") is null)
+                return BadRequest();
+            
+            FeedbackDTO feedback = new FeedbackDTO()
+            {
+                Comment = feedbackComment.Comment,
+                PatientId = new Guid(HttpContext.Session.GetString("UserId")),
+                Published = false
+            };
+            
+            _feedbackService.Create(feedback);
+            return Ok();
         }
     }
 }

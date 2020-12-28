@@ -2,7 +2,8 @@
 var app = new Vue({
 	el: '#addFeedback',
 	data: {
-		Comment: ""
+		Comment: "",
+        UserTypePatient: false
 	},
 	methods: {
 		submit() {
@@ -27,5 +28,18 @@ var app = new Vue({
 			}
 
 		}
-	}
+	},
+	created() {
+        axios
+            .get('/api/User/IsUserTypePatient')
+			.then(response => {
+                this.UserTypePatient = response.data
+            })
+            .catch(error => {
+                console.log(error);
+                if (error.response.status == 400) {
+					window.location.href = 'login.html';
+                }
+            })
+    }
 })

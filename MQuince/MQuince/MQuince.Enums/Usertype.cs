@@ -8,8 +8,6 @@ namespace MQuince.Enums
     {
         Doctor,
         Patient,
-        Secretary,
-        Manager,
         Admin
     }
 }

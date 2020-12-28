@@ -42,6 +42,11 @@ namespace MQuince.Services.Implementation
             throw new NotImplementedException();
         }
 
+        public bool IsUserTypePatient(Guid id)
+        {
+            return _userRepository.IsUserTypePatient(id);
+        }
+
         public void Update(UserDTO entityDTO, Guid id)
         {
             throw new NotImplementedException();

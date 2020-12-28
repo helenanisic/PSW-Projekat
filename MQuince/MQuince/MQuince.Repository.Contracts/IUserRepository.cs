@@ -9,5 +9,6 @@ namespace MQuince.Repository.Contracts
     public interface IUserRepository : IRepository<User>
     {
         Guid AuthenticateUser(UserLoginDTO user);
+        bool IsUserTypePatient(Guid id);
     }
 }

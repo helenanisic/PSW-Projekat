@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using MQuince.Entities;
 using MQuince.Repository.Contracts;
+using MQuince.Repository.SQL.DataAccess;
+using MQuince.Repository.SQL.DataProvider.Util;
 
 namespace MQuince.Repository.SQL.DataProvider
 {
@@ -17,7 +20,9 @@ namespace MQuince.Repository.SQL.DataProvider
         }
         public void Create(Feedback entity)
         {
-            throw new NotImplementedException();
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            context.Feedbacks.Add(FeedbackMapper.MapFeedbackEntityToFeedbackPersistence(entity));
+            context.SaveChanges();
         }
 
         public bool Delete(Guid id)
@@ -27,7 +32,8 @@ namespace MQuince.Repository.SQL.DataProvider
 
         public IEnumerable<Feedback> GetAll()
         {
-            throw new NotImplementedException();
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            return FeedbackMapper.MapFeedbackPersistenceCollectionToFeedbackEntityCollection(context.Feedbacks.ToList());
         }
 
         public Feedback GetById(Guid id)

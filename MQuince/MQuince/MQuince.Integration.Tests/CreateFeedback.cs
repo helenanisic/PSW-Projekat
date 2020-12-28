@@ -85,14 +85,8 @@ namespace MQuince.Integration.Tests
             mockHttpContext.Setup(s => s.Session).Returns(mockSession);
             feedbackController.ControllerContext.HttpContext = mockHttpContext.Object;
 
-            FeedbackDTO feedback = new FeedbackDTO()
-            {
-                Comment = feedbackComment.Comment,
-                PatientId = new Guid(mockSession.GetString("UserId")),
-                Published = false
-            };
             
-            feedbackController.Create(feedback);
+            feedbackController.Create(feedbackComment);
             List<Feedback> feedbacks = feedbackRepository.GetAll().ToList();
 
             Assert.Equal(3, feedbacks.Count());

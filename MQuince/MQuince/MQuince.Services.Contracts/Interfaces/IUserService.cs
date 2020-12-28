@@ -9,5 +9,6 @@ namespace MQuince.Services.Contracts.Interfaces
     public interface IUserService : IService<UserDTO, IdentifiableDTO<UserDTO>>
     {
         Guid AuthenticateUser(UserLoginDTO user);
+        bool IsUserTypePatient(Guid id);
     }
 }
