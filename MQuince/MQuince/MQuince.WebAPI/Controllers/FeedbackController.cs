@@ -22,20 +22,21 @@ namespace MQuince.WebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(CreateFeedbackDTO feedbackComment)
+        public IActionResult Create(FeedbackCommentDTO feedbackComment)
         {
-            if (HttpContext.Session.GetString("UserId") is null)
+            if (HttpContext.Session.GetString("UserId") is null || !(ModelState.IsValid) || _feedbackService.Create(CreateFeedbackDTO(feedbackComment.Comment)) == Guid.Empty)
                 return BadRequest();
-            
+            return BadRequest();
+        }
+
+        private FeedbackDTO CreateFeedbackDTO(string comment)
+        {
             FeedbackDTO feedback = new FeedbackDTO()
             {
-                Comment = feedbackComment.Comment,
-                PatientId = new Guid(HttpContext.Session.GetString("UserId")),
-                Published = false
+                Comment = comment,
+                PatientId = new Guid(HttpContext.Session.GetString("UserId"))
             };
-            
-            _feedbackService.Create(feedback);
-            return Ok();
+            return feedback;
         }
     }
 }

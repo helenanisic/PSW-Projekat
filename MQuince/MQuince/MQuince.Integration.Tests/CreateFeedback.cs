@@ -75,7 +75,7 @@ namespace MQuince.Integration.Tests
         [Fact]
         public void patient_create_feedback_success()
         {
-            CreateFeedbackDTO feedbackComment = new CreateFeedbackDTO()
+            FeedbackCommentDTO feedbackComment = new FeedbackCommentDTO()
             {
                 Comment = "Top!"
             };

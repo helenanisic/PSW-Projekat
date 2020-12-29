@@ -19,11 +19,7 @@ namespace MQuince.Services.Implementation
         }
         public Guid Create(PatientDTO entityDTO)
         {
-            Patient patient = CreatePatientFromDTO(entityDTO);
-
-            _patientRepository.Create(patient);
-
-            return patient.Id;
+            return _patientRepository.Create(CreatePatientFromDTO(entityDTO));
         }
 
         public bool Delete(Guid id)

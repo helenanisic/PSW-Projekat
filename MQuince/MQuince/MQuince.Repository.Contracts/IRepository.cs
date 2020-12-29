@@ -8,7 +8,7 @@ namespace MQuince.Repository.Contracts
     {
         IEnumerable<T> GetAll();
         T GetById(Guid id);
-        void Create(T entity);
+        Guid Create(T entity);
         void Update(T entity);
         bool Delete(Guid id);
     }

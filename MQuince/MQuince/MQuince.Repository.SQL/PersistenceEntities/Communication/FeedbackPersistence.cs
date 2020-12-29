@@ -13,9 +13,12 @@ namespace MQuince.Repository.SQL.PersistenceEntities
     {
         [Key]
         public Guid Id { get; set; }
+        [Required]
+        [StringLength(500, MinimumLength = 1)]
         public string Comment { get; set; }
         [ForeignKey("PatientId")]
         public PatientPersistence Patient { get; set; }
+        [Required]
         public Guid PatientId { get; set; }
         public bool Published { get; set; }
     }

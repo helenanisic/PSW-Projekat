@@ -18,11 +18,11 @@ namespace MQuince.Repository.SQL.DataProvider
         {
             _dbContext = optionsBuilders == null ? throw new ArgumentNullException(nameof(optionsBuilders) + "is set to null") : optionsBuilders.Options;
         }
-        public void Create(Country entity)
+        public Guid Create(Country entity)
         {
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
             context.Countries.Add(CountryMapper.MapCountryEntityToCountryPersistence(entity));
-            context.SaveChanges();
+            return context.SaveChanges() > 0 ? entity.Id : Guid.Empty;
         }
         public IEnumerable<Country> GetAll()
         {

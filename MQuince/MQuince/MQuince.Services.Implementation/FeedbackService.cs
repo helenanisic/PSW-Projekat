@@ -19,9 +19,8 @@ namespace MQuince.Services.Implementation
         
         public Guid Create(FeedbackDTO entityDTO)
         {
-            Feedback feedback = CreateFeedbackyFromDTO(entityDTO);
-            _feedbackRepository.Create(feedback);
-            return feedback.Id;
+            return _feedbackRepository.Create(CreateFeedbackyFromDTO(entityDTO));
+            
         }
 
         public bool Delete(Guid id)

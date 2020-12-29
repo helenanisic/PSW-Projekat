@@ -23,18 +23,9 @@ namespace MQuince.WebAPI.Controllers
         [HttpPost]
         public IActionResult Create(PatientDTO patient)
         {
-            if (_patientService.IsEmailUnique(patient.Email) && ModelState.IsValid)
-            {
-                _patientService.Create(patient);
+            if (_patientService.IsEmailUnique(patient.Email) && ModelState.IsValid && _patientService.Create(patient)!=Guid.Empty)
                 return Ok();
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
         }
-
-       
-
     }
 }

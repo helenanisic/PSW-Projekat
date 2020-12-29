@@ -24,4 +24,3 @@ C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\obj\Debug\netc
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\obj\Debug\netcoreapp3.1\MQuince.Enums.AssemblyInfo.cs
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\obj\Debug\netcoreapp3.1\MQuince.Enums.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\obj\Debug\netcoreapp3.1\MQuince.Enums.pdb
-C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Enums\obj\Debug\netcoreapp3.1\MQuince.Enums.csprojAssemblyReference.cache

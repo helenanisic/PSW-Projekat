@@ -30,7 +30,7 @@ namespace MQuince.Repository.SQL.DataProvider
             return userFoundInDB.Password.Equals(user.Password) ? userFoundInDB.Id : Guid.Empty;
         }
 
-        public void Create(User entity)
+        public Guid Create(User entity)
         {
             throw new NotImplementedException();
         }
@@ -54,10 +54,8 @@ namespace MQuince.Repository.SQL.DataProvider
         {
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
             User u = UserMapper.MapUserPersistenceToUserEntity(context.Users.SingleOrDefault(u => u.Id.Equals(id)));
-            if (u.UserType == Usertype.Patient)
-                return true;
-            else
-                return false;
+            return u.UserType == Usertype.Patient;
+
         }
 
         public void Update(User entity)

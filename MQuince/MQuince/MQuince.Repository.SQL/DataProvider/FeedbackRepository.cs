@@ -18,11 +18,11 @@ namespace MQuince.Repository.SQL.DataProvider
         {
             _dbContext = optionsBuilders == null ? throw new ArgumentNullException(nameof(optionsBuilders) + "is set to null") : optionsBuilders.Options;
         }
-        public void Create(Feedback entity)
+        public Guid Create(Feedback entity)
         {
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
             context.Feedbacks.Add(FeedbackMapper.MapFeedbackEntityToFeedbackPersistence(entity));
-            context.SaveChanges();
+            return context.SaveChanges() > 0 ? entity.Id : Guid.Empty;
         }
 
         public bool Delete(Guid id)

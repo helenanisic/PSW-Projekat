@@ -40,11 +40,9 @@ namespace MQuince.WebAPI.Controllers
         [HttpGet("IsUserTypePatient")]
         public IActionResult IsUserTypePatient()
         {
-            Guid id = new Guid(HttpContext.Session.GetString("UserId"));
-            if (_userService.IsUserTypePatient(id))
-                return Ok(true);
-            else
-                return BadRequest(false);
+            if (_userService.IsUserTypePatient(new Guid(HttpContext.Session.GetString("UserId"))))
+                return Ok();
+            return BadRequest();
         }
     }
 }
