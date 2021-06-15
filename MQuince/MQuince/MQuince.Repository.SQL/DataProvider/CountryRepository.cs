@@ -34,7 +34,7 @@ namespace MQuince.Repository.SQL.DataProvider
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
             return CountryMapper.MapCountryPersistenceToCountryEntity(context.Countries.SingleOrDefault(c => c.Id.Equals(id)));
         }
-        public void Update(Country entity)
+        public bool Update(Country entity)
         {
             throw new NotImplementedException();
         }

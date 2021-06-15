@@ -10,5 +10,6 @@ namespace MQuince.Services.Contracts.Interfaces
     {
         Guid AuthenticateUser(UserLoginDTO user);
         bool IsUserTypePatient(Guid id);
+        bool IsUserTypeAdmin(Guid guid);
     }
 }

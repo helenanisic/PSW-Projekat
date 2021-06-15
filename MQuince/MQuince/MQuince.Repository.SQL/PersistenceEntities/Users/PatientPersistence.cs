@@ -24,14 +24,12 @@ namespace MQuince.Repository.SQL.PersistenceEntities.Users
         
         [ForeignKey("ResidenceId")]
         public AdressPersistence Residence { get; set; }
-        [Required]
         public Guid ResidenceId { get; set; }
         
         [ForeignKey("ChosenDoctorId")]
         public DoctorPersistence ChosenDoctor { get; set; }
-        [Required]
+
         public Guid ChosenDoctorId { get; set; }
-        [Required]
         [RegularExpression("([0-9].+)")]
         public string Lbo { get; set; }
     }

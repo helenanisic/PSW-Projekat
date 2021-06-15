@@ -50,6 +50,13 @@ namespace MQuince.Repository.SQL.DataProvider
             throw new NotImplementedException();
         }
 
+        public bool IsUserTypeAdmin(Guid id)
+        {
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            User u = UserMapper.MapUserPersistenceToUserEntity(context.Users.SingleOrDefault(u => u.Id.Equals(id)));
+            return u.UserType == Usertype.Admin;
+        }
+
         public bool IsUserTypePatient(Guid id)
         {
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
@@ -59,6 +66,11 @@ namespace MQuince.Repository.SQL.DataProvider
         }
 
         public void Update(User entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IRepository<User>.Update(User entity)
         {
             throw new NotImplementedException();
         }

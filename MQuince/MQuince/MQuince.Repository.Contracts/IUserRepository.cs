@@ -10,5 +10,6 @@ namespace MQuince.Repository.Contracts
     {
         Guid AuthenticateUser(UserLoginDTO user);
         bool IsUserTypePatient(Guid id);
+        bool IsUserTypeAdmin(Guid id);
     }
 }

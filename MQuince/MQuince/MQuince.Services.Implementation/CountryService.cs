@@ -35,7 +35,7 @@ namespace MQuince.Services.Implementation
         public IdentifiableDTO<CountryDTO> GetById(Guid id)
             => CreateCountryDTO(_countryRepository.GetById(id));
 
-            public void Update(CountryDTO entityDTO, Guid id)
+            public bool Update(CountryDTO entityDTO, Guid id)
         {
             throw new NotImplementedException();
         }

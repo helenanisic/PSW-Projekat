@@ -121,8 +121,8 @@
             <div class="commentBox" v-for="feedback in feedbacks">
                 <div class="col-lg-8 mx-auto">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                    <div class="short-info2">{{feedback.entityDTO.PatientName}}</div>
-                    <div class="apartment-name2">{{feedback.entityDTO.comment}}</div>
+                    <div class="short-info2">By: &nbsp <i>{{feedback.patientName}}  &nbsp {{feedback.patientSurname}}</i></div>
+                    <div class="apartment-name2">{{feedback.comment}}</div>
                     <br />
                 </div>
             </div>
@@ -145,11 +145,9 @@
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Contact form JS-->
-    <script src="assets/mail/jqBootstrapValidation.js"></script>
-    <script src="assets/mail/contact_me.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
     <!-- Core theme JS-->
-    <script src="../axios.js"></script>
+    <script src="axios.js"></script>
     <script src="js/scripts.js"></script>
     <script src="Feedbacks.js"></script>
 </body>

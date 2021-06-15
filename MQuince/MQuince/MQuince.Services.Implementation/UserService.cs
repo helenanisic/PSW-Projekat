@@ -42,12 +42,22 @@ namespace MQuince.Services.Implementation
             throw new NotImplementedException();
         }
 
+        public bool IsUserTypeAdmin(Guid id)
+        {
+            return _userRepository.IsUserTypeAdmin(id);
+        }
+
         public bool IsUserTypePatient(Guid id)
         {
             return _userRepository.IsUserTypePatient(id);
         }
 
         public void Update(UserDTO entityDTO, Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IService<UserDTO, IdentifiableDTO<UserDTO>>.Update(UserDTO entityDTO, Guid id)
         {
             throw new NotImplementedException();
         }

@@ -9,7 +9,7 @@ namespace MQuince.Services.Contracts.Interfaces
         IEnumerable<IdentifiableT> GetAll();
         IdentifiableT GetById(Guid id);
         Guid Create(T entityDTO);
-        void Update(T entityDTO, Guid id);
+        bool Update(T entityDTO, Guid id);
         bool Delete(Guid id);
     }
 }

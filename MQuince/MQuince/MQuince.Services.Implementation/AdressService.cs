@@ -39,7 +39,7 @@ namespace MQuince.Services.Implementation
             throw new NotImplementedException();
         }
 
-        public void Update(AdressDTO entityDTO, Guid id)
+        public bool Update(AdressDTO entityDTO, Guid id)
         {
             throw new NotImplementedException();
         }

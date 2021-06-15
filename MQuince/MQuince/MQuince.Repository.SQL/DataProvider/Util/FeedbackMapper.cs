@@ -1,5 +1,6 @@
 ﻿using MQuince.Entities;
 using MQuince.Repository.SQL.PersistenceEntities;
+using MQuince.Services.Contracts.DTO.Communication;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,24 @@ namespace MQuince.Repository.SQL.DataProvider.Util
             IEnumerable<Feedback> feedbacks)
         {
             return feedbacks.Select(c => MapFeedbackEntityToFeedbackPersistence(c));
+        }
+
+        public static IEnumerable<ViewFeedbackDTO> MapFeedbackPersistenceCollectionToViewFeedbackDTOCollection(List<FeedbackPersistence> feedbacks)
+            => feedbacks.Select(c => MapFeedbackPersistenceToViewFeedbackDTO(c));
+
+        public static ViewFeedbackDTO MapFeedbackPersistenceToViewFeedbackDTO(FeedbackPersistence feedback)
+        {
+            if (feedback == null) return null;
+
+            return new ViewFeedbackDTO()
+            {
+                Comment = feedback.Comment,
+                Id = feedback.Id,
+                PatientId = feedback.PatientId,
+                PatientName = feedback.Patient.Name,
+                PatientSurname = feedback.Patient.Surname,
+                Published = feedback.Published
+            };
         }
     }
 }

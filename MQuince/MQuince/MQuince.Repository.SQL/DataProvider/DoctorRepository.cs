@@ -41,7 +41,7 @@ namespace MQuince.Repository.SQL.DataProvider
             throw new NotImplementedException();
         }
 
-        public void Update(Doctor entity)
+        public bool Update(Doctor entity)
         {
             throw new NotImplementedException();
         }

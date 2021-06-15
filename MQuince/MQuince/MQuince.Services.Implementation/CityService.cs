@@ -35,7 +35,7 @@ namespace MQuince.Services.Implementation
         public IdentifiableDTO<CityDTO> GetById(Guid id)
             => CreateCityDTO(_cityRepository.GetById(id));
 
-        public void Update(CityDTO entityDTO, Guid id)
+        public bool Update(CityDTO entityDTO, Guid id)
         {
             throw new NotImplementedException();
         }

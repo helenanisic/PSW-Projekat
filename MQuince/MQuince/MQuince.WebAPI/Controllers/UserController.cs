@@ -33,6 +33,7 @@ namespace MQuince.WebAPI.Controllers
             else
             { 
                 HttpContext.Session.SetString("UserId", authenticatedUser.ToString());
+                
                 return Ok(authenticatedUser.ToString());
             }
         }
@@ -40,7 +41,23 @@ namespace MQuince.WebAPI.Controllers
         [HttpGet("IsUserTypePatient")]
         public IActionResult IsUserTypePatient()
         {
-            if (_userService.IsUserTypePatient(new Guid(HttpContext.Session.GetString("UserId"))))
+            String s = HttpContext.Session.GetString("UserId");
+            if (s is null)
+                return BadRequest();
+
+            if (_userService.IsUserTypePatient(new Guid(s)))
+                return Ok("patient");
+            return BadRequest();
+        }
+        
+        [HttpGet("IsUserTypeAdmin")]
+        public IActionResult IsUserTypeAdmin()
+        {
+            String s = HttpContext.Session.GetString("UserId");
+            if (s is null)
+                return BadRequest();
+            
+            if (_userService.IsUserTypeAdmin(new Guid(s)))
                 return Ok();
             return BadRequest();
         }

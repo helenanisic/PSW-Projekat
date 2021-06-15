@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MQuince.Services.Contracts.DTO;
 using MQuince.Services.Contracts.DTO.Communication;
+using MQuince.Services.Contracts.IdentifiableDTO;
 using MQuince.Services.Contracts.Interfaces;
 
 namespace MQuince.WebAPI.Controllers
@@ -37,6 +38,26 @@ namespace MQuince.WebAPI.Controllers
                 PatientId = new Guid(HttpContext.Session.GetString("UserId"))
             };
             return feedback;
+        }
+
+        [HttpGet("GetNotPublishedFeedbacks")]
+        public IEnumerable<ViewFeedbackDTO> GetNotPublishedFeedbacks()
+        {
+            return _feedbackService.GetNotPublishedFeedbacks();
+
+        }
+        [HttpGet("GetPublishedFeedbacks")]
+        public IEnumerable<ViewFeedbackDTO> GetPublishedFeedbacks()
+        {
+            return _feedbackService.GetPublishedFeedbacks();
+
+        }
+        [HttpPut("Update")]
+        public IActionResult Update(ViewFeedbackDTO feedback)
+        {
+            if(_feedbackService.Update(new FeedbackDTO() { Comment = feedback.Comment, PatientId = feedback.PatientId, Published = feedback.Published}, feedback.Id))
+                return Ok();
+            return BadRequest();
         }
     }
 }

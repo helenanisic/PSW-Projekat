@@ -40,7 +40,7 @@ namespace MQuince.Repository.SQL.DataProvider
             throw new NotImplementedException();
         }
 
-        public void Update(Adress entity)
+        public bool Update(Adress entity)
         {
             throw new NotImplementedException();
         }
