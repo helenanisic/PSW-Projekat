@@ -658,11 +658,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj",
+      "projectUniqueName": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj",
       "projectName": "MQuince.Entities",
-      "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj",
+      "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj",
       "packagesPath": "C:\\Users\\helen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\obj\\",
+      "outputPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\helen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -678,8 +678,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj": {
-              "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj"
+            "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj": {
+              "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj"
             }
           }
         }

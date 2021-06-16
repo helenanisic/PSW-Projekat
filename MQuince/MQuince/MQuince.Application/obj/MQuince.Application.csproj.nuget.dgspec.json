@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Application\\MQuince.Application.csproj": {}
+    "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Application\\MQuince.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Application\\MQuince.Application.csproj": {
+    "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Application\\MQuince.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Application\\MQuince.Application.csproj",
+        "projectUniqueName": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Application\\MQuince.Application.csproj",
         "projectName": "MQuince.Application",
-        "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Application\\MQuince.Application.csproj",
+        "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Application\\MQuince.Application.csproj",
         "packagesPath": "C:\\Users\\helen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Application\\obj\\",
+        "outputPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\helen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,17 +27,17 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj"
               },
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj"
               },
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj"
               },
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\MQuince.Services.Implementation.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\MQuince.Services.Implementation.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\MQuince.Services.Implementation.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\MQuince.Services.Implementation.csproj"
               }
             }
           }
@@ -69,14 +69,14 @@
         }
       }
     },
-    "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj": {
+    "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj",
         "projectName": "MQuince.Entities",
-        "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj",
+        "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj",
         "packagesPath": "C:\\Users\\helen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\obj\\",
+        "outputPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\helen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -92,8 +92,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj"
               }
             }
           }
@@ -131,14 +131,14 @@
         }
       }
     },
-    "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj": {
+    "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj",
+        "projectUniqueName": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj",
         "projectName": "MQuince.Enums",
-        "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj",
+        "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj",
         "packagesPath": "C:\\Users\\helen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\obj\\",
+        "outputPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\helen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -183,14 +183,14 @@
         }
       }
     },
-    "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj": {
+    "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj",
         "projectName": "MQuince.Repository.Contracts",
-        "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj",
+        "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj",
         "packagesPath": "C:\\Users\\helen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\obj\\",
+        "outputPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\helen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -206,11 +206,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj"
               },
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj"
               }
             }
           }
@@ -242,14 +242,14 @@
         }
       }
     },
-    "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj": {
+    "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj",
+        "projectUniqueName": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj",
         "projectName": "MQuince.Repository.SQL",
-        "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj",
+        "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj",
         "packagesPath": "C:\\Users\\helen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\obj\\",
+        "outputPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\helen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -265,14 +265,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj"
               },
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj"
               },
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj"
               }
             }
           }
@@ -338,14 +338,14 @@
         }
       }
     },
-    "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
+    "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj",
         "projectName": "MQuince.Services.Contracts",
-        "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj",
+        "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj",
         "packagesPath": "C:\\Users\\helen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\obj\\",
+        "outputPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\helen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -361,11 +361,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj"
               },
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Enums\\MQuince.Enums.csproj"
               }
             }
           }
@@ -397,14 +397,14 @@
         }
       }
     },
-    "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\MQuince.Services.Implementation.csproj": {
+    "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\MQuince.Services.Implementation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\MQuince.Services.Implementation.csproj",
+        "projectUniqueName": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\MQuince.Services.Implementation.csproj",
         "projectName": "MQuince.Services.Implementation",
-        "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\MQuince.Services.Implementation.csproj",
+        "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\MQuince.Services.Implementation.csproj",
         "packagesPath": "C:\\Users\\helen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\obj\\",
+        "outputPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\helen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -420,14 +420,14 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj"
               },
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj"
               },
-              "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
-                "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj"
+              "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
+                "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj"
               }
             }
           }
@@ -440,6 +440,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.11.1, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.11.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -54,3 +54,17 @@ C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\o
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\obj\Debug\netcoreapp3.1\MQuince.Services.Contracts.csproj.CopyComplete
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\obj\Debug\netcoreapp3.1\MQuince.Services.Contracts.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\obj\Debug\netcoreapp3.1\MQuince.Services.Contracts.pdb
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.deps.json
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.dll
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.pdb
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\bin\Debug\netcoreapp3.1\MQuince.Entities.dll
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\bin\Debug\netcoreapp3.1\MQuince.Enums.dll
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\bin\Debug\netcoreapp3.1\MQuince.Entities.pdb
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\obj\Debug\netcoreapp3.1\MQuince.Services.Contracts.csprojAssemblyReference.cache
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\obj\Debug\netcoreapp3.1\MQuince.Services.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\obj\Debug\netcoreapp3.1\MQuince.Services.Contracts.AssemblyInfoInputs.cache
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\obj\Debug\netcoreapp3.1\MQuince.Services.Contracts.AssemblyInfo.cs
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\obj\Debug\netcoreapp3.1\MQuince.Services.Contracts.csproj.CopyComplete
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\obj\Debug\netcoreapp3.1\MQuince.Services.Contracts.dll
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Contracts\obj\Debug\netcoreapp3.1\MQuince.Services.Contracts.pdb

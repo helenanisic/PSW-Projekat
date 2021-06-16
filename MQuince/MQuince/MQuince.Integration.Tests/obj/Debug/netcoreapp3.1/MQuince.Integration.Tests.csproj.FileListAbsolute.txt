@@ -248,3 +248,7 @@ C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bi
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
 C:\Users\helen\Desktop\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\obj\Debug\netcoreapp3.1\MQuince.Integration.Tests.csprojAssemblyReference.cache
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\obj\Debug\netcoreapp3.1\MQuince.Integration.Tests.csproj.CoreCompileInputs.cache
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\obj\Debug\netcoreapp3.1\MQuince.Integration.Tests.AssemblyInfoInputs.cache
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Integration.Tests\obj\Debug\netcoreapp3.1\MQuince.Integration.Tests.AssemblyInfo.cs

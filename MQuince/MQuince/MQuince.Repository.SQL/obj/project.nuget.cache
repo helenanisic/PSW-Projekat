@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kiTVcdb2rpB5F/JS6q/S1TCGMO/LsIFemC0nttjcZY7HbK2pdlfNlTWeNndpAQGr+MiG561ui7BYB1EyFRbBHA==",
+  "dgSpecHash": "32kbLd71VYygx7kdnRIM6TSSrBbX3bFQvgLC2PzszMB3Z2eEISxv5UmiVJawthovlXFvitEpJHyLs0WeQqb/Ww==",
   "success": true,
-  "projectFilePath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj",
+  "projectFilePath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.SQL\\MQuince.Repository.SQL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MQuince.Services.Contracts.DTO;
@@ -16,26 +17,35 @@ namespace MQuince.WebAPI.Controllers
     public class FeedbackController : ControllerBase
     {
         private readonly IFeedbackService _feedbackService;
+        private readonly IUserService _userService;
 
-        public FeedbackController([FromServices] IFeedbackService feedbackService)
+        public FeedbackController([FromServices] IFeedbackService feedbackService, IUserService userService)
         {
             this._feedbackService = feedbackService;
+            this._userService = userService;
         }
+
 
         [HttpPost]
+        [Authorize(Roles = "Patient")]
         public IActionResult Create(FeedbackCommentDTO feedbackComment)
         {
-            if (HttpContext.Session.GetString("UserId") is null || !(ModelState.IsValid) || _feedbackService.Create(CreateFeedbackDTO(feedbackComment.Comment)) == Guid.Empty)
+            string token = Request.Headers["Authorization"];
+            var id = _userService.GetIdFromJwtToken(token.Split(" ")[1]);
+
+            if (!(ModelState.IsValid) || _feedbackService.Create(CreateFeedbackDTO(feedbackComment.Comment, new Guid(id))) == Guid.Empty)
                 return BadRequest();
-            return BadRequest();
+            return Ok();
+
+
         }
 
-        private FeedbackDTO CreateFeedbackDTO(string comment)
+        private FeedbackDTO CreateFeedbackDTO(string comment, Guid id)
         {
             FeedbackDTO feedback = new FeedbackDTO()
             {
                 Comment = comment,
-                PatientId = new Guid(HttpContext.Session.GetString("UserId"))
+                PatientId = id
             };
             return feedback;
         }

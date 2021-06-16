@@ -696,11 +696,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj",
+      "projectUniqueName": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj",
       "projectName": "MQuince.Repository.Contracts",
-      "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj",
+      "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\MQuince.Repository.Contracts.csproj",
       "packagesPath": "C:\\Users\\helen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\obj\\",
+      "outputPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Repository.Contracts\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\helen\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -716,11 +716,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj": {
-              "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj"
+            "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj": {
+              "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj"
             },
-            "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
-              "projectPath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj"
+            "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj": {
+              "projectPath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj"
             }
           }
         }

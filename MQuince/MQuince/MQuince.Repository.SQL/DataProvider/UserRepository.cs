@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using MQuince.Entities;
+using MQuince.Entities.Authentication;
 using MQuince.Enums;
 using MQuince.Repository.Contracts;
 using MQuince.Repository.SQL.DataAccess;
@@ -21,13 +22,13 @@ namespace MQuince.Repository.SQL.DataProvider
             _dbContext = optionsBuilders == null ? throw new ArgumentNullException(nameof(optionsBuilders) + "is set to null") : optionsBuilders.Options;
         }
 
-        public Guid AuthenticateUser(UserLoginDTO user)
+        public User AuthenticateUser(AuthenticateRequest user)
         {
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
             var userFoundInDB = UserMapper.MapUserPersistenceToUserEntity(context.Users.SingleOrDefault(u => u.Email.Equals(user.Email)));
             if (userFoundInDB is null)
-                return Guid.Empty;
-            return userFoundInDB.Password.Equals(user.Password) ? userFoundInDB.Id : Guid.Empty;
+                return null;
+            return userFoundInDB.Password.Equals(user.Password) ? userFoundInDB : null;
         }
 
         public Guid Create(User entity)
@@ -47,7 +48,9 @@ namespace MQuince.Repository.SQL.DataProvider
 
         public User GetById(Guid id)
         {
-            throw new NotImplementedException();
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            User u = UserMapper.MapUserPersistenceToUserEntity(context.Users.SingleOrDefault(u => u.Id.Equals(id)));
+            return u;
         }
 
         public bool IsUserTypeAdmin(Guid id)

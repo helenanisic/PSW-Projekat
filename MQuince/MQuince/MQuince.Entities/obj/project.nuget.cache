@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "93OedI6RO0/TtiXC0GB8LHF+dkwMqlSxTTCQGK3iI/Ny07zcQFVM9WxD31JfjqDiiCrAnSixlHwXKwdA6wwSSA==",
+  "dgSpecHash": "p/lkqpB+VwdLadB2KKH75rO+aAgwmZvH+R9PL6xwHFaLswiquCf5nUQ0v2Tc2zt/EyRP5WvqbzuHHZms1WIWdA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\helen\\Desktop\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj",
+  "projectFilePath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Entities\\MQuince.Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

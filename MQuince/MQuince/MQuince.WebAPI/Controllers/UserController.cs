@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
+using MQuince.Entities.Authentication;
 using MQuince.Services.Contracts.DTO.Users;
 using MQuince.Services.Contracts.Interfaces;
 
@@ -24,19 +25,24 @@ namespace MQuince.WebAPI.Controllers
         [HttpGet]
         public IActionResult AuthenticateUser(string Email, string Password)
         {
-            UserLoginDTO user = new UserLoginDTO() { Email = Email, Password = Password };
-            Guid authenticatedUser = _userService.AuthenticateUser(user);
-            if (authenticatedUser.Equals(Guid.Empty))
+            AuthenticateRequest user = new AuthenticateRequest
+            {
+                Email = Email,
+                Password = Password
+            };
+
+            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
+            if (authenticatedUser == null)
             {
                 return BadRequest(authenticatedUser.ToString());
             }
             else
-            { 
-                HttpContext.Session.SetString("UserId", authenticatedUser.ToString());
-                
-                return Ok(authenticatedUser.ToString());
+            {
+
+                return Ok(authenticatedUser);
             }
         }
+
 
         [HttpGet("IsUserTypePatient")]
         public IActionResult IsUserTypePatient()

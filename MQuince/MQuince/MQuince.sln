@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MQuince.WebAPI", "MQuince.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MQuince.Application", "MQuince.Application\MQuince.Application.csproj", "{10FB3859-944A-42FD-96BA-5A2CFCD05B7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQuince.Integration.Tests", "MQuince.Integration.Tests\MQuince.Integration.Tests.csproj", "{53541251-5300-4C99-ADD7-5D81AE80F37A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MQuince.Integration.Tests", "MQuince.Integration.Tests\MQuince.Integration.Tests.csproj", "{53541251-5300-4C99-ADD7-5D81AE80F37A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQuince.Unit.Tests", "MQuince.Unit.Tests\MQuince.Unit.Tests.csproj", "{7CA909F9-B770-4463-A73A-E696F74A7EF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MQuince.Unit.Tests", "MQuince.Unit.Tests\MQuince.Unit.Tests.csproj", "{7CA909F9-B770-4463-A73A-E696F74A7EF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
