@@ -4,6 +4,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using CSharpFunctionalExtensions;
 using Microsoft.IdentityModel.Tokens;
 using MQuince.Entities;
 using MQuince.Entities.Authentication;
@@ -25,7 +26,6 @@ namespace MQuince.Services.Implementation
             this.secret = secret;
         }
 
-
         public AuthenticateResponse Authenticate(AuthenticateRequest model)
         {
             var user = _userRepository.AuthenticateUser(model);
@@ -42,45 +42,12 @@ namespace MQuince.Services.Implementation
 
         }
 
-        public Guid Create(UserDTO entityDTO)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IdentifiableDTO<UserDTO>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
 
         public User GetById(Guid id)
         {
             return _userRepository.GetById(id);
         }
 
-        public bool IsUserTypeAdmin(Guid id)
-        {
-            return _userRepository.IsUserTypeAdmin(id);
-        }
-
-        public bool IsUserTypePatient(Guid id)
-        {
-            return _userRepository.IsUserTypePatient(id);
-        }
-
-        public void Update(UserDTO entityDTO, Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        bool IService<UserDTO, IdentifiableDTO<UserDTO>>.Update(UserDTO entityDTO, Guid id)
-        {
-            throw new NotImplementedException();
-        }
 
         private string generateJwtToken(User user)
         {
@@ -129,9 +96,5 @@ namespace MQuince.Services.Implementation
                    .Select(c => c.Value).SingleOrDefault().ToString();
         }
 
-        IdentifiableDTO<UserDTO> IService<UserDTO, IdentifiableDTO<UserDTO>>.GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

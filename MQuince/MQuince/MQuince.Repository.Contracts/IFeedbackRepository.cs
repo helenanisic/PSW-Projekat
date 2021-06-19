@@ -6,10 +6,13 @@ using MQuince.Services.Contracts.DTO.Communication;
 
 namespace MQuince.Repository.Contracts
 {
-    public interface IFeedbackRepository : IRepository<Feedback>
+    public interface IFeedbackRepository
     {
         IEnumerable<ViewFeedbackDTO> GetNotPublishedFeedbacks();
         IEnumerable<ViewFeedbackDTO> GetPublishedFeedbacks();
         IEnumerable<ViewFeedbackDTO> GetAllFeedbacks();
+        Guid Create(Feedback entity);
+        Feedback Update(Feedback entity);
+        IEnumerable<Feedback> GetAll();
     }
 }

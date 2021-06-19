@@ -25,25 +25,11 @@ namespace MQuince.Repository.SQL.DataProvider
             return _context.SaveChanges() > 0 ? entity.Id : Guid.Empty;
         }
 
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Doctor> GetAll()
         {
             using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
             return DoctorMapper.MapDoctorPersistenceCollectionToDoctorEntityCollection(_context.Doctors.ToList());
         }
 
-        public Doctor GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(Doctor entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

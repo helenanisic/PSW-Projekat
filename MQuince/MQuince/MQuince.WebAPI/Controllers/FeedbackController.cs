@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MQuince.Entities;
 using MQuince.Services.Contracts.DTO;
 using MQuince.Services.Contracts.DTO.Communication;
 using MQuince.Services.Contracts.IdentifiableDTO;
@@ -32,22 +34,12 @@ namespace MQuince.WebAPI.Controllers
         {
             string token = Request.Headers["Authorization"];
             var id = _userService.GetIdFromJwtToken(token.Split(" ")[1]);
-
-            if (!(ModelState.IsValid) || _feedbackService.Create(CreateFeedbackDTO(feedbackComment.Comment, new Guid(id))) == Guid.Empty)
+            Feedback feedback = CreateFeedbackFromDTO(feedbackComment.Comment, new Guid(id), false);
+            if (!(ModelState.IsValid) || _feedbackService.Create(feedback) == Guid.Empty)
                 return BadRequest();
             return Ok();
 
 
-        }
-
-        private FeedbackDTO CreateFeedbackDTO(string comment, Guid id)
-        {
-            FeedbackDTO feedback = new FeedbackDTO()
-            {
-                Comment = comment,
-                PatientId = id
-            };
-            return feedback;
         }
 
         [HttpGet("GetNotPublishedFeedbacks")]
@@ -63,11 +55,23 @@ namespace MQuince.WebAPI.Controllers
 
         }
         [HttpPut("Update")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Update(ViewFeedbackDTO feedback)
         {
-            if(_feedbackService.Update(new FeedbackDTO() { Comment = feedback.Comment, PatientId = feedback.PatientId, Published = feedback.Published}, feedback.Id))
-                return Ok();
-            return BadRequest();
+            Feedback updatedFeedback = _feedbackService.Update(new FeedbackDTO() { Comment = feedback.Comment, PatientId = feedback.PatientId, Published = feedback.Published }, feedback.Id);
+            if (updatedFeedback != null)
+            {
+
+                return Ok(updatedFeedback);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
+
+        private Feedback CreateFeedbackFromDTO(String comment, Guid patientId, bool published, Guid? id = null)
+           => id == null ? new Feedback(comment, patientId, published)
+               : new Feedback(id.Value, comment, patientId, published);
     }
 }

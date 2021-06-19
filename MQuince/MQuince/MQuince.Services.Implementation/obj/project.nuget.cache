@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ZzdtnVwgBpP74l8W9O2o3skQUvHKPvJI6pzPIxSG8TWSd21aSKQ96AlMJVOoB6ZfUPYP+tdaqWefRJsVhzndNg==",
+  "dgSpecHash": "+Jdi7s+gYzRw4ga93CrYfHqBUJTt56fXk0bz7qJxyenhL3HlJPNqmqt/pl3xYLZ/AbXVRHCjbxTcRsMG5k0rCw==",
   "success": true,
   "projectFilePath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Implementation\\MQuince.Services.Implementation.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\helen\\.nuget\\packages\\csharpfunctionalextensions\\2.15.3\\csharpfunctionalextensions.2.15.3.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

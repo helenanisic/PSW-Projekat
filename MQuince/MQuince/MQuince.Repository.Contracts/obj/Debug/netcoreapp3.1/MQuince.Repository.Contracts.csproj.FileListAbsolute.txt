@@ -66,9 +66,9 @@ C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Cont
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\obj\Debug\netcoreapp3.1\MQuince.Repository.Contracts.csprojAssemblyReference.cache
-C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\obj\Debug\netcoreapp3.1\MQuince.Repository.Contracts.csproj.CoreCompileInputs.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\obj\Debug\netcoreapp3.1\MQuince.Repository.Contracts.AssemblyInfoInputs.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\obj\Debug\netcoreapp3.1\MQuince.Repository.Contracts.AssemblyInfo.cs
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\obj\Debug\netcoreapp3.1\MQuince.Repository.Contracts.csproj.CopyComplete
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\obj\Debug\netcoreapp3.1\MQuince.Repository.Contracts.dll
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\obj\Debug\netcoreapp3.1\MQuince.Repository.Contracts.pdb
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.Contracts\obj\Debug\netcoreapp3.1\MQuince.Repository.Contracts.csproj.CoreCompileInputs.cache

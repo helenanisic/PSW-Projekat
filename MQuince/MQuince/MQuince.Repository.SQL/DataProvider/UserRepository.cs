@@ -31,20 +31,6 @@ namespace MQuince.Repository.SQL.DataProvider
             return userFoundInDB.Password.Equals(user.Password) ? userFoundInDB : null;
         }
 
-        public Guid Create(User entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<User> GetAll()
-        {
-            throw new NotImplementedException();
-        }
 
         public User GetById(Guid id)
         {
@@ -53,29 +39,5 @@ namespace MQuince.Repository.SQL.DataProvider
             return u;
         }
 
-        public bool IsUserTypeAdmin(Guid id)
-        {
-            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
-            User u = UserMapper.MapUserPersistenceToUserEntity(context.Users.SingleOrDefault(u => u.Id.Equals(id)));
-            return u.UserType == Usertype.Admin;
-        }
-
-        public bool IsUserTypePatient(Guid id)
-        {
-            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
-            User u = UserMapper.MapUserPersistenceToUserEntity(context.Users.SingleOrDefault(u => u.Id.Equals(id)));
-            return u.UserType == Usertype.Patient;
-
-        }
-
-        public void Update(User entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        bool IRepository<User>.Update(User entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

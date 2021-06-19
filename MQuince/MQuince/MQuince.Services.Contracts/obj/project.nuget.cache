@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Dn5xyVSTcjQV50L3EL36J7woxatE6eF1YLCcXXacp87+ODFVnpPf9AQxV5eph8xJQto+huGJgnly+nHoHzuk3w==",
+  "dgSpecHash": "OaB+uyDMH9rdZZ8yq1Jq/i4FmUVgLvZ0UsrC8AaRbwMX28sZEY0voeuei80DXRYcO6I7Ei6FWwPmC7c4cEshAw==",
   "success": true,
   "projectFilePath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Services.Contracts\\MQuince.Services.Contracts.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\helen\\.nuget\\packages\\csharpfunctionalextensions\\2.15.3\\csharpfunctionalextensions.2.15.3.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.9\\microsoft.entityframeworkcore.3.1.9.nupkg.sha512",

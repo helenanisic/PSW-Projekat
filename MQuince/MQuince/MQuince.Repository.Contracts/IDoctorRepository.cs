@@ -5,7 +5,9 @@ using MQuince.Entities.Users;
 
 namespace MQuince.Repository.Contracts
 {
-    public interface IDoctorRepository : IRepository<Doctor>
+    public interface IDoctorRepository
     {
+        IEnumerable<Doctor> GetAll();
+        Guid Create(Doctor entity);
     }
 }

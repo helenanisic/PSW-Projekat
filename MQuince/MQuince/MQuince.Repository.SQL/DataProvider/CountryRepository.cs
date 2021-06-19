@@ -34,13 +34,5 @@ namespace MQuince.Repository.SQL.DataProvider
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
             return CountryMapper.MapCountryPersistenceToCountryEntity(context.Countries.SingleOrDefault(c => c.Id.Equals(id)));
         }
-        public bool Update(Country entity)
-        {
-            throw new NotImplementedException();
-        }
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

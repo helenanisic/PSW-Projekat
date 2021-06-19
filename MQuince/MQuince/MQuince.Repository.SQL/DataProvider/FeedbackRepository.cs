@@ -19,16 +19,12 @@ namespace MQuince.Repository.SQL.DataProvider
         {
             _dbContext = optionsBuilders == null ? throw new ArgumentNullException(nameof(optionsBuilders) + "is set to null") : optionsBuilders.Options;
         }
+
         public Guid Create(Feedback entity)
         {
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
             context.Feedbacks.Add(FeedbackMapper.MapFeedbackEntityToFeedbackPersistence(entity));
             return context.SaveChanges() > 0 ? entity.Id : Guid.Empty;
-        }
-
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
         }
 
         public IEnumerable<Feedback> GetAll()
@@ -43,11 +39,6 @@ namespace MQuince.Repository.SQL.DataProvider
             return FeedbackMapper.MapFeedbackPersistenceCollectionToViewFeedbackDTOCollection(context.Feedbacks.Include("Patient").ToList());
         }
 
-        public Feedback GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<ViewFeedbackDTO> GetNotPublishedFeedbacks()
         {
             using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
@@ -60,11 +51,11 @@ namespace MQuince.Repository.SQL.DataProvider
             return FeedbackMapper.MapFeedbackPersistenceCollectionToViewFeedbackDTOCollection(_context.Feedbacks.Include("Patient").Where(p => p.Published == true).ToList());
         }
 
-        public bool Update(Feedback entity)
+        public Feedback Update(Feedback entity)
         {
             using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
-            _context.Update(FeedbackMapper.MapFeedbackEntityToFeedbackPersistence(entity));
-            return _context.SaveChanges() > 0 ? true : false;
+            return FeedbackMapper.MapFeedbackPersistenceToFeedbackEntity(_context.Update(FeedbackMapper.MapFeedbackEntityToFeedbackPersistence(entity)).Entity);
+            
         }
         
     }

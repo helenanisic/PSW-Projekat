@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using MQuince.Entities;
+using MQuince.Entities.Authentication;
 using MQuince.Entities.Users;
 using MQuince.Repository.Contracts;
 using MQuince.Repository.SQL.DataAccess;
@@ -16,91 +22,80 @@ using MQuince.Services.Contracts.DTO.Communication;
 using MQuince.Services.Contracts.DTO.Users;
 using MQuince.Services.Contracts.Interfaces;
 using MQuince.Services.Implementation;
+using MQuince.WebAPI;
 using MQuince.WebAPI.Controllers;
+using Newtonsoft.Json;
 using Xunit;
 
 namespace MQuince.Integration.Tests
 {
-    public class PublishFeedbacks
+    public class PublishFeedbacks : IClassFixture<WebApplicationFactory<Startup>>
     {
-        private FeedbackController feedbackController;
-        private IFeedbackService feedbackService;
-        private IFeedbackRepository feedbackRepository;
-
-        private void InitDB()
+        public HttpClient Client { get; }
+        public IUserService _userService;
+        public PublishFeedbacks(WebApplicationFactory<Startup> factory)
         {
-            DbContextOptionsBuilder optionsBuilder = new DbContextOptionsBuilder<MQuinceDbContext>();
-            optionsBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString());
-            feedbackRepository = new FeedbackRepository(optionsBuilder);
-            using var dataBase = new MQuinceDbContext(optionsBuilder.Options);
-            dataBase.Database.EnsureDeleted();
-            dataBase.Database.EnsureCreated();
-            AddFeedbackstoDB(dataBase);
+            Client = factory.CreateClient();
+            _userService = (IUserService)factory.Services.GetService(typeof(IUserService));
         }
-
-        private void AddFeedbackstoDB(MQuinceDbContext dataBase)
+        public static ByteArrayContent GetByteArrayContent(object o)
         {
-            FeedbackPersistence feedback1 = new FeedbackPersistence()
-            {
-                Id = Guid.NewGuid(),
-                Comment = "Extra!",
-                Published = false,
-                PatientId = Guid.NewGuid()
-            };
-            FeedbackPersistence feedback2 = new FeedbackPersistence()
-            {
-                Id = new Guid("009f44e4-00dd-4f76-976b-be118844f3b4"),
-                Comment = "Uzas!",
-                Published = false,
-                PatientId = new Guid("77b7aad8-ef34-484f-bd05-77f435bbc0c3")
-            };
-
-            PatientPersistence patient = new PatientPersistence()
-            {
-                Id = new Guid("77b7aad8-ef34-484f-bd05-77f435bbc0c3"),
-                Jmbg = "1234567891234",
-                BirthDate = new DateTime(),
-                Gender = Enums.Gender.Female,
-                Telephone = "123456",
-                UserType = Enums.Usertype.Patient,
-                Name = "Helena",
-                Surname = "Anisic",
-                Email = "helenanisic@gmail.com",
-                Password = "Helena123"
-            };
-            dataBase.Patients.Add(patient);
-            dataBase.Feedbacks.AddRange(feedback1, feedback2);
-            dataBase.SaveChanges();
-        }
-
-        public PublishFeedbacks()
-        {
-            InitDB();
-            feedbackService = new FeedbackService(feedbackRepository);
-            feedbackController = new FeedbackController(feedbackService);
+            var myContent = JsonConvert.SerializeObject(o);
+            var buffer = Encoding.UTF8.GetBytes(myContent);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            return byteContent;
         }
 
         [Fact]
-        public void admin_publish_feedback_success()
+        public async Task publish_feedback_success()
         {
-            ViewFeedbackDTO feedback = new ViewFeedbackDTO()
+            ViewFeedbackDTO viewFeedbackDTO = new ViewFeedbackDTO()
             {
-                Id = new Guid("009f44e4-00dd-4f76-976b-be118844f3b4"),
-                Comment = "Uzas!",
-                Published = true,
-                PatientId = new Guid("77b7aad8-ef34-484f-bd05-77f435bbc0c3")
+                Id = new Guid("d98ace89-f121-4248-beb7-eb366dd39ebf"),
+                Comment = "Nadam se da radi",
+                PatientId = new Guid("b2b2a4e8-7eef-42f5-bca6-16f25f7d7c56"),
+                Published = true
             };
-            Mock<HttpContext> mockHttpContext = new Mock<HttpContext>();
-            MockHttpSession mockSession = new MockHttpSession();
-            mockSession["UserId"] = "009f44e4-00dd-4f76-976b-be118844f3b4";
-            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            feedbackController.ControllerContext.HttpContext = mockHttpContext.Object;
+
+            AuthenticateRequest user = new AuthenticateRequest
+            {
+                Email = "nikola@gmail",
+                Password = "nikolaBlesic123"
+            };
+
+            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authenticatedUser.Token);
+            HttpResponseMessage response = await Client.PutAsync("/api/Feedback/Update", GetByteArrayContent(viewFeedbackDTO));
+            var responseAsString = await response.Content.ReadAsStringAsync();
+            var responseAsConcreteType = JsonConvert.DeserializeObject<Feedback>(responseAsString);
+            Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
+            Assert.True(responseAsConcreteType.Published);
+        }
 
 
-            feedbackController.Update(feedback);
-            List<ViewFeedbackDTO> Publishedfeedbacks = feedbackRepository.GetNotPublishedFeedbacks().ToList();
+        [Fact]
+        public async Task publish_feedback_wrong_role_fail()
+        {
+            ViewFeedbackDTO viewFeedbackDTO = new ViewFeedbackDTO()
+            {
+                Id = new Guid("d98ace89-f121-4248-beb7-eb366dd39ebf"),
+                Comment = "Nadam se da radi",
+                PatientId = new Guid("b2b2a4e8-7eef-42f5-bca6-16f25f7d7c56"),
+                Published = false
+            };
 
-            Assert.Single(Publishedfeedbacks);
+            AuthenticateRequest user = new AuthenticateRequest
+            {
+                Email = "hanisic@gmail.com",
+                Password = "Helena123"
+            };
+
+            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authenticatedUser.Token);
+            HttpResponseMessage response = await Client.PutAsync("/api/Feedback/Update", GetByteArrayContent(viewFeedbackDTO));
+            Assert.Equal(StatusCodes.Status403Forbidden, (double)response.StatusCode);
         }
     }
 }
+

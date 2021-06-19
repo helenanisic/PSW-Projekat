@@ -5,7 +5,8 @@ using MQuince.Entities.Users;
 
 namespace MQuince.Repository.Contracts
 {
-    public interface IAdressRepository : IRepository<Adress>
+    public interface IAdressRepository
     {
+        Guid Create(Adress entity);
     }
 }

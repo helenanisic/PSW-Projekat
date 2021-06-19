@@ -16,75 +16,38 @@ using MQuince.Services.Contracts.Interfaces;
 using MQuince.Services.Implementation;
 using Xunit;
 using Moq;
+using Microsoft.AspNetCore.Mvc.Testing;
+using MQuince.WebAPI;
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace MQuince.Integration.Tests
 {
-    public class Login
+    public class Login : IClassFixture<WebApplicationFactory<Startup>>
     {
-        private UserController userController;
-        private IUserService userService;
-        private IUserRepository userRepository;
-
-        private static ISession MockHttpContext()
+        public HttpClient Client { get; }
+        public Login(WebApplicationFactory<Startup> factory)
         {
-            MockHttpSession httpcontext = new MockHttpSession();
-            httpcontext.SetString("UserEmail", "unittest@mycompany.com");
-            return httpcontext;
+            Client = factory.CreateClient();
         }
-
-        private void InitDB()
+        public static ByteArrayContent GetByteArrayContent(object o)
         {
-            DbContextOptionsBuilder optionsBuilder = new DbContextOptionsBuilder<MQuinceDbContext>();
-            optionsBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString());
-
-
-            userRepository = new UserRepository(optionsBuilder);
-            using var dataBase = new MQuinceDbContext(optionsBuilder.Options);
-            dataBase.Database.EnsureDeleted();
-            dataBase.Database.EnsureCreated();
-
-            AddPatientsToDB(dataBase);
-        }
-
-        private void AddPatientsToDB(MQuinceDbContext dataBase)
-        {
-            PatientPersistence patient1 = new PatientPersistence()
-            {
-                Id = Guid.NewGuid(),
-                Email = "email@gmail.com",
-                Password = "123"
-            };
-            PatientPersistence patient2 = new PatientPersistence()
-            {
-                Id = Guid.NewGuid(),
-                Email = "email@hotmail.com",
-                Password = "567"
-            };
-            dataBase.Patients.AddRange(patient1, patient2);
-            dataBase.SaveChanges();
-        }
-
-        public Login()
-        {
-            InitDB();
-            userService = new UserService(userRepository);
-            userController = new UserController(userService);
+            var myContent = JsonConvert.SerializeObject(o);
+            var buffer = Encoding.UTF8.GetBytes(myContent);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            return byteContent;
         }
 
         [Fact]
-        public void user_login_success()
+        public async Task user_login_success()
         {
-            string Email = "email@gmail.com";
-            string Password = "123";
-            Mock<HttpContext> mockHttpContext = new Mock<HttpContext>();
-            MockHttpSession mockSession = new MockHttpSession();
-            mockSession["UserId"] = "123";
-            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            userController.ControllerContext.HttpContext = mockHttpContext.Object;
-            
-            IActionResult actual = userController.AuthenticateUser(Email, Password);
-            var okResult = actual as OkObjectResult;
-            Assert.Equal(200, okResult.StatusCode);
+            String email = "hanisic@gmail.com";
+            String password = "Helena123";
+            HttpResponseMessage response = await Client.GetAsync("/api/User?email=" + email + "&password=" + password);
+            Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
         }
     }
 }

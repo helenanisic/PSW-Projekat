@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "CSharpFunctionalExtensions/2.15.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/CSharpFunctionalExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CSharpFunctionalExtensions.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "type": "package",
         "compile": {
@@ -316,6 +325,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "CSharpFunctionalExtensions": "2.15.3",
           "MQuince.Entities": "1.0.0",
           "MQuince.Services.Contracts": "1.0.0"
         },
@@ -330,6 +340,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "CSharpFunctionalExtensions": "2.15.3",
           "MQuince.Entities": "1.0.0",
           "MQuince.Enums": "1.0.0"
         },
@@ -343,6 +354,35 @@
     }
   },
   "libraries": {
+    "CSharpFunctionalExtensions/2.15.3": {
+      "sha512": "Yf1NRz5KXsvYvA8ueMZ+dEb0abcSP1hYdIicFaG2hcRgRTQtydJWrv9qCUnfccsG0PsWrtlhrFSC0NfK2sFVpA==",
+      "type": "package",
+      "path": "csharpfunctionalextensions/2.15.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "csharpfunctionalextensions.2.15.3.nupkg.sha512",
+        "csharpfunctionalextensions.nuspec",
+        "lib/net40/CSharpFunctionalExtensions.dll",
+        "lib/net40/CSharpFunctionalExtensions.pdb",
+        "lib/net40/CSharpFunctionalExtensions.xml",
+        "lib/net45/CSharpFunctionalExtensions.dll",
+        "lib/net45/CSharpFunctionalExtensions.pdb",
+        "lib/net45/CSharpFunctionalExtensions.xml",
+        "lib/net461/CSharpFunctionalExtensions.dll",
+        "lib/net461/CSharpFunctionalExtensions.pdb",
+        "lib/net461/CSharpFunctionalExtensions.xml",
+        "lib/net472/CSharpFunctionalExtensions.dll",
+        "lib/net472/CSharpFunctionalExtensions.pdb",
+        "lib/net472/CSharpFunctionalExtensions.xml",
+        "lib/net5.0/CSharpFunctionalExtensions.dll",
+        "lib/net5.0/CSharpFunctionalExtensions.pdb",
+        "lib/net5.0/CSharpFunctionalExtensions.xml",
+        "lib/netstandard2.0/CSharpFunctionalExtensions.dll",
+        "lib/netstandard2.0/CSharpFunctionalExtensions.pdb",
+        "lib/netstandard2.0/CSharpFunctionalExtensions.xml"
+      ]
+    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "sha512": "yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
       "type": "package",
@@ -988,7 +1028,8 @@
       "MQuince.Repository.Contracts >= 1.0.0",
       "MQuince.Services.Contracts >= 1.0.0",
       "Microsoft.IdentityModel.Tokens >= 6.11.1",
-      "System.IdentityModel.Tokens.Jwt >= 6.11.1"
+      "System.IdentityModel.Tokens.Jwt >= 6.11.1",
+      "csharpfunctionalextensions >= 2.15.3"
     ]
   },
   "packageFolders": {
@@ -1045,6 +1086,10 @@
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
             "version": "[6.11.1, )"
+          },
+          "csharpfunctionalextensions": {
+            "target": "Package",
+            "version": "[2.15.3, )"
           }
         },
         "imports": [

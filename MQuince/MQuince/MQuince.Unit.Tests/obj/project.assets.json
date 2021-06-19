@@ -29,6 +29,15 @@
           "build/netstandard1.0/coverlet.collector.targets": {}
         }
       },
+      "CSharpFunctionalExtensions/2.15.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/CSharpFunctionalExtensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/CSharpFunctionalExtensions.dll": {}
+        }
+      },
       "Microsoft.AspNet.Mvc/5.2.7": {
         "type": "package",
         "dependencies": {
@@ -4109,6 +4118,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "CSharpFunctionalExtensions": "2.15.3",
           "MQuince.Entities": "1.0.0",
           "MQuince.Services.Contracts": "1.0.0"
         },
@@ -4123,6 +4133,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "CSharpFunctionalExtensions": "2.15.3",
           "MQuince.Enums": "1.0.0",
           "MQuince.Repository.Contracts": "1.0.0",
           "MQuince.Services.Contracts": "1.0.0",
@@ -4143,6 +4154,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "CSharpFunctionalExtensions": "2.15.3",
           "MQuince.Entities": "1.0.0",
           "MQuince.Enums": "1.0.0"
         },
@@ -4161,7 +4173,8 @@
           "MQuince.Repository.Contracts": "1.0.0",
           "MQuince.Services.Contracts": "1.0.0",
           "Microsoft.IdentityModel.Tokens": "6.11.1",
-          "System.IdentityModel.Tokens.Jwt": "6.11.1"
+          "System.IdentityModel.Tokens.Jwt": "6.11.1",
+          "csharpfunctionalextensions": "2.15.3"
         },
         "compile": {
           "bin/placeholder/MQuince.Services.Implementation.dll": {}
@@ -4174,6 +4187,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "CSharpFunctionalExtensions": "2.15.3",
           "MQuince.Application": "1.0.0",
           "MQuince.Entities": "1.0.0",
           "MQuince.Enums": "1.0.0",
@@ -4251,6 +4265,35 @@
         "build/netstandard1.0/coverlet.core.pdb",
         "coverlet.collector.1.2.0.nupkg.sha512",
         "coverlet.collector.nuspec"
+      ]
+    },
+    "CSharpFunctionalExtensions/2.15.3": {
+      "sha512": "Yf1NRz5KXsvYvA8ueMZ+dEb0abcSP1hYdIicFaG2hcRgRTQtydJWrv9qCUnfccsG0PsWrtlhrFSC0NfK2sFVpA==",
+      "type": "package",
+      "path": "csharpfunctionalextensions/2.15.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "csharpfunctionalextensions.2.15.3.nupkg.sha512",
+        "csharpfunctionalextensions.nuspec",
+        "lib/net40/CSharpFunctionalExtensions.dll",
+        "lib/net40/CSharpFunctionalExtensions.pdb",
+        "lib/net40/CSharpFunctionalExtensions.xml",
+        "lib/net45/CSharpFunctionalExtensions.dll",
+        "lib/net45/CSharpFunctionalExtensions.pdb",
+        "lib/net45/CSharpFunctionalExtensions.xml",
+        "lib/net461/CSharpFunctionalExtensions.dll",
+        "lib/net461/CSharpFunctionalExtensions.pdb",
+        "lib/net461/CSharpFunctionalExtensions.xml",
+        "lib/net472/CSharpFunctionalExtensions.dll",
+        "lib/net472/CSharpFunctionalExtensions.pdb",
+        "lib/net472/CSharpFunctionalExtensions.xml",
+        "lib/net5.0/CSharpFunctionalExtensions.dll",
+        "lib/net5.0/CSharpFunctionalExtensions.pdb",
+        "lib/net5.0/CSharpFunctionalExtensions.xml",
+        "lib/netstandard2.0/CSharpFunctionalExtensions.dll",
+        "lib/netstandard2.0/CSharpFunctionalExtensions.pdb",
+        "lib/netstandard2.0/CSharpFunctionalExtensions.xml"
       ]
     },
     "Microsoft.AspNet.Mvc/5.2.7": {
@@ -11995,6 +12038,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "CSharpFunctionalExtensions >= 2.15.3",
       "MQuince.Entities >= 1.0.0",
       "MQuince.Repository.Contracts >= 1.0.0",
       "MQuince.Repository.SQL >= 1.0.0",
@@ -12064,6 +12108,10 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
+          "CSharpFunctionalExtensions": {
+            "target": "Package",
+            "version": "[2.15.3, )"
+          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[16.2.0, )"

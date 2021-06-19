@@ -19,11 +19,8 @@ namespace MQuince.Services.Contracts.DTO.Users
         [Required]
         [RegularExpression("([0-9].+)")]
         public string Telephone { get; set; }
-        [Required]
         public Guid ResidenceId { get; set; }
-        [Required]
         public Guid ChosenDoctorId { get; set; }
-        [Required]
         [RegularExpression("([0-9].+)")]
         public string Lbo { get; set; }
     }

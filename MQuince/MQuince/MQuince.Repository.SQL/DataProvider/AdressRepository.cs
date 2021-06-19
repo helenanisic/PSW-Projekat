@@ -25,24 +25,5 @@ namespace MQuince.Repository.SQL.DataProvider
             return context.SaveChanges() > 0 ? entity.Id : Guid.Empty;
         }
 
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Adress> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Adress GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(Adress entity)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

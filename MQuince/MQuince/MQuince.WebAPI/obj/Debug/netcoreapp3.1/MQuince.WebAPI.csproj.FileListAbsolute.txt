@@ -796,9 +796,6 @@ C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debu
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\MQuince.Services.Implementation.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\MQuince.Repository.Contracts.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.csprojAssemblyReference.cache
-C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.csproj.CoreCompileInputs.cache
-C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.AssemblyInfoInputs.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.AssemblyInfo.cs
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.RazorTargetAssemblyInfo.cache
@@ -808,3 +805,7 @@ C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debu
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.dll
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.genruntimeconfig.cache
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\CSharpFunctionalExtensions.dll
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.MvcApplicationPartsAssemblyInfo.cache

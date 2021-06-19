@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "/0iN9VP26FjeWLbV5n37ov61jOEcQuz0NFriXnyXa+RkSZf5wUQi8eofz7mm9wittjcvzOLXZXplfXZ3BZzLvA==",
+  "dgSpecHash": "Ls8HP+U+R+irq3EoOtyb3WDT2+9hs1wp+cmyRh99PJV61eX5BJ6lj5+mt/Ymw9lJPLkxNX2KnJzmDUzWEAhplg==",
   "success": true,
   "projectFilePath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Unit.Tests\\MQuince.Unit.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\helen\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
+    "C:\\Users\\helen\\.nuget\\packages\\csharpfunctionalextensions\\2.15.3\\csharpfunctionalextensions.2.15.3.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.aspnet.webpages\\3.2.7\\microsoft.aspnet.webpages.3.2.7.nupkg.sha512",

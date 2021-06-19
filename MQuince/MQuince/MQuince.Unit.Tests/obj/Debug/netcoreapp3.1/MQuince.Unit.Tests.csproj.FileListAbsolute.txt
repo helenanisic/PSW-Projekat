@@ -490,10 +490,11 @@ C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\bin\
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\bin\Debug\netcoreapp3.1\MQuince.Application.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\obj\Debug\netcoreapp3.1\MQuince.Unit.Tests.csprojAssemblyReference.cache
-C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\obj\Debug\netcoreapp3.1\MQuince.Unit.Tests.csproj.CoreCompileInputs.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\obj\Debug\netcoreapp3.1\MQuince.Unit.Tests.AssemblyInfoInputs.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\obj\Debug\netcoreapp3.1\MQuince.Unit.Tests.AssemblyInfo.cs
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\obj\Debug\netcoreapp3.1\MQuince.Unit.Tests.csproj.CopyComplete
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\obj\Debug\netcoreapp3.1\MQuince.Unit.Tests.dll
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\obj\Debug\netcoreapp3.1\MQuince.Unit.Tests.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\obj\Debug\netcoreapp3.1\MQuince.Unit.Tests.genruntimeconfig.cache
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\bin\Debug\netcoreapp3.1\CSharpFunctionalExtensions.dll
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Unit.Tests\obj\Debug\netcoreapp3.1\MQuince.Unit.Tests.csproj.CoreCompileInputs.cache

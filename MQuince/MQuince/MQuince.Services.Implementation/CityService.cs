@@ -24,21 +24,12 @@ namespace MQuince.Services.Implementation
             return city.Id;
         }
 
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<IdentifiableDTO<CityDTO>> GetAll()
             => _cityRepository.GetAll().Select(c => CreateCityDTO(c));
 
         public IdentifiableDTO<CityDTO> GetById(Guid id)
             => CreateCityDTO(_cityRepository.GetById(id));
 
-        public bool Update(CityDTO entityDTO, Guid id)
-        {
-            throw new NotImplementedException();
-        }
         private IdentifiableDTO<CityDTO> CreateCityDTO(City city)
         {
             if (city == null) return null;

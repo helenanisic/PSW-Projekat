@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CSharpFunctionalExtensions;
 using MQuince.Entities.Users;
 using MQuince.Repository.Contracts;
 using MQuince.Services.Contracts.DTO.Users;
@@ -17,28 +18,19 @@ namespace MQuince.Services.Implementation
         {
             _patientRepository = patientRepository;
         }
-        public Guid Create(PatientDTO entityDTO)
+        public Result<Guid> Create(Patient patient)
         {
-            return _patientRepository.Create(CreatePatientFromDTO(entityDTO));
-        }
-
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
+            if (!IsEmailUnique(patient.Email))
+                return Result.Failure<Guid>("Email nije jedinstven!");
+            Guid _id = _patientRepository.Create(patient);
+            if (_id == Guid.Empty)
+                return Result.Failure<Guid>("Neuspesan upis u bazu!");
+            return Result.Success(_id);
         }
 
         public IEnumerable<IdentifiableDTO<PatientDTO>> GetAll()
             => _patientRepository.GetAll().Select(c => CreatePatientDTO(c));
 
-        public IdentifiableDTO<PatientDTO> GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(PatientDTO entityDTO, Guid id)
-        {
-            throw new NotImplementedException();
-        }
 
         private IdentifiableDTO<PatientDTO> CreatePatientDTO(Patient patient)
         {
@@ -48,7 +40,7 @@ namespace MQuince.Services.Implementation
                 Id = patient.Id,
                 EntityDTO = new PatientDTO()
                 {
-                    UserType = patient.UserType,
+                    UserType = Enums.Usertype.Patient,
                     Name = patient.Name,
                     Surname = patient.Surname,
                     Email = patient.Email,
@@ -65,11 +57,6 @@ namespace MQuince.Services.Implementation
             };
         }
 
-        private Patient CreatePatientFromDTO(PatientDTO patient, Guid? id = null)
-            => id == null ? new Patient(patient.UserType, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
-                patient.ResidenceId, patient.ChosenDoctorId,patient.Lbo)
-                          : new Patient(id.Value, patient.UserType, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
-                              patient.ResidenceId, patient.ChosenDoctorId, patient.Lbo);
 
         public bool IsEmailUnique(String email)
         {

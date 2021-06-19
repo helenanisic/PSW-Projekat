@@ -96,10 +96,10 @@ C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\bin\Debug\netcoreapp3.1\MQuince.Entities.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\obj\Debug\netcoreapp3.1\MQuince.Repository.SQL.csprojAssemblyReference.cache
-C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\obj\Debug\netcoreapp3.1\MQuince.Repository.SQL.csproj.CoreCompileInputs.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\obj\Debug\netcoreapp3.1\MQuince.Repository.SQL.AssemblyInfoInputs.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\obj\Debug\netcoreapp3.1\MQuince.Repository.SQL.AssemblyInfo.cs
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\obj\Debug\netcoreapp3.1\MQuince.Repository.SQL.csproj.CopyComplete
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\obj\Debug\netcoreapp3.1\MQuince.Repository.SQL.dll
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\obj\Debug\netcoreapp3.1\MQuince.Repository.SQL.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\obj\Debug\netcoreapp3.1\MQuince.Repository.SQL.genruntimeconfig.cache
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Repository.SQL\obj\Debug\netcoreapp3.1\MQuince.Repository.SQL.csproj.CoreCompileInputs.cache

@@ -24,25 +24,6 @@ namespace MQuince.Services.Implementation
             return adress.Id;
         }
 
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IdentifiableDTO<AdressDTO>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IdentifiableDTO<AdressDTO> GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(AdressDTO entityDTO, Guid id)
-        {
-            throw new NotImplementedException();
-        }
         private IdentifiableDTO<AdressDTO> CreateAdressDTO(Adress adress)
         {
             if (adress == null) return null;

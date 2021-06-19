@@ -5,8 +5,11 @@ using MQuince.Entities.Users;
 
 namespace MQuince.Repository.Contracts
 {
-    public interface ICityRepository : IRepository<City>
+    public interface ICityRepository
     {
         IEnumerable<City> GetAllCitiesInCountry(Guid id);
+        City GetById(Guid id);
+        IEnumerable<City> GetAll();
+        Guid Create(City entity);
     }
 }

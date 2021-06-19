@@ -37,15 +37,6 @@ namespace MQuince.Repository.SQL.DataProvider
             return CityMapper.MapCityPersistenceToCityEntity(context.Cities.SingleOrDefault(c => c.Id.Equals(id)));
         }
 
-        public bool Update(City entity)
-        {
-            throw new NotImplementedException();
-        }
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<City> GetAllCitiesInCountry(Guid id)
         {
             using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);

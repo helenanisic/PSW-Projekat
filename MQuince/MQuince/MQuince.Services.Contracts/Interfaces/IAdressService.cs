@@ -6,7 +6,8 @@ using MQuince.Services.Contracts.IdentifiableDTO;
 
 namespace MQuince.Services.Contracts.Interfaces
 {
-    public interface IAdressService : IService<AdressDTO, IdentifiableDTO<AdressDTO>>
+    public interface IAdressService
     {
+        Guid Create(AdressDTO entityDTO);
     }
 }

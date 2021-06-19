@@ -1,11 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using MQuince.Entities;
+using MQuince.Entities.Authentication;
 using MQuince.Entities.Users;
 using MQuince.Repository.Contracts;
 using MQuince.Repository.SQL.DataAccess;
@@ -17,79 +24,48 @@ using MQuince.Services.Contracts.DTO.Communication;
 using MQuince.Services.Contracts.DTO.Users;
 using MQuince.Services.Contracts.Interfaces;
 using MQuince.Services.Implementation;
+using MQuince.WebAPI;
 using MQuince.WebAPI.Controllers;
+using Newtonsoft.Json;
 using Xunit;
 
 namespace MQuince.Integration.Tests
 {
-    public class CreateFeedback
+    public class CreateFeedback : IClassFixture<WebApplicationFactory<Startup>>
     {
-        private FeedbackController feedbackController;
-        private IFeedbackService feedbackService;
-        private IFeedbackRepository feedbackRepository;
-
-        private void InitDB()
+        public HttpClient Client { get; }
+        public IUserService _userService;
+        public CreateFeedback(WebApplicationFactory<Startup> factory)
         {
-            DbContextOptionsBuilder optionsBuilder = new DbContextOptionsBuilder<MQuinceDbContext>();
-            optionsBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString());
-            feedbackRepository = new FeedbackRepository(optionsBuilder);
-            using var dataBase = new MQuinceDbContext(optionsBuilder.Options);
-            dataBase.Database.EnsureDeleted();
-            dataBase.Database.EnsureCreated();
-            AddFeedbacksToDB(dataBase);
+            Client = factory.CreateClient();
+            _userService = (IUserService)factory.Services.GetService(typeof(IUserService));
         }
-        private static ISession MockHttpContext()
+        public static ByteArrayContent GetByteArrayContent(object o)
         {
-            MockHttpSession httpcontext = new MockHttpSession();
-            httpcontext.SetString("UserId", "009f44e4-00dd-4f76-976b-be118844f3b4");
-            return httpcontext;
-        }
-
-        private void AddFeedbacksToDB(MQuinceDbContext dataBase)
-        {
-            FeedbackPersistence feedback1 = new FeedbackPersistence()
-            {
-                Id = Guid.NewGuid(),
-                Comment = "Extra!",
-                Published = false,
-                PatientId = Guid.NewGuid()
-            };
-            FeedbackPersistence feedback2 = new FeedbackPersistence()
-            {
-                Id = Guid.NewGuid(),
-                Comment = "Uzas!",
-                Published = false,
-                PatientId = Guid.NewGuid()
-            };
-            dataBase.Feedbacks.AddRange(feedback1, feedback2);
-            dataBase.SaveChanges();
-        }
-
-        public CreateFeedback()
-        {
-            InitDB();
-            feedbackService = new FeedbackService(feedbackRepository);
-            feedbackController = new FeedbackController(feedbackService);
+            var myContent = JsonConvert.SerializeObject(o);
+            var buffer = Encoding.UTF8.GetBytes(myContent);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            return byteContent;
         }
 
         [Fact]
-        public void patient_create_feedback_success()
+        public async Task create_feedback_success()
         {
-            FeedbackCommentDTO feedbackComment = new FeedbackCommentDTO()
+            FeedbackCommentDTO feedbackDTO = new FeedbackCommentDTO()
             {
-                Comment = "Top!"
+                Comment = "Test!"
             };
-            Mock<HttpContext> mockHttpContext = new Mock<HttpContext>();
-            MockHttpSession mockSession = new MockHttpSession();
-            mockSession["UserId"] = "009f44e4-00dd-4f76-976b-be118844f3b4";
-            mockHttpContext.Setup(s => s.Session).Returns(mockSession);
-            feedbackController.ControllerContext.HttpContext = mockHttpContext.Object;
+            AuthenticateRequest user = new AuthenticateRequest
+            {
+                Email = "hanisic@gmail.com",
+                Password = "Helena123"
+            };
 
-            
-            feedbackController.Create(feedbackComment);
-            List<Feedback> feedbacks = feedbackRepository.GetAll().ToList();
-
-            Assert.Equal(3, feedbacks.Count());
+            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authenticatedUser.Token);
+            HttpResponseMessage response = await Client.PostAsync("/api/Feedback", GetByteArrayContent(feedbackDTO));
+            Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
         }
     }
 }

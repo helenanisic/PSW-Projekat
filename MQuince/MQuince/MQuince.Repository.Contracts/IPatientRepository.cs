@@ -6,8 +6,10 @@ using MQuince.Services.Contracts.DTO.Users;
 
 namespace MQuince.Repository.Contracts
 {
-    public interface IPatientRepository : IRepository<Patient>
+    public interface IPatientRepository
     {
         bool IsEmailUnique(string email);
+        Guid Create(Patient entity);
+        IEnumerable<Patient> GetAll();
     }
 }

@@ -7,8 +7,11 @@ using MQuince.Services.Contracts.IdentifiableDTO;
 
 namespace MQuince.Services.Contracts.Interfaces
 {
-    public interface ICityService : IService<CityDTO, IdentifiableDTO<CityDTO>>
+    public interface ICityService
     {
         public IEnumerable<IdentifiableDTO<CityDTO>> GetAllCitiesInCountry(Guid id);
+        IdentifiableDTO<CityDTO> GetById(Guid id);
+        IEnumerable<IdentifiableDTO<CityDTO>> GetAll(); 
+        Guid Create(CityDTO entityDTO);
     }
 }

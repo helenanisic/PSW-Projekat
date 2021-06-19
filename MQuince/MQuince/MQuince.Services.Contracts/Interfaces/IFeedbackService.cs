@@ -8,10 +8,13 @@ using MQuince.Services.Contracts.IdentifiableDTO;
 
 namespace MQuince.Services.Contracts.Interfaces
 {
-    public interface IFeedbackService : IService<FeedbackDTO, IdentifiableDTO<FeedbackDTO>>
+    public interface IFeedbackService
     {
         IEnumerable<ViewFeedbackDTO> GetNotPublishedFeedbacks();
         IEnumerable<ViewFeedbackDTO> GetPublishedFeedbacks();
         IEnumerable<ViewFeedbackDTO> GetAllFeedbacks();
+
+        Guid Create(Feedback feedback);
+        Feedback Update(FeedbackDTO entityDTO, Guid id);
     }
 }

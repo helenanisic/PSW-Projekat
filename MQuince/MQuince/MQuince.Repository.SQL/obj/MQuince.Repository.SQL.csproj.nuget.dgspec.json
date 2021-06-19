@@ -158,6 +158,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "CSharpFunctionalExtensions": {
+              "target": "Package",
+              "version": "[2.15.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -221,6 +227,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "CSharpFunctionalExtensions": {
+              "target": "Package",
+              "version": "[2.15.3, )"
+            },
             "Microsoft.AspNet.Mvc": {
               "target": "Package",
               "version": "[5.2.7, )"
@@ -313,6 +323,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "CSharpFunctionalExtensions": {
+              "target": "Package",
+              "version": "[2.15.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

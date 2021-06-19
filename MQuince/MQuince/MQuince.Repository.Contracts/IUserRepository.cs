@@ -7,11 +7,9 @@ using MQuince.Services.Contracts.DTO.Users;
 
 namespace MQuince.Repository.Contracts
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IUserRepository
     {
         User AuthenticateUser(AuthenticateRequest user);
-        bool IsUserTypePatient(Guid id);
-        bool IsUserTypeAdmin(Guid id);
 
         User GetById(Guid id); 
     }

@@ -26,23 +26,10 @@ namespace MQuince.Services.Implementation
             return doctor.Id;
         }
 
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<IdentifiableDTO<DoctorDTO>> GetAll()
             => _doctorRepository.GetAll().Select(c => CreateDoctorDTO(c));
 
-        public IdentifiableDTO<DoctorDTO> GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
 
-        public bool Update(DoctorDTO entityDTO, Guid id)
-        {
-            throw new NotImplementedException();
-        }
         private IdentifiableDTO<DoctorDTO> CreateDoctorDTO(Doctor doctor)
         {
             if (doctor == null) return null;

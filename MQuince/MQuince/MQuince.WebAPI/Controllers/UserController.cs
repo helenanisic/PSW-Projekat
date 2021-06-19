@@ -34,38 +34,13 @@ namespace MQuince.WebAPI.Controllers
             AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
             if (authenticatedUser == null)
             {
-                return BadRequest(authenticatedUser.ToString());
+                return Unauthorized();
             }
             else
             {
 
                 return Ok(authenticatedUser);
             }
-        }
-
-
-        [HttpGet("IsUserTypePatient")]
-        public IActionResult IsUserTypePatient()
-        {
-            String s = HttpContext.Session.GetString("UserId");
-            if (s is null)
-                return BadRequest();
-
-            if (_userService.IsUserTypePatient(new Guid(s)))
-                return Ok("patient");
-            return BadRequest();
-        }
-        
-        [HttpGet("IsUserTypeAdmin")]
-        public IActionResult IsUserTypeAdmin()
-        {
-            String s = HttpContext.Session.GetString("UserId");
-            if (s is null)
-                return BadRequest();
-            
-            if (_userService.IsUserTypeAdmin(new Guid(s)))
-                return Ok();
-            return BadRequest();
         }
     }
 }

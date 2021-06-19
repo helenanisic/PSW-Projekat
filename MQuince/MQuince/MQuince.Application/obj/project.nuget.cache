@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bhsU5Q9aiHG/d3SSUcTKsaVn5KjctBaMSNFhYs9ZUCOBjokG/HyvpWprTZeCtvK3DjxNe6VitbvI5B/KETkltQ==",
+  "dgSpecHash": "m6oI/8e7Aq372u45xEf/vV8jX+qNpoGyLFxzFwyQS+ZnhvJ20IIbiBCy/7/8zi9sYyVGoFv/H/VZiFfC8jEKrQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Application\\MQuince.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\helen\\.nuget\\packages\\csharpfunctionalextensions\\2.15.3\\csharpfunctionalextensions.2.15.3.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.aspnet.mvc\\5.2.7\\microsoft.aspnet.mvc.5.2.7.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.aspnet.razor\\3.2.7\\microsoft.aspnet.razor.3.2.7.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.aspnet.webpages\\3.2.7\\microsoft.aspnet.webpages.3.2.7.nupkg.sha512",

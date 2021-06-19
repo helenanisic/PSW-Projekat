@@ -8,11 +8,9 @@ using System.Collections.Generic;
 
 namespace MQuince.Services.Contracts.Interfaces
 {
-    public interface IUserService : IService<UserDTO, IdentifiableDTO<UserDTO>>
+    public interface IUserService
     {
         AuthenticateResponse Authenticate(AuthenticateRequest model);
-        bool IsUserTypePatient(Guid id);
-        bool IsUserTypeAdmin(Guid guid);
         string GetIdFromJwtToken(string token);
         string GetRoleFromJwtToken(string token);
 

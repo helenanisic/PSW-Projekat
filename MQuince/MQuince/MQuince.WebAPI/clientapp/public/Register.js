@@ -56,7 +56,7 @@
                                 BirthDate: this.birthday,
                                 Email: this.email,
                                 Password: this.password,
-                                UserType: 0,
+                                UserType: 1,
                                 Gender: parseInt(this.gender),
                                 ResidenceId: this.adressId,
                                 Lbo: this.lbo,

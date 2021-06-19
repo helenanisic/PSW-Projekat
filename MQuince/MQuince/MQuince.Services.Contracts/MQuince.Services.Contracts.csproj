@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CSharpFunctionalExtensions" Version="2.15.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MQuince.Entities\MQuince.Entities.csproj" />
     <ProjectReference Include="..\MQuince.Enums\MQuince.Enums.csproj" />
   </ItemGroup>

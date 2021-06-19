@@ -30,27 +30,12 @@ namespace MQuince.Repository.SQL.DataProvider
             _context.Patients.Add(PatientMapper.MapPatientEntityToPatientPersistence(entity));
             return _context.SaveChanges() > 0 ? entity.Id : Guid.Empty;
         }
-
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Patient> GetAll()
         {
             using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
             return PatientMapper.MapPatientPersistenceCollectionToPatientEntityCollection(_context.Patients.ToList());
         }
 
-        public Patient GetById(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(Patient entity)
-        {
-            throw new NotImplementedException();
-        }
         public bool IsEmailUnique(String email)
         {
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);

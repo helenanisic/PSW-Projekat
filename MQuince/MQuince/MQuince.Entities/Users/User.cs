@@ -10,7 +10,7 @@ namespace MQuince.Entities
     public class User
     {
         [Required]
-        private Guid _id;
+        public Guid Id { get; set; }
         public Usertype UserType { get; set; }
         [Required]
         public string Name { get; set; }
@@ -20,21 +20,16 @@ namespace MQuince.Entities
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
-        public Guid Id
-        {
-            get => _id;
-            protected set => _id = value == Guid.Empty ? throw new ArgumentException("Argument can not be Guid.Empty", nameof(Id)) : value;
 
-        }
         public User()
         {
-            _id = Guid.NewGuid();
+            Id = Guid.NewGuid();
         }
 
         public User(Usertype userType, string name, string surname, string email, string password) : this(Guid.NewGuid(), userType, name, surname, email, password) { }
         public User(Guid id, Usertype userType, string name, string surname, string email, string password)
         {
-            _id = id;
+            Id = id;
             UserType = userType;
             Name = name;
             Surname = surname;

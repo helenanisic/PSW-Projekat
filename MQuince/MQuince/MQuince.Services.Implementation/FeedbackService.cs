@@ -19,29 +19,15 @@ namespace MQuince.Services.Implementation
             _feedbackRepository = feedbackRepository;
         } 
         
-        public Guid Create(FeedbackDTO entityDTO)
+        public Guid Create(Feedback feedback)
         {
-            return _feedbackRepository.Create(CreateFeedbackFromDTO(entityDTO));
+            return _feedbackRepository.Create(feedback);
             
         }
 
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<IdentifiableDTO<FeedbackDTO>> GetAll()
-        {
-            throw new NotImplementedException();
-        }
         public IEnumerable<ViewFeedbackDTO> GetAllFeedbacks()
         {
             return _feedbackRepository.GetAllFeedbacks();
-        }
-
-        public IdentifiableDTO<FeedbackDTO> GetById(Guid id)
-        {
-            throw new NotImplementedException();
         }
 
         public IEnumerable<ViewFeedbackDTO> GetNotPublishedFeedbacks() 
@@ -50,7 +36,7 @@ namespace MQuince.Services.Implementation
         public IEnumerable<ViewFeedbackDTO> GetPublishedFeedbacks()
             => _feedbackRepository.GetPublishedFeedbacks();
 
-        public bool Update(FeedbackDTO entityDTO, Guid id)
+        public Feedback Update(FeedbackDTO entityDTO, Guid id)
         {
             return _feedbackRepository.Update(CreateFeedbackFromDTO(entityDTO, id));
         }

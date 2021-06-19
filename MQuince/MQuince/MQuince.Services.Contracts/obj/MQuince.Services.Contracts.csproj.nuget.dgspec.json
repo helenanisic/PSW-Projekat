@@ -158,6 +158,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "CSharpFunctionalExtensions": {
+              "target": "Package",
+              "version": "[2.15.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

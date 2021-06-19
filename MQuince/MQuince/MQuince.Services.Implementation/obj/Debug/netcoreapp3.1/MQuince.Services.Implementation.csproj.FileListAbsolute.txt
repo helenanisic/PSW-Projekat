@@ -82,9 +82,9 @@ C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Implem
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Implementation\bin\Debug\netcoreapp3.1\MQuince.Services.Contracts.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Implementation\bin\Debug\netcoreapp3.1\MQuince.Enums.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Implementation\obj\Debug\netcoreapp3.1\MQuince.Services.Implementation.csprojAssemblyReference.cache
-C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Implementation\obj\Debug\netcoreapp3.1\MQuince.Services.Implementation.csproj.CoreCompileInputs.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Implementation\obj\Debug\netcoreapp3.1\MQuince.Services.Implementation.AssemblyInfoInputs.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Implementation\obj\Debug\netcoreapp3.1\MQuince.Services.Implementation.AssemblyInfo.cs
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Implementation\obj\Debug\netcoreapp3.1\MQuince.Services.Implementation.csproj.CopyComplete
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Implementation\obj\Debug\netcoreapp3.1\MQuince.Services.Implementation.dll
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Implementation\obj\Debug\netcoreapp3.1\MQuince.Services.Implementation.pdb
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.Services.Implementation\obj\Debug\netcoreapp3.1\MQuince.Services.Implementation.csproj.CoreCompileInputs.cache

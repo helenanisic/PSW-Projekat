@@ -24,21 +24,12 @@ namespace MQuince.Services.Implementation
             return country.Id;
         }
 
-        public bool Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<IdentifiableDTO<CountryDTO>> GetAll()
             => _countryRepository.GetAll().Select(c => CreateCountryDTO(c));
 
         public IdentifiableDTO<CountryDTO> GetById(Guid id)
             => CreateCountryDTO(_countryRepository.GetById(id));
 
-            public bool Update(CountryDTO entityDTO, Guid id)
-        {
-            throw new NotImplementedException();
-        }
         private IdentifiableDTO<CountryDTO> CreateCountryDTO(Country country)
             {
                 if (country == null) return null;
