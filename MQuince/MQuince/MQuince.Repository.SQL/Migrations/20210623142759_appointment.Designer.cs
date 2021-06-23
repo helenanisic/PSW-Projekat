@@ -3,14 +3,16 @@ using System;
 using MQuince.Repository.SQL.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MQuince.Repository.SQL.Migrations
 {
     [DbContext(typeof(MQuinceDbContext))]
-    partial class MQuinceDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210623142759_appointment")]
+    partial class appointment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,36 +39,6 @@ namespace MQuince.Repository.SQL.Migrations
                     b.HasIndex("CityId");
 
                     b.ToTable("Adress");
-                });
-
-            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Appointments.AppointmentPersistence", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
-
-                    b.Property<Guid>("DoctorId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("EndDateTime")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<Guid>("PatientId")
-                        .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("StartDateTime")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DoctorId");
-
-                    b.HasIndex("PatientId");
-
-                    b.ToTable("Appointment");
                 });
 
             modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.FeedbackPersistence", b =>
@@ -233,21 +205,6 @@ namespace MQuince.Repository.SQL.Migrations
                     b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.CityPersistence", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Appointments.AppointmentPersistence", b =>
-                {
-                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.DoctorPersistence", "DoctorPersistence")
-                        .WithMany()
-                        .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.PatientPersistence", "PatientPersistence")
-                        .WithMany()
-                        .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

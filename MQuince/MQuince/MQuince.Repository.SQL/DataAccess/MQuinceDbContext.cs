@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using MQuince.Repository.SQL.PersistenceEntities;
+using MQuince.Repository.SQL.PersistenceEntities.Appointments;
 using MQuince.Repository.SQL.PersistenceEntities.Drug;
 using MQuince.Repository.SQL.PersistenceEntities.MedicalRecords;
 using MQuince.Repository.SQL.PersistenceEntities.Users;
@@ -20,14 +21,16 @@ namespace MQuince.Repository.SQL.DataAccess
         public DbSet<AdressPersistence> Adresses { get; set; }
         public DbSet<FeedbackPersistence> Feedbacks { get; set; }
 
+        public DbSet<AppointmentPersistence> Appointments { get; set; }
+
         public MQuinceDbContext(DbContextOptions options) : base(options) { }
 
         public MQuinceDbContext() { }
 
-       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql(@"server=localhost;port=3306;database=mquince;user=root;password=root");
         }
-        */
+        
     }
 }
