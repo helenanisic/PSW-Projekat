@@ -16,6 +16,8 @@
                     })
                 .then(response => {
                     this.info = response.data
+                    console.log(this.info.token);
+                    localStorage.setItem("access_token", this.info.token);
                     JSAlert.alert("You have successfully logged into your account!");
                         axios
                             .get('/api/User/IsUserTypePatient')

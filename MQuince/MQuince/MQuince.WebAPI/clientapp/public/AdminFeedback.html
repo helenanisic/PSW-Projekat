@@ -138,6 +138,13 @@
                             </button>
                         </div>
                     </div>
+                    <div style=" float: right; margin-top: 60px; margin-right: -10%;" v-if="feedback.published == true">
+                        <div>
+                            <button class="btn" @click="remove(feedback)">
+                                <i class="fa fa-trash"></i>&nbsp&nbspRemove
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
