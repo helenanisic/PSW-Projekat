@@ -32,5 +32,7 @@ namespace MQuince.Repository.SQL.PersistenceEntities.Users
         public Guid ChosenDoctorId { get; set; }
         [RegularExpression("([0-9].+)")]
         public string Lbo { get; set; }
+
+        public int MissedAppointments { get; set; }
     }
 }

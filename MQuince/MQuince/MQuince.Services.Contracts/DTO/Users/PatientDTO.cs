@@ -23,5 +23,7 @@ namespace MQuince.Services.Contracts.DTO.Users
         public Guid ChosenDoctorId { get; set; }
         [RegularExpression("([0-9].+)")]
         public string Lbo { get; set; }
+
+        public int MissedAppointments { get; set; }
     }
 }
