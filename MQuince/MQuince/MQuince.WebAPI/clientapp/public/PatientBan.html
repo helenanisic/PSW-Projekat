@@ -123,7 +123,15 @@
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                     <div class="short-info2">Patient: &nbsp; {{patient.name}} &nbsp; {{patient.surname}}</div>
                     <div class="apartment-name2">Missed appointments: &nbsp; {{patient.missedAppointments}}</div>
+                    <div style=" float: right; margin-top: 60px; margin-right: -10%;">
+                        <div>
+                            <button class="btn" @click="ban(patient)">
+                                <i class="fa fa-ban"></i>&nbsp&nbspBan
+                            </button>
+                        </div>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </section>
