@@ -122,12 +122,16 @@
                 <div class="col-lg-8 mx-auto">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                     <div class="short-info2">Appointment type: &nbsp; {{appointment.type}}</div>
-                    <div class="apartment-name2">Time: &nbsp; {{appointment.startDateTime}} &nbsp;- &nbsp;{{appointment.endDateTime}}</div>
-                    <div class="apartment-name2">Doctor: &nbsp; {{appointment.doctor}}
-                    <br />
+                    <div class="short-info2">Status: &nbsp; {{appointment.status}}</div>
+                    <div class="apartment-name2">Start time: &nbsp; {{appointment.startDateTime}}</div>
+                    <div class="apartment-name2">End time: &nbsp; {{appointment.endDateTime}}</div>
+                    <div class="apartment-name2">
+                        Doctor: &nbsp; {{appointment.doctorName}} &nbsp; {{appointment.doctorSurname}}
+                        <br />
+                    </div>
+
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <!-- Footer-->

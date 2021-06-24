@@ -57,6 +57,9 @@ namespace MQuince.Repository.SQL.Migrations
                     b.Property<DateTime>("StartDateTime")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
@@ -239,13 +242,13 @@ namespace MQuince.Repository.SQL.Migrations
 
             modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Appointments.AppointmentPersistence", b =>
                 {
-                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.DoctorPersistence", "DoctorPersistence")
+                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.DoctorPersistence", "Doctor")
                         .WithMany()
                         .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.PatientPersistence", "PatientPersistence")
+                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.PatientPersistence", "Patient")
                         .WithMany()
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)

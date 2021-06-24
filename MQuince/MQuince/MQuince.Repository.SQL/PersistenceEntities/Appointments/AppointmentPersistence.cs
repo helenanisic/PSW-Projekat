@@ -16,13 +16,14 @@ namespace MQuince.Repository.SQL.PersistenceEntities.Appointments
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public TreatmentType Type { get; set; }
+        public AppointmentStatus Status { get; set; }
 
         [ForeignKey("DoctorId")]
-        public DoctorPersistence DoctorPersistence { get; set; }
+        public DoctorPersistence Doctor { get; set; }
         public Guid DoctorId { get; set; }
 
         [ForeignKey("PatientId")]
-        public PatientPersistence PatientPersistence { get; set; }
+        public PatientPersistence Patient { get; set; }
         public Guid PatientId { get; set; }
     }
 }

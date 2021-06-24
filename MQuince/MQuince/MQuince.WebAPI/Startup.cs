@@ -39,7 +39,7 @@ namespace MQuince.WebAPI
             services.AddTransient(typeof(IAdressService), s => application.GetAdressService());
             services.AddTransient(typeof(IUserService), s => application.GetUserService(secret));
             services.AddTransient(typeof(IFeedbackService), s => application.GetFeedbackService());
-
+            services.AddTransient(typeof(IAppointmentService), s => application.GetAppointmentService());
             services.AddControllers();
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp"; });
             var key = Encoding.ASCII.GetBytes(secret);

@@ -59,5 +59,11 @@ namespace MQuince.Application
 
         private IFeedbackRepository GetFeedbackRepository()
             => new FeedbackRepository(_optionsBuilder);
+
+        private IAppointmentRepository GetAppointmentRepository()
+            => new AppointmentRepository(_optionsBuilder);
+
+        public IAppointmentService GetAppointmentService()
+           => new AppointmentService(this.GetAppointmentRepository());
     }
 }

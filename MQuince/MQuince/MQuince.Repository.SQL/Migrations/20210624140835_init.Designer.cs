@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MQuince.Repository.SQL.Migrations
 {
     [DbContext(typeof(MQuinceDbContext))]
-    [Migration("20201228182109_Feedback")]
-    partial class Feedback
+    [Migration("20210624140835_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,6 +41,39 @@ namespace MQuince.Repository.SQL.Migrations
                     b.ToTable("Adress");
                 });
 
+            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Appointments.AppointmentPersistence", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("DoctorId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("EndDateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid>("PatientId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("StartDateTime")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("Appointment");
+                });
+
             modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.FeedbackPersistence", b =>
                 {
                     b.Property<Guid>("Id")
@@ -48,7 +81,9 @@ namespace MQuince.Repository.SQL.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Comment")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .IsRequired()
+                        .HasColumnType("varchar(500) CHARACTER SET utf8mb4")
+                        .HasMaxLength(500);
 
                     b.Property<Guid>("PatientId")
                         .HasColumnType("char(36)");
@@ -180,7 +215,6 @@ namespace MQuince.Repository.SQL.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Lbo")
-                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<Guid>("ResidenceId")
@@ -204,6 +238,21 @@ namespace MQuince.Repository.SQL.Migrations
                     b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.CityPersistence", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Appointments.AppointmentPersistence", b =>
+                {
+                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.DoctorPersistence", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.PatientPersistence", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

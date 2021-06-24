@@ -23,7 +23,14 @@ namespace MQuince.WebAPI.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            _doctorService.Create(new DoctorDTO() {});
+            _doctorService.Create(new DoctorDTO() {
+                UserType = Enums.Usertype.Doctor,
+                Name = "Mara",
+                Surname = "Maric",
+                Email = "mara@gmail.com",
+                Password = "Mara123",
+                SpecializationId = new Guid("75910c98-913d-43d9-a012-ad8fa3cc4045")
+            });
             return Ok();
         }
         
