@@ -63,5 +63,9 @@ namespace MQuince.Services.Implementation
             return _patientRepository.IsEmailUnique(email);
         }
 
+        public IEnumerable<Patient> GetMaliciousPatients()
+        {
+            return _patientRepository.GetMaliciousPatients();
+        }
     }
 }

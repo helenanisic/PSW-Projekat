@@ -42,5 +42,10 @@ namespace MQuince.Repository.SQL.DataProvider
             return PatientMapper.MapPatientPersistenceToPatientEntity(context.Patients.SingleOrDefault(p => p.Email.Equals(email))) is null;
         }
 
+        public IEnumerable<Patient> GetMaliciousPatients()
+        {
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            return PatientMapper.MapPatientPersistenceCollectionToPatientEntityCollection(context.Patients.Where(p => p.MissedAppointments >= 3).ToList());
+        }
     }
 }

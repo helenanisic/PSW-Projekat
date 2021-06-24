@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MQuince.Entities.Users;
 using MQuince.Services.Contracts.DTO.Users;
@@ -33,11 +35,31 @@ namespace MQuince.WebAPI.Controllers
             return Created("", result.Value);
         }
 
+        [HttpGet("GetMaliciousPatient")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult GetMaliciousPatients()
+        {
+            IEnumerable<Patient> patients = _patientService.GetMaliciousPatients();
+            IEnumerable<MaliciousPatientDTO> maliciousPatientDtos = patients.Select(p => CreateMaliciousPatientDTO(p));
+            return Ok(maliciousPatientDtos);
+        }
+
         public static Patient CreatePatientFromDTO(PatientDTO patient, Guid? id = null)
     => id == null ? new Patient(Enums.Usertype.Patient, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
         patient.ResidenceId, patient.ChosenDoctorId, patient.Lbo, patient.MissedAppointments)
                   : new Patient(id.Value, Enums.Usertype.Patient, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
                       patient.ResidenceId, patient.ChosenDoctorId, patient.Lbo, patient
                       .MissedAppointments);
+
+        private MaliciousPatientDTO CreateMaliciousPatientDTO(Patient patient)
+        {
+            return new MaliciousPatientDTO()
+            {
+                Id = patient.Id,
+                Name = patient.Name,
+                Surname = patient.Surname,
+                MissedAppointments = patient.MissedAppointments
+            };
+        }
     }
 }

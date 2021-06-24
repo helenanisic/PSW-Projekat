@@ -118,11 +118,11 @@
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Malicious Patients</h2>
             <!-- Icon Divider-->
             <!-- Contact Section Form-->
-            <div class="commentBox" v-for="appointment in appointments">
+            <div class="commentBox" v-for="patient in patients">
                 <div class="col-lg-8 mx-auto">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                     <div class="short-info2">Patient: &nbsp; {{patient.name}} &nbsp; {{patient.surname}}</div>
-                    <div class="apartment-name2">Missed appointments: &nbsp; {{appointment.missedAppointments}}</div>
+                    <div class="apartment-name2">Missed appointments: &nbsp; {{patient.missedAppointments}}</div>
                 </div>
             </div>
         </div>

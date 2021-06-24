@@ -11,5 +11,6 @@ namespace MQuince.Repository.Contracts
         bool IsEmailUnique(string email);
         Guid Create(Patient entity);
         IEnumerable<Patient> GetAll();
+        IEnumerable<Patient> GetMaliciousPatients();
     }
 }
