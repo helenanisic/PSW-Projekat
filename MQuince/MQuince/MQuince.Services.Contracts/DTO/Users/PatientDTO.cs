@@ -25,5 +25,6 @@ namespace MQuince.Services.Contracts.DTO.Users
         public string Lbo { get; set; }
 
         public int MissedAppointments { get; set; }
+        public bool Banned { get; set; }
     }
 }

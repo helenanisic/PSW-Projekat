@@ -25,18 +25,19 @@ namespace MQuince.Entities.Users
         [Required]
         [RegularExpression("([0-9].+)")]
         public string Lbo { get; set; }
-
         public int MissedAppointments { get; set; }
+
+        public bool Banned { get; set; }
         public Patient()
         {
             Id = Guid.NewGuid();
         }
 
         public Patient(Usertype userType, string name, string surname, string email, string password, string jmbg, DateTime birthDate, Gender gender,
-            string telephone, Guid residenceId, Guid chosenDoctorId, string lbo, int missedAppointments) : this(Guid.NewGuid(), userType, name, surname, email, password, jmbg, birthDate,gender,
-            telephone, residenceId, chosenDoctorId, lbo, missedAppointments) { }
+            string telephone, Guid residenceId, Guid chosenDoctorId, string lbo, int missedAppointments, bool banned) : this(Guid.NewGuid(), userType, name, surname, email, password, jmbg, birthDate,gender,
+            telephone, residenceId, chosenDoctorId, lbo, missedAppointments, banned) { }
         public Patient(Guid id, Usertype userType, string name, string surname, string email, string password, string jmbg, DateTime birthDate, Gender gender,
-            string telephone, Guid residenceId, Guid chosenDoctorId, string lbo, int missedAppointments)
+            string telephone, Guid residenceId, Guid chosenDoctorId, string lbo, int missedAppointments, bool banned)
         {
             Id = id;
             UserType = userType;
@@ -52,6 +53,7 @@ namespace MQuince.Entities.Users
             ChosenDoctorId = chosenDoctorId;
             Lbo = lbo;
             MissedAppointments = missedAppointments;
+            Banned = banned;
         }
     }
 }
