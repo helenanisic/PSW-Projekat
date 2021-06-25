@@ -5,14 +5,17 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using CSharpFunctionalExtensions;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.IdentityModel.Tokens;
 using MQuince.Entities;
 using MQuince.Entities.Authentication;
+using MQuince.Entities.Users;
 using MQuince.Repository.Contracts;
 using MQuince.Services.Contracts.DTO;
 using MQuince.Services.Contracts.DTO.Users;
 using MQuince.Services.Contracts.IdentifiableDTO;
 using MQuince.Services.Contracts.Interfaces;
+using Newtonsoft.Json;
 
 namespace MQuince.Services.Implementation
 {
@@ -26,18 +29,22 @@ namespace MQuince.Services.Implementation
             this.secret = secret;
         }
 
-        public AuthenticateResponse Authenticate(AuthenticateRequest model)
+        public Result<AuthenticateResponse> Authenticate(AuthenticateRequest model)
         {
             var user = _userRepository.AuthenticateUser(model);
-            if (user != null)
+            if(user == null)
             {
-                var token = generateJwtToken(user);
-
-                return new AuthenticateResponse(user, token);
+                return Result.Failure<AuthenticateResponse>("Wrong email or password");
+            }
+            if(user.Banned == true)
+            {
+                return Result.Failure<AuthenticateResponse>("You are blocked!");
             }
             else
             {
-                return null;
+                var token = generateJwtToken(user);
+
+                return Result.Success<AuthenticateResponse>(new AuthenticateResponse(user, token));
             }
 
         }

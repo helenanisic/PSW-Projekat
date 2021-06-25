@@ -26,8 +26,6 @@ namespace MQuince.Entities.Users
         [RegularExpression("([0-9].+)")]
         public string Lbo { get; set; }
         public int MissedAppointments { get; set; }
-
-        public bool Banned { get; set; }
         public Patient()
         {
             Id = Guid.NewGuid();

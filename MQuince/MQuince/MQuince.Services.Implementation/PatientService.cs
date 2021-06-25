@@ -67,5 +67,20 @@ namespace MQuince.Services.Implementation
         {
             return _patientRepository.GetMaliciousPatients();
         }
+
+        public Patient BanPatient(Guid id)
+        {
+            Patient patient = _patientRepository.GetById(id);
+            if (patient == null)
+            {
+                return null;
+            }
+            else
+            {
+                patient.Banned = true;
+                return _patientRepository.BanPatient(patient);
+            }
+            
+        }
     }
 }

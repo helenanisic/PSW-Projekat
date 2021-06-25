@@ -40,14 +40,6 @@ namespace MQuince.Integration.Tests
             Client = factory.CreateClient();
             _userService = (IUserService)factory.Services.GetService(typeof(IUserService));
         }
-        public static ByteArrayContent GetByteArrayContent(object o)
-        {
-            var myContent = JsonConvert.SerializeObject(o);
-            var buffer = Encoding.UTF8.GetBytes(myContent);
-            var byteContent = new ByteArrayContent(buffer);
-            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            return byteContent;
-        }
 
         [Fact]
         public async Task create_feedback_success()
@@ -58,13 +50,13 @@ namespace MQuince.Integration.Tests
             };
             AuthenticateRequest user = new AuthenticateRequest
             {
-                Email = "hanisic@gmail.com",
+                Email = "helena@gmail.com",
                 Password = "Helena123"
             };
 
-            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
-            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authenticatedUser.Token);
-            HttpResponseMessage response = await Client.PostAsync("/api/Feedback", GetByteArrayContent(feedbackDTO));
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
+            HttpResponseMessage response = await Client.PostAsync("/api/Feedback", Helpers.GetByteArrayContent(feedbackDTO));
             Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
         }
     }

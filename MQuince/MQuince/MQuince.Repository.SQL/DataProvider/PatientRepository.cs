@@ -47,5 +47,19 @@ namespace MQuince.Repository.SQL.DataProvider
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
             return PatientMapper.MapPatientPersistenceCollectionToPatientEntityCollection(context.Patients.Where(p => p.MissedAppointments >= 3).ToList());
         }
+
+        public Patient BanPatient(Patient patient)
+        {
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            Patient ret = PatientMapper.MapPatientPersistenceToPatientEntity(context.Update(PatientMapper.MapPatientEntityToPatientPersistence(patient)).Entity);
+            context.SaveChanges();
+            return ret;
+        }
+
+        public Patient GetById(Guid id)
+        {
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            return PatientMapper.MapPatientPersistenceToPatientEntity(context.Patients.SingleOrDefault(p => p.Id.Equals(id)));
+        }
     }
 }

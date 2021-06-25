@@ -20,41 +20,44 @@ namespace MQuince.Integration.Tests
     {
         public HttpClient Client { get; }
         public IUserService _userService;
+        public IFeedbackService _feedbackService;
         public RemoveFeedback(WebApplicationFactory<Startup> factory)
         {
             Client = factory.CreateClient();
             _userService = (IUserService)factory.Services.GetService(typeof(IUserService));
+            _feedbackService = (IFeedbackService)factory.Services.GetService(typeof(IFeedbackService));
         }
-        public static ByteArrayContent GetByteArrayContent(object o)
-        {
-            var myContent = JsonConvert.SerializeObject(o);
-            var buffer = Encoding.UTF8.GetBytes(myContent);
-            var byteContent = new ByteArrayContent(buffer);
-            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            return byteContent;
-        }
-
 
         [Fact]
         public async Task remove_feedback_success()
         {
+            Feedback feedback = new Feedback()
+            {
+                Id = Guid.NewGuid(),
+                Comment = "Nadam se da radi!",
+                PatientId = new Guid("60fe121f-c4ee-4591-9d55-47c07c7c5616"),
+                Published = true
+
+            };
+            Guid FeedbackId = _feedbackService.Create(feedback);
+
             ViewFeedbackDTO viewFeedbackDTO = new ViewFeedbackDTO()
             {
-                Id = new Guid("d98ace89-f121-4248-beb7-eb366dd39ebf"),
-                Comment = "Nadam se da radi",
-                PatientId = new Guid("b2b2a4e8-7eef-42f5-bca6-16f25f7d7c56"),
+                Id = feedback.Id,
+                Comment = feedback.Comment,
+                PatientId = feedback.PatientId,
                 Published = false
             };
 
             AuthenticateRequest user = new AuthenticateRequest
             {
-                Email = "nikola@gmail",
-                Password = "nikolaBlesic123"
+                Email = "nikola@gmail.com",
+                Password = "Nikola123"
             };
 
-            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
-            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authenticatedUser.Token);
-            HttpResponseMessage response = await Client.PutAsync("/api/Feedback/Update", GetByteArrayContent(viewFeedbackDTO));
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
+            HttpResponseMessage response = await Client.PutAsync("/api/Feedback/Update", Helpers.GetByteArrayContent(viewFeedbackDTO));
             var responseAsString = await response.Content.ReadAsStringAsync();
             var responseAsConcreteType = JsonConvert.DeserializeObject<Feedback>(responseAsString);
             Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);

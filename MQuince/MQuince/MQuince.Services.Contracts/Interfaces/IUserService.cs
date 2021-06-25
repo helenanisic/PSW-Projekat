@@ -1,4 +1,5 @@
-﻿using MQuince.Entities;
+﻿using CSharpFunctionalExtensions;
+using MQuince.Entities;
 using MQuince.Entities.Authentication;
 using MQuince.Services.Contracts.DTO;
 using MQuince.Services.Contracts.DTO.Users;
@@ -10,10 +11,10 @@ namespace MQuince.Services.Contracts.Interfaces
 {
     public interface IUserService
     {
-        AuthenticateResponse Authenticate(AuthenticateRequest model);
         string GetIdFromJwtToken(string token);
         string GetRoleFromJwtToken(string token);
 
+        Result<AuthenticateResponse> Authenticate(AuthenticateRequest model);
         User GetById(Guid id);
     }
 }

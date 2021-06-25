@@ -29,9 +29,9 @@ namespace MQuince.Unit.Tests
 
             var result = userService.Authenticate(user);
 
-            Assert.NotNull(result);
-            Assert.Equal(patient.Id, result.Id);
-            Assert.NotNull(result.Token);
+            Assert.NotNull(result.Value);
+            Assert.Equal(patient.Id, result.Value.Id);
+            Assert.NotNull(result.Value.Token);
         }
 
         [Fact]
@@ -47,9 +47,9 @@ namespace MQuince.Unit.Tests
             stubRepository.Setup(p => p.AuthenticateUser(user));
             UserService userService = new UserService(stubRepository.Object, secret);
 
-            AuthenticateResponse  result = userService.Authenticate(user);
-
-            Assert.Null(result);
+            var result = userService.Authenticate(user);
+            Assert.True(result.IsFailure);
+            
         }
 
         public Patient CreatePatient()

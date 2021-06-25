@@ -34,6 +34,6 @@ namespace MQuince.Repository.SQL.PersistenceEntities.Users
         public string Lbo { get; set; }
 
         public int MissedAppointments { get; set; }
-        public bool Banned { get; set; }
+
     }
 }

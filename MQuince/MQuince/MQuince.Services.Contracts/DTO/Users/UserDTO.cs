@@ -9,6 +9,7 @@ namespace MQuince.Services.Contracts.DTO
 {
     public class UserDTO
     {
+        public Guid Id { get; set; }
         public Usertype UserType { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

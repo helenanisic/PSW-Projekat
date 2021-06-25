@@ -32,19 +32,11 @@ namespace MQuince.Integration.Tests
         {
             Client = factory.CreateClient();
         }
-        public static ByteArrayContent GetByteArrayContent(object o)
-        {
-            var myContent = JsonConvert.SerializeObject(o);
-            var buffer = Encoding.UTF8.GetBytes(myContent);
-            var byteContent = new ByteArrayContent(buffer);
-            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            return byteContent;
-        }
 
         [Fact]
         public async Task user_login_success()
         {
-            String email = "hanisic@gmail.com";
+            String email = "helena@gmail.com";
             String password = "Helena123";
             HttpResponseMessage response = await Client.GetAsync("/api/User?email=" + email + "&password=" + password);
             Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);

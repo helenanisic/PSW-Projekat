@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MyI28xZlcp81XUcNqzA6PXnA6Rg6DkeDgspgS3rbrG0qF4oBmVtgbZJqNJKyUkDu4W6PKDTZkpREkkD6lvEE4w==",
+  "dgSpecHash": "5Jouy1aiLh2BjhsKRQ+9fPhUKPnzRsntL+vbcfvYWuhaw2mW1qXC8CeKsvFZ6F6TFKImih6XS+nHgShrqFGA2g==",
   "success": true,
   "projectFilePath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.WebAPI\\MQuince.WebAPI.csproj",
   "expectedPackageFiles": [
@@ -116,7 +116,7 @@
     "C:\\Users\\helen\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\mysqlconnector\\0.69.9\\mysqlconnector.0.69.9.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\helen\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\helen\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\3.2.4\\pomelo.entityframeworkcore.mysql.3.2.4.nupkg.sha512",

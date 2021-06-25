@@ -31,15 +31,13 @@ namespace MQuince.WebAPI.Controllers
                 Password = Password
             };
 
-            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
-            if (authenticatedUser == null)
+            var result = _userService.Authenticate(user);
+            if (result.IsFailure)
             {
-                return Unauthorized();
+                return Unauthorized(result.Error);
             }
-            else
-            {
-
-                return Ok(authenticatedUser);
+            else {
+                return Ok(result.Value);
             }
         }
     }

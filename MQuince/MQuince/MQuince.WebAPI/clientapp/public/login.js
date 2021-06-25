@@ -15,27 +15,14 @@
                         }
                     })
                 .then(response => {
-                    this.info = response.data
-                    console.log(this.info.token);
+                    this.info = response.data;
                     localStorage.setItem("access_token", this.info.token);
                     JSAlert.alert("You have successfully logged into your account!");
-                        axios
-                            .get('/api/User/IsUserTypePatient')
-                            .then(response => {
-                                this.UserTypePatient = response.data
-                                console.log(this.UserTypePatient);
-                                if (this.UserTypePatient == 'patient') {
-                                    window.location.href = 'Feedbacks.html';
-                                }
-                            })
-                        
+                    
                 })
                 .catch(error => {
-                    console.log(error);
-                    if (error.response.status == 400) {
-                        JSAlert.alert("Password or email address are incorrect. Please try again.");
-                    }
-                })
+                    JSAlert.alert(error.response.data);
+                });
         }
     }
 })

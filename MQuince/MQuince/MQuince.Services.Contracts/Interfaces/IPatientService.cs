@@ -15,5 +15,6 @@ namespace MQuince.Services.Contracts.Interfaces
         Result<Guid> Create(Patient patient);
         IEnumerable<IdentifiableDTO<PatientDTO>> GetAll();
         IEnumerable<Patient> GetMaliciousPatients();
+        Patient BanPatient(Guid id);
     }
 }

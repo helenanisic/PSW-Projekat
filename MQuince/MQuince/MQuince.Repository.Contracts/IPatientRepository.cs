@@ -12,5 +12,7 @@ namespace MQuince.Repository.Contracts
         Guid Create(Patient entity);
         IEnumerable<Patient> GetAll();
         IEnumerable<Patient> GetMaliciousPatients();
+        Patient BanPatient(Patient patient);
+        Patient GetById(Guid id);
     }
 }

@@ -77,10 +77,11 @@ namespace MQuince.Repository.SQL.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     UserType = table.Column<int>(nullable: false),
-                    Name = table.Column<string>(nullable: false),
-                    Surname = table.Column<string>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    Surname = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: false),
+                    Password = table.Column<string>(nullable: true),
+                    Banned = table.Column<bool>(nullable: false),
                     Discriminator = table.Column<string>(nullable: false),
                     SpecializationId = table.Column<Guid>(nullable: true),
                     Jmbg = table.Column<string>(nullable: true),
@@ -89,7 +90,8 @@ namespace MQuince.Repository.SQL.Migrations
                     Telephone = table.Column<string>(nullable: true),
                     ResidenceId = table.Column<Guid>(nullable: true),
                     ChosenDoctorId = table.Column<Guid>(nullable: true),
-                    Lbo = table.Column<string>(nullable: true)
+                    Lbo = table.Column<string>(nullable: true),
+                    MissedAppointments = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {

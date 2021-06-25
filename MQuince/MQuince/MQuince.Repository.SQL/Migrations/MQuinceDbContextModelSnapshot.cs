@@ -102,6 +102,9 @@ namespace MQuince.Repository.SQL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
+                    b.Property<bool>("Banned")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -195,9 +198,6 @@ namespace MQuince.Repository.SQL.Migrations
             modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Users.PatientPersistence", b =>
                 {
                     b.HasBaseType("MQuince.Repository.SQL.PersistenceEntities.UserPersistence");
-
-                    b.Property<bool>("Banned")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime(6)");

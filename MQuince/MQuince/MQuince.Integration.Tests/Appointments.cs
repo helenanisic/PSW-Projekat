@@ -43,8 +43,8 @@ namespace MQuince.Integration.Tests
                 Password = "Helena123"
             };
 
-            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
-            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authenticatedUser.Token);
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
             HttpResponseMessage response = await Client.GetAsync("/api/Appointment/GetAppointmentsForPatient");
             var responseAsString = await response.Content.ReadAsStringAsync();
             var responseAsConcreteType = JsonConvert.DeserializeObject<IEnumerable<AppointmentDTO>>(responseAsString);
@@ -69,8 +69,8 @@ namespace MQuince.Integration.Tests
                 Password = "Nikola123"
             };
 
-            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
-            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authenticatedUser.Token);
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
             HttpResponseMessage response = await Client.GetAsync("/api/Appointment/GetAppointmentsForPatient");
             Assert.Equal(StatusCodes.Status403Forbidden, (double)response.StatusCode);
         }
@@ -84,8 +84,8 @@ namespace MQuince.Integration.Tests
                 Password = "Andrej123"
             };
 
-            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
-            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authenticatedUser.Token);
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
             HttpResponseMessage response = await Client.GetAsync("/api/Appointment/GetAppointmentsForPatient");
             var responseAsString = await response.Content.ReadAsStringAsync();
             var responseAsConcreteType = JsonConvert.DeserializeObject<IEnumerable<AppointmentDTO>>(responseAsString);

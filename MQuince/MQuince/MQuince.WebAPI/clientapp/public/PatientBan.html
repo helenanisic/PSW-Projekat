@@ -123,15 +123,22 @@
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                     <div class="short-info2">Patient: &nbsp; {{patient.name}} &nbsp; {{patient.surname}}</div>
                     <div class="apartment-name2">Missed appointments: &nbsp; {{patient.missedAppointments}}</div>
-                    <div style=" float: right; margin-top: 60px; margin-right: -10%;">
+                    <div style=" float: right; margin-top: 60px; margin-right: -10%;" v-if="patient.banned == false">
                         <div>
                             <button class="btn" @click="ban(patient)">
                                 <i class="fa fa-ban"></i>&nbsp&nbspBan
                             </button>
                         </div>
                     </div>
+                    <div style=" float: right; margin-top: 60px; margin-right: -10%;" v-if="patient.banned == true">
+                        <div>
+                            <span >
+                               Banned
+                            </span>
+                        </div>
+                    </div>
                 </div>
-                
+
             </div>
         </div>
     </section>
@@ -154,7 +161,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
     <!-- Core theme JS-->
     <script src="axios.js"></script>
+    <script src="https://npmcdn.com/js-alert/dist/jsalert.min.js"></script>
     <script src="js/scripts.js"></script>
     <script src="PatientBan.js"></script>
+
 </body>
 </html>

@@ -31,17 +31,11 @@ namespace MQuince.Integration.Tests
         {
             Client = factory.CreateClient();
         }
-        public static ByteArrayContent GetByteArrayContent(object o)
-        {
-            var myContent = JsonConvert.SerializeObject(o);
-            var buffer = Encoding.UTF8.GetBytes(myContent);
-            var byteContent = new ByteArrayContent(buffer);
-            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            return byteContent;
-        }
+
         [Fact]
         public async Task register_patient_success()
         {
+
             PatientDTO patientDTO = new PatientDTO()
             {
        
@@ -50,15 +44,16 @@ namespace MQuince.Integration.Tests
                  Telephone = "354354355",
                  Jmbg = "1234567891234",
                  BirthDate = new DateTime(),
-                 Email = "andrej123" + RandomNumberGenerator.GetInt32(1,1000).ToString() + "@gmail.com",
+                 Email = "andrej123" + RandomNumberGenerator.GetInt32(1,int.MaxValue).ToString() + "@gmail.com",
                  Password = "Andrej123",
                  UserType = Enums.Usertype.Patient,
                  Gender = Enums.Gender.Male,
-                 ResidenceId = new Guid("807caa66-dead-4a2f-b162-41072a5d7ede"),
+                 ResidenceId = new Guid("01e84c9b-e188-431e-bea3-6aa15b56e61d"),
                  Lbo = "78645431",
-                 ChosenDoctorId = new Guid("2270bae8-9f26-4ea5-b10d-0ce11ead067e")
+                 ChosenDoctorId = new Guid("fdea1b1d-bafc-4056-b5aa-6bacd468d080"),
+                 Banned = false
             };
-            HttpResponseMessage response = await Client.PostAsync("/api/Patient", GetByteArrayContent(patientDTO));
+            HttpResponseMessage response = await Client.PostAsync("/api/Patient", Helpers.GetByteArrayContent(patientDTO));
             var responseAsString = await response.Content.ReadAsStringAsync();
             Assert.Equal(StatusCodes.Status201Created, (double)response.StatusCode);
         }

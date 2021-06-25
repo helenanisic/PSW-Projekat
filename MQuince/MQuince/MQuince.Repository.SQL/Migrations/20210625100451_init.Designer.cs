@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MQuince.Repository.SQL.Migrations
 {
     [DbContext(typeof(MQuinceDbContext))]
-    [Migration("20210624165308_patient-missedAppointment")]
-    partial class patientmissedAppointment
+    [Migration("20210625100451_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -103,6 +103,9 @@ namespace MQuince.Repository.SQL.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
+
+                    b.Property<bool>("Banned")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Discriminator")
                         .IsRequired()

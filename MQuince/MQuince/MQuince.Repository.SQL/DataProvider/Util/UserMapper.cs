@@ -13,7 +13,7 @@ namespace MQuince.Repository.SQL.DataProvider.Util
     {
         public static User MapUserPersistenceToUserEntity(UserPersistence user)
         {
-            return user == null ? null : new User(user.Id, user.UserType, user.Name, user.Surname, user.Email, user.Password);
+            return user == null ? null : new User(user.Id, user.UserType, user.Name, user.Surname, user.Email, user.Password, user.Banned);
         }
 
         public static IEnumerable<User> MapUserPersistenceCollectionToUserEntityCollection(
@@ -33,7 +33,8 @@ namespace MQuince.Repository.SQL.DataProvider.Util
                 Name = user.Name,
                 Surname = user.Surname,
                 Email = user.Email,
-                Password = user.Password
+                Password = user.Password,
+                Banned = user.Banned
             };
             return retVal;
         }

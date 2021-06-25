@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6dS6U3H8fvvehjTw+7oGBzaK2S/HI1U1W9z8IQprR8Tu2w9BeJRgmUEudC0qEEXbWixSJu+CIwSKmoYvDCUP/Q==",
+  "dgSpecHash": "eOVhJJGDu3CwmlJl5MSrW2L+vs7zZ1nD4gaLmfIAeej9cFvHxcSgc9ZoN1m44m357Ya9hR0BVoRyHg57DgiWQw==",
   "success": true,
   "projectFilePath": "C:\\Users\\helen\\Desktop\\proj\\PSW-Projekat\\MQuince\\MQuince\\MQuince.Integration.Tests\\MQuince.Integration.Tests.csproj",
   "expectedPackageFiles": [
@@ -133,7 +133,7 @@
     "C:\\Users\\helen\\.nuget\\packages\\moq\\4.15.2\\moq.4.15.2.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\mysqlconnector\\0.69.9\\mysqlconnector.0.69.9.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\helen\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\helen\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\helen\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\3.2.4\\pomelo.entityframeworkcore.mysql.3.2.4.nupkg.sha512",

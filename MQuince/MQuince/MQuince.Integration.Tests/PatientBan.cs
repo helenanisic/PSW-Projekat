@@ -43,14 +43,14 @@ namespace MQuince.Integration.Tests
                 Password = "Nikola123"
             };
 
-            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
-            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authenticatedUser.Token);
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
             HttpResponseMessage response = await Client.GetAsync("/api/Patient/GetMaliciousPatient");
             
             var responseAsString = await response.Content.ReadAsStringAsync();
-            var responseAsConcreteType = JsonConvert.DeserializeObject<IEnumerable<MaliciousPatientDTO>>(responseAsString);
+            var responseAsConcreteType = JsonConvert.DeserializeObject<IEnumerable<PatientDTO>>(responseAsString);
             Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
-            foreach(MaliciousPatientDTO r in responseAsConcreteType)
+            foreach(PatientDTO r in responseAsConcreteType)
             {
                 Assert.InRange(r.MissedAppointments,3,int.MaxValue);
             }
@@ -73,10 +73,31 @@ namespace MQuince.Integration.Tests
                 Password = "Helena123"
             };
 
-            AuthenticateResponse authenticatedUser = _userService.Authenticate(user);
-            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + authenticatedUser.Token);
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
             HttpResponseMessage response = await Client.GetAsync("/api/Patient/GetMaliciousPatient");
             Assert.Equal(StatusCodes.Status403Forbidden, (double)response.StatusCode);
+        }
+
+        [Fact]
+        public async Task ban_patient_success()
+        {
+            AuthenticateRequest user = new AuthenticateRequest
+            {
+                Email = "nikola@gmail.com",
+                Password = "Nikola123"
+            };
+
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
+            HttpResponseMessage response = await Client.GetAsync("/api/Patient/BanPatient?id=" + new Guid("4ac0ccd6-4efa-4f19-924c-0936ac10e506"));
+            Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
+
+            String email = "jovana@gmail.com";
+            String password = "Jovana123";
+
+            HttpResponseMessage response1 = await Client.GetAsync("/api/User?email=" + email + "&password=" + password);
+            Assert.Equal(StatusCodes.Status401Unauthorized, (double)response1.StatusCode);
         }
     }
 }

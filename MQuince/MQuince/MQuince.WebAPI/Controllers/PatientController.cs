@@ -40,10 +40,24 @@ namespace MQuince.WebAPI.Controllers
         public IActionResult GetMaliciousPatients()
         {
             IEnumerable<Patient> patients = _patientService.GetMaliciousPatients();
-            IEnumerable<MaliciousPatientDTO> maliciousPatientDtos = patients.Select(p => CreateMaliciousPatientDTO(p));
-            return Ok(maliciousPatientDtos);
+            IEnumerable<PatientDTO> patientDTOs = patients.Select(p => CreatePatientDTO(p));
+            return Ok(patients);
         }
 
+        [HttpGet("BanPatient")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult BanPatient(Guid id)
+        {
+            Patient patient = _patientService.BanPatient(id);
+            if(patient == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok(patient);
+            }
+        }
         public static Patient CreatePatientFromDTO(PatientDTO patient, Guid? id = null)
     => id == null ? new Patient(Enums.Usertype.Patient, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
         patient.ResidenceId, patient.ChosenDoctorId, patient.Lbo, patient.MissedAppointments, patient.Banned)
@@ -51,16 +65,32 @@ namespace MQuince.WebAPI.Controllers
                       patient.ResidenceId, patient.ChosenDoctorId, patient.Lbo, patient
                       .MissedAppointments, patient.Banned);
 
-        private MaliciousPatientDTO CreateMaliciousPatientDTO(Patient patient)
+
+        private PatientDTO CreatePatientDTO(Patient patient)
         {
-            return new MaliciousPatientDTO()
+            if (patient == null) return null;
+            return new PatientDTO()
             {
-                Id = patient.Id,
-                Name = patient.Name,
-                Surname = patient.Surname,
-                MissedAppointments = patient.MissedAppointments,
-                Banned = patient.Banned
+                    Id = patient.Id,
+                    UserType = Enums.Usertype.Patient,
+                    Name = patient.Name,
+                    Surname = patient.Surname,
+                    Email = patient.Email,
+                    Password = patient.Password,
+                    ResidenceId = patient.ResidenceId,
+                    BirthDate = patient.BirthDate,
+                    Jmbg = patient.Jmbg,
+                    Gender = patient.Gender,
+                    Lbo = patient.Lbo,
+                    Telephone = patient.Telephone,
+                    ChosenDoctorId = patient.ChosenDoctorId,
+                    MissedAppointments = patient.MissedAppointments,
+                    Banned = patient.Banned
+                
             };
         }
+
     }
+
+
 }

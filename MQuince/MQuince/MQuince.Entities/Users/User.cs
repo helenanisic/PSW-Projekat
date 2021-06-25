@@ -21,13 +21,15 @@ namespace MQuince.Entities
 
         public string Password { get; set; }
 
+        public bool Banned { get; set; }
+
         public User()
         {
             Id = Guid.NewGuid();
         }
 
-        public User(Usertype userType, string name, string surname, string email, string password) : this(Guid.NewGuid(), userType, name, surname, email, password) { }
-        public User(Guid id, Usertype userType, string name, string surname, string email, string password)
+        public User(Usertype userType, string name, string surname, string email, string password, bool banned) : this(Guid.NewGuid(), userType, name, surname, email, password, banned) { }
+        public User(Guid id, Usertype userType, string name, string surname, string email, string password, bool banned)
         {
             Id = id;
             UserType = userType;
@@ -35,6 +37,7 @@ namespace MQuince.Entities
             Surname = surname;
             Email = email;
             Password = password;
+            Banned = banned;
         }
     }
 }
