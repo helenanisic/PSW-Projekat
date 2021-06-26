@@ -12,8 +12,8 @@ namespace MQuince.Entities.Appointment
     public class Appointment
     {
         public Guid Id { get; set; }
-        public DateTime StartDateTime { get; set; }
-        public DateTime EndDateTime { get; set; }
+        public DateTime Date { get; set; }
+        public int StartTime { get; set; }
         public TreatmentType Type { get; set; }
         public Doctor Doctor { get; set; }
         public Patient Patient { get; set; }
@@ -25,19 +25,19 @@ namespace MQuince.Entities.Appointment
             this.Id = Guid.NewGuid();
         }
 
-        public Appointment(Guid id, DateTime startDateTime, DateTime endDateTime, TreatmentType type, Doctor doctor, Patient patient, AppointmentStatus status)
+        public Appointment(Guid id, DateTime date, int startTime, TreatmentType type, Doctor doctor, Patient patient, AppointmentStatus status)
         {
             Id = id;
-            StartDateTime = startDateTime;
-            EndDateTime = endDateTime;
+            Date = date;
+            StartTime = startTime;
             Type = type;
             Doctor = doctor;
             Patient = patient;
             Status = status;
         }
 
-        public Appointment(DateTime startDateTime, DateTime endDateTime, TreatmentType type, Doctor doctor, Patient patient, AppointmentStatus status) :
-            this(Guid.NewGuid(), startDateTime, endDateTime, type, doctor, patient, status)
+        public Appointment(DateTime date, int startTime, TreatmentType type, Doctor doctor, Patient patient, AppointmentStatus status) :
+            this(Guid.NewGuid(), date, startTime, type, doctor, patient, status)
         {
 
         }

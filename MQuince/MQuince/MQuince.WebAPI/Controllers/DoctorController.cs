@@ -25,10 +25,10 @@ namespace MQuince.WebAPI.Controllers
         {
             _doctorService.Create(new DoctorDTO() {
                 UserType = Enums.Usertype.Doctor,
-                Name = "Mara",
+                Name = "Marko",
                 Surname = "Maric",
-                Email = "mara@gmail.com",
-                Password = "Mara123",
+                Email = "marko@gmail.com",
+                Password = "Marko123",
                 SpecializationId = new Guid("75910c98-913d-43d9-a012-ad8fa3cc4045")
             });
             return Ok();

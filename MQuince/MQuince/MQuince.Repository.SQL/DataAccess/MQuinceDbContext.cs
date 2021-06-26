@@ -23,6 +23,9 @@ namespace MQuince.Repository.SQL.DataAccess
 
         public DbSet<AppointmentPersistence> Appointments { get; set; }
 
+        public DbSet<WorkSchedulePersistence> WorkSchedules { get; set; }
+        public DbSet<ReferralPersistence> Referrals { get; set; }
+
         public MQuinceDbContext(DbContextOptions options) : base(options) { }
 
         public MQuinceDbContext() { }

@@ -11,7 +11,7 @@ namespace MQuince.Repository.SQL.DataProvider.Util
     public class AppointmentMapper
     {
         public static Appointment MapAppointmentPersistenceToAppointmentEntity(AppointmentPersistence appointment)
-        => appointment == null ? null : new Appointment(appointment.Id, appointment.StartDateTime, appointment.EndDateTime, appointment.Type, DoctorMapper.MapDoctorPersistenceToDoctorEntity(appointment.Doctor), PatientMapper.MapPatientPersistenceToPatientEntity(appointment.Patient), appointment.Status);
+        => appointment == null ? null : new Appointment(appointment.Id, appointment.Date, appointment.StartTime, appointment.Type, DoctorMapper.MapDoctorPersistenceToDoctorEntity(appointment.Doctor), PatientMapper.MapPatientPersistenceToPatientEntity(appointment.Patient), appointment.Status);
 
         public static IEnumerable<Appointment> MapAppointmentPersistenceCollectionToAppointmentEntityCollection(IEnumerable<AppointmentPersistence> appointments)
             => appointments.Select(c => MapAppointmentPersistenceToAppointmentEntity(c));
@@ -25,8 +25,8 @@ namespace MQuince.Repository.SQL.DataProvider.Util
             AppointmentPersistence retVal = new AppointmentPersistence()
             {
                 Id = appointment.Id,
-                StartDateTime = appointment.StartDateTime,
-                EndDateTime = appointment.EndDateTime,
+                Date = appointment.Date,
+                StartTime = appointment.StartTime,
                 Type = appointment.Type,
                 DoctorId = appointment.Doctor.Id,
                 PatientId = appointment.Patient.Id,

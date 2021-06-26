@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MQuince.Application;
 using MQuince.Entities.Appointment;
+using MQuince.Entities.Users;
 using MQuince.Services.Contracts.DTO.Appointment;
 using MQuince.Services.Contracts.IdentifiableDTO;
 using MQuince.Services.Contracts.Interfaces;
@@ -37,14 +38,21 @@ namespace MQuince.WebAPI.Controllers
             return Ok(appointmentDTOs);
         }
 
+        [HttpPost("Recommend")]
+        public IActionResult Recommend(AppointmentRequestDTO request)
+        {
+            AppointmentDTO works = _appointmentService.RecommendAppointment(request.StartDate, request.EndDate, request.StartTime, request.EndTime, request.DoctorId, request.appointmentPriority, request.SpecializationId);
+            return Ok(works);
+        }
+
 
 
         private AppointmentDTO CreateAppointmentDTO(Appointment appointment)
         {
             return new AppointmentDTO()
             {
-                StartDateTime = appointment.StartDateTime,
-                EndDateTime = appointment.EndDateTime,
+                Date = appointment.Date,
+                StartTime = appointment.StartTime,
                 Type = appointment.Type.ToString(),
                 DoctorName = appointment.Doctor.Name,
                 DoctorSurname = appointment.Doctor.Surname,

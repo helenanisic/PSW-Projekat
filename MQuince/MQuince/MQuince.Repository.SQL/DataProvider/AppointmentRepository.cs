@@ -33,5 +33,17 @@ namespace MQuince.Repository.SQL.DataProvider
             context.Appointments.Add(AppointmentMapper.MapAppointmentEntityToAppointmentPersistence(appointment));
             return context.SaveChanges() > 0 ? appointment.Id : Guid.Empty;
         }
+
+        public IEnumerable<Appointment> GetBookedAppointmentsForDoctorInDateRange(DateTime startDate, DateTime endDate,  Guid DoctorId)
+        {
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            return AppointmentMapper.MapAppointmentPersistenceCollectionToAppointmentEntityCollection(context.Appointments.Include("Doctor").Where(a => a.DoctorId.Equals(DoctorId) & a.Date.Date >= startDate.Date & a.Date.Date <= endDate.Date ).ToList());
+        }
+
+        public IEnumerable<Appointment> GetAppointmentsAnyDoctor(DateTime startDate, DateTime endDate)
+        {
+            using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
+            return AppointmentMapper.MapAppointmentPersistenceCollectionToAppointmentEntityCollection(context.Appointments.Include("Doctor").Where(a => a.Date.Date >= startDate.Date & a.Date.Date <= endDate.Date).ToList());
+        }
     }
 }

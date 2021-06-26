@@ -465,6 +465,10 @@
               "target": "Package",
               "version": "[13.0.1, )"
             },
+            "Shouldly": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[6.11.1, )"

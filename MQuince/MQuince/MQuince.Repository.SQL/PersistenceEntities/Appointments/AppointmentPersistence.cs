@@ -13,8 +13,8 @@ namespace MQuince.Repository.SQL.PersistenceEntities.Appointments
     {
         [Key]
         public Guid Id { get; set; }
-        public DateTime StartDateTime { get; set; }
-        public DateTime EndDateTime { get; set; }
+        public DateTime Date { get; set; }
+        public int StartTime { get; set; }
         public TreatmentType Type { get; set; }
         public AppointmentStatus Status { get; set; }
 

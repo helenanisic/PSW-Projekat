@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MQuince.Entities.MedicalRecords
 {
-    public class HospitalTreatment : Refferal
+    public class HospitalTreatment : Referral
     {
         private Guid _id;
         public DateTime Date { get; set; }

@@ -45,17 +45,17 @@ namespace MQuince.Repository.SQL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<Guid>("DoctorId")
                         .HasColumnType("char(36)");
-
-                    b.Property<DateTime>("EndDateTime")
-                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid>("PatientId")
                         .HasColumnType("char(36)");
 
-                    b.Property<DateTime>("StartDateTime")
-                        .HasColumnType("datetime(6)");
+                    b.Property<int>("StartTime")
+                        .HasColumnType("int");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -94,6 +94,30 @@ namespace MQuince.Repository.SQL.Migrations
                     b.HasIndex("PatientId");
 
                     b.ToTable("Feedback");
+                });
+
+            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.MedicalRecords.ReferralPersistence", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("PatientId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("SpecializationId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<bool>("Used")
+                        .HasColumnType("tinyint(1)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientId");
+
+                    b.HasIndex("SpecializationId");
+
+                    b.ToTable("Referral");
                 });
 
             modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.UserPersistence", b =>
@@ -179,6 +203,31 @@ namespace MQuince.Repository.SQL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Specialization");
+                });
+
+            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Users.WorkSchedulePersistence", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<Guid>("DoctorId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<int>("EndTime")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StartTime")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.ToTable("WorkSchedule");
                 });
 
             modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Users.DoctorPersistence", b =>
@@ -267,11 +316,35 @@ namespace MQuince.Repository.SQL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.MedicalRecords.ReferralPersistence", b =>
+                {
+                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.PatientPersistence", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.SpecializationPersistence", "Specialization")
+                        .WithMany()
+                        .HasForeignKey("SpecializationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Users.CityPersistence", b =>
                 {
                     b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.CountryPersistence", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("MQuince.Repository.SQL.PersistenceEntities.Users.WorkSchedulePersistence", b =>
+                {
+                    b.HasOne("MQuince.Repository.SQL.PersistenceEntities.Users.DoctorPersistence", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

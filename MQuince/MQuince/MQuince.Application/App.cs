@@ -64,6 +64,12 @@ namespace MQuince.Application
             => new AppointmentRepository(_optionsBuilder);
 
         public IAppointmentService GetAppointmentService()
-           => new AppointmentService(this.GetAppointmentRepository());
+           => new AppointmentService(this.GetAppointmentRepository(), this.GetWorkScheduleRepository());
+
+        private IWorkScheduleRepository GetWorkScheduleRepository()
+            => new WorkScheduleRepository(_optionsBuilder);
+
+        public IWorkScheduleService GetWorkScheduleService()
+           => new WorkScheduleService(this.GetWorkScheduleRepository());
     }
 }

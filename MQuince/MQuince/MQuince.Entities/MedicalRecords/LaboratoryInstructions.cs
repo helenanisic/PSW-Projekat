@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MQuince.Entities.MedicalRecords
 {
-    public class LaboratoryInstructions : Refferal
+    public class LaboratoryInstructions : Referral
     {
         private Guid _id;
         public string Note { get; set; }

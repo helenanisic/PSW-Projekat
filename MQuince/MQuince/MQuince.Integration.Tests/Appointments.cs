@@ -6,6 +6,7 @@ using MQuince.Services.Contracts.DTO.Appointment;
 using MQuince.Services.Contracts.Interfaces;
 using MQuince.WebAPI;
 using Newtonsoft.Json;
+using Shouldly;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -92,6 +93,91 @@ namespace MQuince.Integration.Tests
             IEnumerable<AppointmentDTO> appointmentDTOs = new List<AppointmentDTO>();
             Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
             Assert.Equal(appointmentDTOs, responseAsConcreteType);
+        }
+
+        [Fact]
+        public async Task recommend_appointment_success()
+        {
+            AuthenticateRequest user = new AuthenticateRequest
+            {
+                Email = "andrej@gmail.com",
+                Password = "Andrej123"
+            };
+            AppointmentRequestDTO appointmentRequestDTO = new AppointmentRequestDTO()
+            {
+                StartDate = new DateTime(2020, 06, 17),
+                EndDate = new DateTime(2020, 06, 20),
+                DoctorId = new Guid("fdea1b1d-bafc-4056-b5aa-6bacd468d080"),
+                appointmentPriority = Enums.AppointmentPriority.DoctorPriority,
+                StartTime = 8,
+                EndTime = 18,
+                SpecializationId = new Guid("75910c98-913d-43d9-a012-ad8fa3cc4045")
+            };
+
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
+            HttpResponseMessage response = await Client.PostAsync("/api/Appointment/Recommend", Helpers.GetByteArrayContent(appointmentRequestDTO));
+            var responseAsString = await response.Content.ReadAsStringAsync();
+            var responseAsConcreteType = JsonConvert.DeserializeObject<AppointmentDTO>(responseAsString);
+            Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
+            Assert.NotNull(responseAsConcreteType);
+        }
+
+        [Fact]
+        public async Task recommend_appointment_doctor_priority_fail()
+        {
+            AuthenticateRequest user = new AuthenticateRequest
+            {
+                Email = "andrej@gmail.com",
+                Password = "Andrej123"
+            };
+            AppointmentRequestDTO appointmentRequestDTO = new AppointmentRequestDTO()
+            {
+                StartDate = new DateTime(2020, 07, 17),
+                EndDate = new DateTime(2020, 07, 20),
+                DoctorId = new Guid("fdea1b1d-bafc-4056-b5aa-6bacd468d080"),
+                appointmentPriority = Enums.AppointmentPriority.DoctorPriority,
+                StartTime = 8,
+                EndTime = 18,
+                SpecializationId = new Guid("75910c98-913d-43d9-a012-ad8fa3cc4045")
+            };
+
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
+            HttpResponseMessage response = await Client.PostAsync("/api/Appointment/Recommend", Helpers.GetByteArrayContent(appointmentRequestDTO));
+            var responseAsString = await response.Content.ReadAsStringAsync();
+            var responseAsConcreteType = JsonConvert.DeserializeObject<AppointmentDTO>(responseAsString);
+            Assert.Equal(StatusCodes.Status204NoContent, (double)response.StatusCode);
+            Assert.Null(responseAsConcreteType);
+
+        }
+
+        [Fact]
+        public async Task recommend_appointment_time_priority_success()
+        {
+            AuthenticateRequest user = new AuthenticateRequest
+            {
+                Email = "andrej@gmail.com",
+                Password = "Andrej123"
+            };
+            AppointmentRequestDTO appointmentRequestDTO = new AppointmentRequestDTO()
+            {
+                StartDate = new DateTime(2020, 06, 25),
+                EndDate = new DateTime(2020, 06, 27),
+                DoctorId = new Guid("fdea1b1d-bafc-4056-b5aa-6bacd468d080"),
+                appointmentPriority = Enums.AppointmentPriority.DatePriority,
+                StartTime = 8,
+                EndTime = 18,
+                SpecializationId = new Guid("75910c98-913d-43d9-a012-ad8fa3cc4045")
+            };
+
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
+            HttpResponseMessage response = await Client.PostAsync("/api/Appointment/Recommend", Helpers.GetByteArrayContent(appointmentRequestDTO));
+            var responseAsString = await response.Content.ReadAsStringAsync();
+            var responseAsConcreteType = JsonConvert.DeserializeObject<AppointmentDTO>(responseAsString);
+            Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
+            responseAsConcreteType.DoctorId.ShouldBe(new Guid("b35f2726-7757-42dd-92cc-9a6f5ff1b759"));
         }
     }
 }
