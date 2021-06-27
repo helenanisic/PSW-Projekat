@@ -29,6 +29,10 @@ namespace MQuince.Services.Implementation
         public IEnumerable<IdentifiableDTO<DoctorDTO>> GetAll()
             => _doctorRepository.GetAll().Select(c => CreateDoctorDTO(c));
 
+        public IEnumerable<Doctor> GetDoctorBySpecialization(Guid specializationId)
+        {
+            return _doctorRepository.GetDoctorBySpecialization(specializationId);
+        }
 
         private IdentifiableDTO<DoctorDTO> CreateDoctorDTO(Doctor doctor)
         {
@@ -53,5 +57,11 @@ namespace MQuince.Services.Implementation
         private Doctor CreateDoctorFromDTO(DoctorDTO doctor, Guid? id = null)
             => id == null ? new Doctor(doctor.UserType, doctor.Name, doctor.Surname, doctor.Email, doctor.Password, doctor.SpecializationId)
                 : new Doctor(id.Value, doctor.UserType, doctor.Name, doctor.Surname, doctor.Email, doctor.Password, doctor.SpecializationId);
+        public Doctor GetById(Guid id)
+        {
+            return _doctorRepository.GetById(id);
+        }
+
+
     }
 }

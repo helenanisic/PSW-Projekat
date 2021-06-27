@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MQuince.Entities.Users;
 using MQuince.Services.Contracts.DTO.Users;
 using MQuince.Services.Contracts.IdentifiableDTO;
 using MQuince.Services.Contracts.Interfaces;
@@ -38,6 +39,13 @@ namespace MQuince.WebAPI.Controllers
         public IEnumerable<IdentifiableDTO<DoctorDTO>> GetAll()
         {
             return _doctorService.GetAll();
+        }
+
+        [HttpGet("GetDoctorBySpecialization")]
+        public IActionResult GetDoctorBySpecialization(Guid id)
+        {
+            IEnumerable<Doctor> doctors = _doctorService.GetDoctorBySpecialization(id);
+            return Ok(doctors);
         }
     }
 }

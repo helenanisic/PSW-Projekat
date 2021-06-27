@@ -82,5 +82,10 @@ namespace MQuince.Services.Implementation
             }
             
         }
+
+        public Patient GetById(Guid id)
+        {
+            return _patientRepository.GetById(id);
+        }
     }
 }

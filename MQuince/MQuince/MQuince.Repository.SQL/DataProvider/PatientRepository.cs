@@ -23,7 +23,7 @@ namespace MQuince.Repository.SQL.DataProvider
         {
             _dbContext = optionsBuilders == null ? throw new ArgumentNullException(nameof(optionsBuilders) + "is set to null") : optionsBuilders.Options;
         }
-        
+
         public Guid Create(Patient entity)
         {
             using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
@@ -61,5 +61,6 @@ namespace MQuince.Repository.SQL.DataProvider
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
             return PatientMapper.MapPatientPersistenceToPatientEntity(context.Patients.SingleOrDefault(p => p.Id.Equals(id)));
         }
+
     }
 }

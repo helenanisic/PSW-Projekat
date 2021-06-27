@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MQuince.Application;
 using MQuince.Entities.Appointment;
+using MQuince.Entities.MedicalRecords;
 using MQuince.Entities.Users;
 using MQuince.Services.Contracts.DTO.Appointment;
 using MQuince.Services.Contracts.IdentifiableDTO;
@@ -20,11 +21,15 @@ namespace MQuince.WebAPI.Controllers
     {
         private readonly IUserService _userService;
         private readonly IAppointmentService _appointmentService;
+        private readonly IReferralService _referralService;
+        private readonly IDoctorService _doctorService;
 
-        public AppointmentController([FromServices] IAppointmentService appointmentService, IUserService userService)
+        public AppointmentController([FromServices] IAppointmentService appointmentService, IUserService userService, IReferralService referralService, IDoctorService doctorService)
         {
             this._appointmentService = appointmentService;
             this._userService = userService;
+            this._referralService = referralService;
+            this._doctorService = doctorService;
         }
 
         [HttpGet("GetAppointmentsForPatient")]
@@ -41,10 +46,37 @@ namespace MQuince.WebAPI.Controllers
         [HttpPost("Recommend")]
         public IActionResult Recommend(AppointmentRequestDTO request)
         {
-            AppointmentDTO works = _appointmentService.RecommendAppointment(request.StartDate, request.EndDate, request.StartTime, request.EndTime, request.DoctorId, request.appointmentPriority, request.SpecializationId);
+
+            DateTime startDate = new DateTime(request.StartDate.Year, request.StartDate.Month, request.StartDate.Day);
+            DateTime endDate = new DateTime(request.EndDate.Year, request.EndDate.Month, request.EndDate.Day);
+            DateTime today = DateTime.Now;
+            if(startDate< today || startDate > endDate)
+            {
+                return BadRequest("Please enter correct dates!");
+            }
+            if(request.StartTime >= request.EndTime)
+            {
+                return BadRequest("Please enter correct time");
+            }
+            AppointmentDTO works = _appointmentService.RecommendAppointment(startDate, endDate, (int)request.StartTime, (int)request.EndTime, request.DoctorId, request.AppointmentPriority, request.SpecializationId);
+            if(works == null)
+            {
+                return BadRequest("We can't recommend you any appointment.");
+            }
+            Doctor doctor = _doctorService.GetById(works.DoctorId);
+            works.DoctorName = doctor.Name;
+            works.DoctorSurname = doctor.Surname;
             return Ok(works);
         }
 
+        [HttpGet("GetReferrals")]
+        public IActionResult GetReferrals()
+        {
+            string token = Request.Headers["Authorization"];
+            var id = _userService.GetIdFromJwtToken(token.Split(" ")[1]);
+            IEnumerable<Referral> referrals = _referralService.GetReferralOfPatient(new Guid(id));
+            return Ok(referrals);
+        }
 
 
         private AppointmentDTO CreateAppointmentDTO(Appointment appointment)

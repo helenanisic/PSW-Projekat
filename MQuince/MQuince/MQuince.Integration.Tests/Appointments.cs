@@ -105,10 +105,10 @@ namespace MQuince.Integration.Tests
             };
             AppointmentRequestDTO appointmentRequestDTO = new AppointmentRequestDTO()
             {
-                StartDate = new DateTime(2020, 06, 17),
-                EndDate = new DateTime(2020, 06, 20),
+                StartDate = new DateTime(2021, 08, 17),
+                EndDate = new DateTime(2021, 08, 20),
                 DoctorId = new Guid("fdea1b1d-bafc-4056-b5aa-6bacd468d080"),
-                appointmentPriority = Enums.AppointmentPriority.DoctorPriority,
+                AppointmentPriority = Enums.AppointmentPriority.DoctorPriority,
                 StartTime = 8,
                 EndTime = 18,
                 SpecializationId = new Guid("75910c98-913d-43d9-a012-ad8fa3cc4045")
@@ -133,10 +133,10 @@ namespace MQuince.Integration.Tests
             };
             AppointmentRequestDTO appointmentRequestDTO = new AppointmentRequestDTO()
             {
-                StartDate = new DateTime(2020, 07, 17),
-                EndDate = new DateTime(2020, 07, 20),
+                StartDate = new DateTime(2021, 07, 17),
+                EndDate = new DateTime(2021, 07, 20),
                 DoctorId = new Guid("fdea1b1d-bafc-4056-b5aa-6bacd468d080"),
-                appointmentPriority = Enums.AppointmentPriority.DoctorPriority,
+                AppointmentPriority = Enums.AppointmentPriority.DoctorPriority,
                 StartTime = 8,
                 EndTime = 18,
                 SpecializationId = new Guid("75910c98-913d-43d9-a012-ad8fa3cc4045")
@@ -146,9 +146,8 @@ namespace MQuince.Integration.Tests
             Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
             HttpResponseMessage response = await Client.PostAsync("/api/Appointment/Recommend", Helpers.GetByteArrayContent(appointmentRequestDTO));
             var responseAsString = await response.Content.ReadAsStringAsync();
-            var responseAsConcreteType = JsonConvert.DeserializeObject<AppointmentDTO>(responseAsString);
-            Assert.Equal(StatusCodes.Status204NoContent, (double)response.StatusCode);
-            Assert.Null(responseAsConcreteType);
+            responseAsString.ShouldBe("We can't recommend you any appointment.");
+            Assert.Equal(StatusCodes.Status400BadRequest, (double)response.StatusCode);
 
         }
 
@@ -162,10 +161,10 @@ namespace MQuince.Integration.Tests
             };
             AppointmentRequestDTO appointmentRequestDTO = new AppointmentRequestDTO()
             {
-                StartDate = new DateTime(2020, 06, 25),
-                EndDate = new DateTime(2020, 06, 27),
+                StartDate = new DateTime(2021, 08, 25),
+                EndDate = new DateTime(2021, 08, 27),
                 DoctorId = new Guid("fdea1b1d-bafc-4056-b5aa-6bacd468d080"),
-                appointmentPriority = Enums.AppointmentPriority.DatePriority,
+                AppointmentPriority = Enums.AppointmentPriority.DatePriority,
                 StartTime = 8,
                 EndTime = 18,
                 SpecializationId = new Guid("75910c98-913d-43d9-a012-ad8fa3cc4045")

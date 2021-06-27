@@ -18,10 +18,14 @@ namespace MQuince.WebAPI.Controllers
     public class PatientController : ControllerBase
     {
         private readonly IPatientService _patientService;
+        private readonly IUserService _userService;
+        private readonly IDoctorService _doctorService;
 
-        public PatientController([FromServices] IPatientService patientService)
+        public PatientController([FromServices] IPatientService patientService, IUserService userService, IDoctorService doctorService)
         {
             this._patientService = patientService;
+            this._userService = userService;
+            this._doctorService = doctorService;
         }
 
         [HttpPost]
@@ -58,6 +62,18 @@ namespace MQuince.WebAPI.Controllers
                 return Ok(patient);
             }
         }
+
+        [HttpGet("GetChosenDoctor")]
+        [Authorize]
+        public IActionResult GetChosenDoctor()
+        {
+            string token = Request.Headers["Authorization"];
+            var id = _userService.GetIdFromJwtToken(token.Split(" ")[1]);
+            Patient patient = _patientService.GetById(new Guid(id));
+            Doctor doctor = _doctorService.GetById(patient.ChosenDoctorId);
+            return Ok(doctor);
+        }
+
         public static Patient CreatePatientFromDTO(PatientDTO patient, Guid? id = null)
     => id == null ? new Patient(Enums.Usertype.Patient, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
         patient.ResidenceId, patient.ChosenDoctorId, patient.Lbo, patient.MissedAppointments, patient.Banned)

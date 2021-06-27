@@ -31,7 +31,7 @@ namespace MQuince.Unit.Tests
             List<WorkSchedule> workSchedules = new List<WorkSchedule>();
             WorkSchedule workSchedule1 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 17),
+                Date = new DateTime(2021, 08, 17),
                 Doctor = doctor,
                 StartTime = 10,
                 EndTime = 15,
@@ -40,7 +40,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule2 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor,
                 StartTime = 19,
                 EndTime = 22,
@@ -50,11 +50,11 @@ namespace MQuince.Unit.Tests
             workSchedules.Add(workSchedule1);
             workSchedules.Add(workSchedule2);
 
-            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor.Id));
-            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor.Id)).Returns(workSchedules);
+            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor.Id));
+            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor.Id)).Returns(workSchedules);
             AppointmentService appointmentService = new AppointmentService(stubRepository1.Object, stubRepository2.Object);
-            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), 8, 18, doctor.Id, Enums.AppointmentPriority.DoctorPriority, general.Id);
-            appointmentDTO.Date.ShouldBe(new DateTime(2020, 06, 17));
+            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), 8, 18, doctor.Id, Enums.AppointmentPriority.DoctorPriority, general.Id);
+            appointmentDTO.Date.ShouldBe(new DateTime(2021, 08, 17));
             appointmentDTO.StartTime.ShouldBe(10);
         }
 
@@ -75,7 +75,7 @@ namespace MQuince.Unit.Tests
             List<WorkSchedule> workSchedules = new List<WorkSchedule>();
             WorkSchedule workSchedule1 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 17),
+                Date = new DateTime(2021, 08, 17),
                 Doctor = doctor,
                 StartTime = 10,
                 EndTime = 15,
@@ -84,7 +84,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule2 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor,
                 StartTime = 19,
                 EndTime = 22,
@@ -98,7 +98,7 @@ namespace MQuince.Unit.Tests
             Appointment app1 = new Appointment()
             {
                 Id = Guid.NewGuid(),
-                Date = new DateTime(2020, 06, 17),
+                Date = new DateTime(2021, 08, 17),
                 Doctor = doctor,
                 StartTime = 10,
                 Status = Enums.AppointmentStatus.Pending,
@@ -107,11 +107,11 @@ namespace MQuince.Unit.Tests
             };
 
             appointments.Add(app1);
-            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor.Id)).Returns(appointments);
-            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor.Id)).Returns(workSchedules);
+            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor.Id)).Returns(appointments);
+            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor.Id)).Returns(workSchedules);
             AppointmentService appointmentService = new AppointmentService(stubRepository1.Object, stubRepository2.Object);
-            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), 8, 18, doctor.Id, Enums.AppointmentPriority.DoctorPriority, general.Id);
-            appointmentDTO.Date.ShouldBe(new DateTime(2020, 06, 17));
+            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), 8, 18, doctor.Id, Enums.AppointmentPriority.DoctorPriority, general.Id);
+            appointmentDTO.Date.ShouldBe(new DateTime(2021, 08, 17));
             appointmentDTO.StartTime.ShouldBe(11);
         }
 
@@ -138,7 +138,7 @@ namespace MQuince.Unit.Tests
             List<WorkSchedule> workSchedules = new List<WorkSchedule>();
             WorkSchedule workSchedule1 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 19),
+                Date = new DateTime(2021, 08, 19),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -147,7 +147,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule2 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -156,7 +156,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule3 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor2,
                 StartTime = 10,
                 EndTime = 15,
@@ -165,7 +165,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule4 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor2,
                 StartTime = 19,
                 EndTime = 22,
@@ -181,7 +181,7 @@ namespace MQuince.Unit.Tests
             Appointment app1 = new Appointment()
             {
                 Id = Guid.NewGuid(),
-                Date = new DateTime(2020, 06, 17),
+                Date = new DateTime(2021, 08, 17),
                 Doctor = doctor1,
                 StartTime = 10,
                 Status = Enums.AppointmentStatus.Pending,
@@ -190,12 +190,12 @@ namespace MQuince.Unit.Tests
             };
 
             appointments.Add(app1);
-            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor1.Id)).Returns(appointments);
-            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor1.Id)).Returns(workSchedulesForDoctor);
-            stubRepository2.Setup(p => p.FindWorkScheduleForAllDoctorsInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), general.Id)).Returns(workSchedules);
+            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor1.Id)).Returns(appointments);
+            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor1.Id)).Returns(workSchedulesForDoctor);
+            stubRepository2.Setup(p => p.FindWorkScheduleForAllDoctorsInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), general.Id)).Returns(workSchedules);
             AppointmentService appointmentService = new AppointmentService(stubRepository1.Object, stubRepository2.Object);
-            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), 8, 18, doctor1.Id, Enums.AppointmentPriority.DatePriority, general.Id);
-            appointmentDTO.Date.ShouldBe(new DateTime(2020, 06, 18));
+            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), 8, 18, doctor1.Id, Enums.AppointmentPriority.DatePriority, general.Id);
+            appointmentDTO.Date.ShouldBe(new DateTime(2021, 08, 18));
             appointmentDTO.StartTime.ShouldBe(10);
             appointmentDTO.DoctorId.ShouldBe(doctor2.Id);
 
@@ -228,7 +228,7 @@ namespace MQuince.Unit.Tests
             List<WorkSchedule> workSchedules = new List<WorkSchedule>();
             WorkSchedule workSchedule1 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 19),
+                Date = new DateTime(2021, 08, 19),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -237,7 +237,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule2 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -246,7 +246,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule3 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor2,
                 StartTime = 10,
                 EndTime = 15,
@@ -255,7 +255,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule4 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor2,
                 StartTime = 19,
                 EndTime = 22,
@@ -271,7 +271,7 @@ namespace MQuince.Unit.Tests
             Appointment app1 = new Appointment()
             {
                 Id = Guid.NewGuid(),
-                Date = new DateTime(2020, 06, 17),
+                Date = new DateTime(2021, 08, 17),
                 Doctor = doctor1,
                 StartTime = 10,
                 Status = Enums.AppointmentStatus.Pending,
@@ -280,12 +280,12 @@ namespace MQuince.Unit.Tests
             };
 
             appointments.Add(app1);
-            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor1.Id)).Returns(appointments);
-            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor1.Id)).Returns(workSchedulesForDoctor);
-            stubRepository2.Setup(p => p.FindWorkScheduleForAllDoctorsInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), derm.Id)).Returns(workSchedules);
+            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor1.Id)).Returns(appointments);
+            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor1.Id)).Returns(workSchedulesForDoctor);
+            stubRepository2.Setup(p => p.FindWorkScheduleForAllDoctorsInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), derm.Id)).Returns(workSchedules);
             AppointmentService appointmentService = new AppointmentService(stubRepository1.Object, stubRepository2.Object);
-            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), 8, 18, doctor1.Id, Enums.AppointmentPriority.DatePriority, derm.Id);
-            appointmentDTO.Date.ShouldBe(new DateTime(2020, 06, 18));
+            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), 8, 18, doctor1.Id, Enums.AppointmentPriority.DatePriority, derm.Id);
+            appointmentDTO.Date.ShouldBe(new DateTime(2021, 08, 18));
             appointmentDTO.StartTime.ShouldBe(10);
             appointmentDTO.DoctorId.ShouldBe(doctor2.Id);
         }
@@ -313,7 +313,7 @@ namespace MQuince.Unit.Tests
             List<WorkSchedule> workSchedules = new List<WorkSchedule>();
             WorkSchedule workSchedule1 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 19),
+                Date = new DateTime(2021, 08, 19),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -322,7 +322,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule2 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -331,7 +331,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule3 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 17),
+                Date = new DateTime(2021, 08, 17),
                 Doctor = doctor2,
                 StartTime = 20,
                 EndTime = 22,
@@ -340,7 +340,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule4 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor2,
                 StartTime = 19,
                 EndTime = 22,
@@ -356,7 +356,7 @@ namespace MQuince.Unit.Tests
             Appointment app1 = new Appointment()
             {
                 Id = Guid.NewGuid(),
-                Date = new DateTime(2020, 06, 17),
+                Date = new DateTime(2021, 08, 17),
                 Doctor = doctor1,
                 StartTime = 10,
                 Status = Enums.AppointmentStatus.Pending,
@@ -365,11 +365,11 @@ namespace MQuince.Unit.Tests
             };
 
             appointments.Add(app1);
-            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor1.Id)).Returns(appointments);
-            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor1.Id)).Returns(workSchedulesForDoctor);
-            stubRepository2.Setup(p => p.FindWorkScheduleForAllDoctorsInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), general.Id)).Returns(workSchedules);
+            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor1.Id)).Returns(appointments);
+            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor1.Id)).Returns(workSchedulesForDoctor);
+            stubRepository2.Setup(p => p.FindWorkScheduleForAllDoctorsInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), general.Id)).Returns(workSchedules);
             AppointmentService appointmentService = new AppointmentService(stubRepository1.Object, stubRepository2.Object);
-            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), 8, 18, doctor1.Id, Enums.AppointmentPriority.DatePriority, general.Id);
+            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), 8, 18, doctor1.Id, Enums.AppointmentPriority.DatePriority, general.Id);
             Assert.Null(appointmentDTO);
 
         }
@@ -397,7 +397,7 @@ namespace MQuince.Unit.Tests
             List<WorkSchedule> workSchedulesForDoctor7 = new List<WorkSchedule>();
             WorkSchedule workSchedule1 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 15),
+                Date = new DateTime(2021, 08, 15),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -406,7 +406,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule2 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 22),
+                Date = new DateTime(2021, 08, 22),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -415,7 +415,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule3 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 17),
+                Date = new DateTime(2021, 08, 17),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 23,
@@ -424,7 +424,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule4 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -440,7 +440,7 @@ namespace MQuince.Unit.Tests
             Appointment app1 = new Appointment()
             {
                 Id = Guid.NewGuid(),
-                Date = new DateTime(2020, 06, 15),
+                Date = new DateTime(2021, 08, 15),
                 Doctor = doctor1,
                 StartTime = 10,
                 Status = Enums.AppointmentStatus.Pending,
@@ -449,13 +449,13 @@ namespace MQuince.Unit.Tests
             };
 
             appointments.Add(app1);
-            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor1.Id)).Returns(appointments);
-            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor1.Id)).Returns(workSchedulesForDoctor);
-            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2020, 06, 10), new DateTime(2020, 06, 27), doctor1.Id)).Returns(workSchedulesForDoctor7);
-            //stubRepository2.Setup(p => p.FindWorkScheduleForAllDoctorsInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20))).Returns(workSchedules);
+            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor1.Id)).Returns(appointments);
+            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor1.Id)).Returns(workSchedulesForDoctor);
+            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2021, 08, 10), new DateTime(2021, 08, 27), doctor1.Id)).Returns(workSchedulesForDoctor7);
+            //stubRepository2.Setup(p => p.FindWorkScheduleForAllDoctorsInDateRange(new DateTime(20212120, 08, 17), new DateTime(2021, 08, 20))).Returns(workSchedules);
             AppointmentService appointmentService = new AppointmentService(stubRepository1.Object, stubRepository2.Object);
-            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), 8, 18, doctor1.Id, Enums.AppointmentPriority.DoctorPriority, general.Id);
-            appointmentDTO.Date.ShouldBe(new DateTime(2020, 06, 15));
+            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), 8, 18, doctor1.Id, Enums.AppointmentPriority.DoctorPriority, general.Id);
+            appointmentDTO.Date.ShouldBe(new DateTime(2021, 08, 15));
             appointmentDTO.StartTime.ShouldBe(19);
             appointmentDTO.DoctorId.ShouldBe(doctor1.Id);
 
@@ -484,7 +484,7 @@ namespace MQuince.Unit.Tests
             List<WorkSchedule> workSchedulesForDoctor7 = new List<WorkSchedule>();
             WorkSchedule workSchedule1 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 15),
+                Date = new DateTime(2021, 08, 15),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -493,7 +493,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule2 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 22),
+                Date = new DateTime(2021, 08, 22),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -502,7 +502,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule3 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 17),
+                Date = new DateTime(2021, 08, 17),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 23,
@@ -511,7 +511,7 @@ namespace MQuince.Unit.Tests
 
             WorkSchedule workSchedule4 = new WorkSchedule()
             {
-                Date = new DateTime(2020, 06, 18),
+                Date = new DateTime(2021, 08, 18),
                 Doctor = doctor1,
                 StartTime = 19,
                 EndTime = 22,
@@ -527,7 +527,7 @@ namespace MQuince.Unit.Tests
             Appointment app1 = new Appointment()
             {
                 Id = Guid.NewGuid(),
-                Date = new DateTime(2020, 06, 15),
+                Date = new DateTime(2021, 08, 15),
                 Doctor = doctor1,
                 StartTime = 10,
                 Status = Enums.AppointmentStatus.Pending,
@@ -536,12 +536,12 @@ namespace MQuince.Unit.Tests
             };
 
             appointments.Add(app1);
-            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor1.Id)).Returns(appointments);
-            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), doctor1.Id)).Returns(workSchedulesForDoctor);
-            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2020, 06, 10), new DateTime(2020, 06, 27), doctor1.Id));
-            //stubRepository2.Setup(p => p.FindWorkScheduleForAllDoctorsInDateRange(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20))).Returns(workSchedules);
+            stubRepository1.Setup(p => p.GetBookedAppointmentsForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor1.Id)).Returns(appointments);
+            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), doctor1.Id)).Returns(workSchedulesForDoctor);
+            stubRepository2.Setup(p => p.FindWorkScheduleForDoctorInDateRange(new DateTime(2021, 08, 10), new DateTime(2021, 08, 27), doctor1.Id));
+            //stubRepository2.Setup(p => p.FindWorkScheduleForAllDoctorsInDateRange(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20))).Returns(workSchedules);
             AppointmentService appointmentService = new AppointmentService(stubRepository1.Object, stubRepository2.Object);
-            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2020, 06, 17), new DateTime(2020, 06, 20), 8, 18, doctor1.Id, Enums.AppointmentPriority.DoctorPriority, general.Id);
+            AppointmentDTO appointmentDTO = appointmentService.RecommendAppointment(new DateTime(2021, 08, 17), new DateTime(2021, 08, 20), 8, 18, doctor1.Id, Enums.AppointmentPriority.DoctorPriority, general.Id);
             Assert.Null(appointmentDTO);
 
         }

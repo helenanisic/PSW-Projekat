@@ -20,7 +20,7 @@
     input[type=text], select, input[type=time] {
         width: 100%;
         padding: 12px 20px;
-        margin: 8px 0;
+        margin: 0px 0;
         display: inline-block;
         border: 1px solid #ccc;
         border-radius: 4px;
@@ -32,7 +32,7 @@
         background-color: #4CAF50;
         color: white;
         padding: 14px 20px;
-        margin: 8px 0;
+        margin: 0px 0;
         border: none;
         border-radius: 4px;
         cursor: pointer;
@@ -115,23 +115,72 @@
     <section class="page-section" id="contact">
         <div class="container" id="appointmentBooking">
             <!-- Contact Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">My Appointments</h2>
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Book Appointment</h2>
             <!-- Icon Divider-->
             <!-- Contact Section Form-->
-            <div class="commentBox" v-for="appointment in appointments">
-                <div class="col-lg-8 mx-auto">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                    <div class="short-info2">Appointment type: &nbsp; {{appointment.type}}</div>
-                    <div class="short-info2">Status: &nbsp; {{appointment.status}}</div>
-                    <div class="apartment-name2">Start time: &nbsp; {{appointment.startDateTime}}</div>
-                    <div class="apartment-name2">End time: &nbsp; {{appointment.endDateTime}}</div>
-                    <div class="apartment-name2">
-                        Doctor: &nbsp; {{appointment.doctorName}} &nbsp; {{appointment.doctorSurname}}
-                        <br />
-                    </div>
+            <form method="POST" id="contactForm" name="sentMessage" v-on:submit.prevent="submit()">
+            <div class="control-group">
+                <div class="form-group floating-label-form-group controls mb-0 pb-2" style="color: #6c757d; opacity: 1;">
+                    <table style="margin-top: 2rem; width: 50%; margin-left:25%">
+                        <tbody>
+                            <tr>
+                                <td style="width: 50%;">Specialization</td>
+                                <td style="width: 50%">
+                                    <select required v-model="specializationId" class="form-control" @change="specializationChanged($event)" style="text-indent: 1%" data-validation-required-message="Please choose your contry.">
+                                        <option value="" selected disabled></option>
+                                        <option v-for="referral in referrals" :value="referral.specialization.id">{{referral.specialization.name}}</option>
+                                        <option :value="chosenDoctor.specializationId">General</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100px;">Doctor</td>
+                                <td>
+                                    <select required v-model="doctorId" class="form-control" style="text-indent: 1%" data-validation-required-message="Please choose your city.">
+                                        <option value="" selected disabled></option>
+                                        <option v-for="d in doctors" :value="d.id">{{d.name}}&nbsp;{{d.surname}}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Start Date</td>
+                                <td><input required v-model="startDate" class="form-control" id="birthdate" type="date" oninvalid="this.setCustomValidity('Start time has to be a number between 8-20.')" /></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>End Date</td>
+                                <td><input required v-model="endDate" class="form-control" id="birthdate" type="date" data-validation-required-message="Please enter your date of birth." /></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Start time</td>
+                                <td><input required="required" min=8 max=20 v-model="startTime" class="form-control" id="birthdate" type="number" oninvalid=this.setCustomValidity('Start time has to be a number between 8-20.') /></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>End time</td>
+                                <td><input required min=9 max=21 v-model="endTime" class="form-control" id="birthdate" type="number" oninvalid=this.setCustomValidity('Start time has to be a number between 9-21.') /></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Priority</td>
+                                <td>
+                                    <div class="control-group" style="color: #6c757d; opacity: 1; margin-top: 4%;">
+                                        <input v-model="appointmentPriority" type="radio" value="0" id="Anonymous" name="signing" style="margin-right: 2%; " required>Doctor</input>
+                                        <input v-model="appointmentPriority" type="radio" value="1" id="Signed" name="signing" style="margin-right: 2%; margin-left: 15%;">Time</input>
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                            </tr>
+                        </tbody>
 
+                    </table>
                 </div>
+                <div class="form-group"><input type="submit" value="Submit" style="margin-left: 35%; margin-top:2.5rem; width: 30%;" class="btn btn-primary btn-xl" id="sendMessageButton" /></div>
             </div>
+            </form>
         </div>
     </section>
     <!-- Footer-->
@@ -154,6 +203,7 @@
     <!-- Core theme JS-->
     <script src="axios.js"></script>
     <script src="js/scripts.js"></script>
-    <script src="Appointments.js"></script>
+    <script src="https://npmcdn.com/js-alert/dist/jsalert.min.js"></script>
+    <script src="AppointmentBooking.js"></script>
 </body>
 </html>

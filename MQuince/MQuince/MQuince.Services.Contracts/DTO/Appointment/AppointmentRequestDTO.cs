@@ -15,7 +15,7 @@ namespace MQuince.Services.Contracts.DTO.Appointment
         
         public Guid ReferralId { get; set; }
         public Guid SpecializationId { get; set; }
-        public AppointmentPriority appointmentPriority { get; set; }
+        public AppointmentPriority AppointmentPriority { get; set; }
 
     }
 }

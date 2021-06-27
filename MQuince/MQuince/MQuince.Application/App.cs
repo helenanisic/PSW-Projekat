@@ -71,5 +71,11 @@ namespace MQuince.Application
 
         public IWorkScheduleService GetWorkScheduleService()
            => new WorkScheduleService(this.GetWorkScheduleRepository());
+
+        private IReferralRepository GetReferralRepository()
+            => new ReferralRepository(_optionsBuilder);
+
+        public IReferralService GetReferralService()
+           => new ReferralService(this.GetReferralRepository());
     }
 }

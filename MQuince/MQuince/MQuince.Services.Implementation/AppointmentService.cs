@@ -101,11 +101,17 @@ namespace MQuince.Services.Implementation
 
         public AppointmentDTO findAppointmentDoctorPriority(DateTime startDate, DateTime endDate, int startTime, int endTime, Guid DoctorId)
         {
-            IEnumerable<WorkSchedule>  workSchedules = _workScheduleRepository.FindWorkScheduleForDoctorInDateRange(startDate.AddDays(-7), endDate.AddDays(7), DoctorId);
+            DateTime today = DateTime.Now;
+            DateTime startingDay = startDate.AddDays(-7);
+            if (startingDay <= today)
+            {
+                startingDay = today;
+            }
+            IEnumerable<WorkSchedule>  workSchedules = _workScheduleRepository.FindWorkScheduleForDoctorInDateRange(startingDay, endDate.AddDays(7), DoctorId);
             AppointmentDTO recommendAppointment = new AppointmentDTO();
             if (workSchedules.Safe().Any())
             {
-                IEnumerable<Appointment>  appointments = _appointmentRepository.GetBookedAppointmentsForDoctorInDateRange(startDate.AddDays(-7), endDate.AddDays(7), DoctorId);
+                IEnumerable<Appointment>  appointments = _appointmentRepository.GetBookedAppointmentsForDoctorInDateRange(startingDay, endDate.AddDays(7), DoctorId);
                 return recommendAppointment = findFreeAppointment(workSchedules, appointments, startTime, endTime, true);
             }
             return null;
