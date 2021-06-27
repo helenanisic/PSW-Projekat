@@ -61,10 +61,36 @@
 					})
 				.then(response => {
 					this.recommendation = response.data;
+					console.log(this.recommendation);
+					let th = this;
 					JSAlert.confirm("On " + this.recommendation.date.substring(0,10) + " at " + this.recommendation.startTime + " with doctor " + this.recommendation.doctorName + this.recommendation.doctorSurname)
 						.then(function (result) {
 							if (!result)
 								return;
+							console.log(th.recommendation);
+							axios
+								.post('/api/Appointment/Create', {
+									Date: th.recommendation.date,
+									StartTime: th.recommendation.startTime,
+									Type: "",
+									DoctorId: th.recommendation.doctorId,
+									DoctorName: "",
+									DoctorSurname: "",
+									Status: ""
+
+								}, {
+									headers: {
+										'Authorization': "Bearer " + localStorage.getItem("access_token")
+									}
+								})
+								.then(response => {
+									JSAlert.alert("Success");
+								})
+								.catch(error => {
+									console.log(error)
+									JSAlert.alert(error.response.data);
+
+								})
 						})
 				})
 				.catch(error => {

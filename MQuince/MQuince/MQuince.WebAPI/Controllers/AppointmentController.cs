@@ -23,13 +23,15 @@ namespace MQuince.WebAPI.Controllers
         private readonly IAppointmentService _appointmentService;
         private readonly IReferralService _referralService;
         private readonly IDoctorService _doctorService;
+        private readonly IPatientService _patientService;
 
-        public AppointmentController([FromServices] IAppointmentService appointmentService, IUserService userService, IReferralService referralService, IDoctorService doctorService)
+        public AppointmentController([FromServices] IAppointmentService appointmentService, IUserService userService, IReferralService referralService, IDoctorService doctorService, IPatientService patientService)
         {
             this._appointmentService = appointmentService;
             this._userService = userService;
             this._referralService = referralService;
             this._doctorService = doctorService;
+            this._patientService = patientService;
         }
 
         [HttpGet("GetAppointmentsForPatient")]
@@ -78,6 +80,21 @@ namespace MQuince.WebAPI.Controllers
             return Ok(referrals);
         }
 
+        [HttpPost("Create")]
+        [Authorize]
+        public IActionResult CreateAppointment(AppointmentDTO appointmentDTO)
+        {
+            string token = Request.Headers["Authorization"];
+            var id = _userService.GetIdFromJwtToken(token.Split(" ")[1]);
+            Patient patient = _patientService.GetById(new Guid(id));
+            Doctor doctor = _doctorService.GetById(appointmentDTO.DoctorId);
+            Guid result = _appointmentService.Create(CreateAppointmentFromDTO(appointmentDTO, doctor, patient));
+            if(result == Guid.Empty)
+            {
+                return BadRequest("Something went wrong, please try again!");
+            }
+            return Ok();
+        }
 
         private AppointmentDTO CreateAppointmentDTO(Appointment appointment)
         {
@@ -91,5 +108,8 @@ namespace MQuince.WebAPI.Controllers
                 Status = appointment.Status.ToString()
             };
         }
+
+        private Appointment CreateAppointmentFromDTO(AppointmentDTO appointmentDTO, Doctor doctor, Patient patient)
+            => new Appointment(appointmentDTO.Date, appointmentDTO.StartTime, Enums.TreatmentType.Examination, doctor,patient, Enums.AppointmentStatus.Pending);
     }
 }

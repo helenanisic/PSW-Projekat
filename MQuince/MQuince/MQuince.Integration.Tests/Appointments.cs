@@ -178,5 +178,31 @@ namespace MQuince.Integration.Tests
             Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
             responseAsConcreteType.DoctorId.ShouldBe(new Guid("b35f2726-7757-42dd-92cc-9a6f5ff1b759"));
         }
+
+        [Fact]
+        public async Task accept_recommended_appointment()
+        {
+            AuthenticateRequest user = new AuthenticateRequest
+            {
+                Email = "andrej@gmail.com",
+                Password = "Andrej123"
+            };
+            AppointmentDTO appointmentDTO = new AppointmentDTO()
+            {
+                Date = new DateTime(2021, 09, 17),
+                StartTime = 8,
+                Type = "",
+                DoctorId = new Guid("fdea1b1d-bafc-4056-b5aa-6bacd468d080"),
+                DoctorName = "",
+                DoctorSurname = "",
+                Status = ""
+            };
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
+            HttpResponseMessage response = await Client.PostAsync("/api/Appointment/Create", Helpers.GetByteArrayContent(appointmentDTO));
+            var responseAsString = await response.Content.ReadAsStringAsync();
+            Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
+        }
+
     }
 }
