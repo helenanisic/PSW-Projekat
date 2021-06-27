@@ -129,7 +129,13 @@
                         Doctor: &nbsp; {{appointment.doctorName}} &nbsp; {{appointment.doctorSurname}}
                         <br />
                     </div>
-
+                    <div style=" float: right; margin-right: -10%;">
+                        <div>
+                            <button class="btn" @click="cancel(appointment)">
+                                <i class="fa fa-window-close"></i>&nbsp&nbspCancel
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

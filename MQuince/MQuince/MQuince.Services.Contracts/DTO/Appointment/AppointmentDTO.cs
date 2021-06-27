@@ -7,6 +7,7 @@ namespace MQuince.Services.Contracts.DTO.Appointment
 {
     public class AppointmentDTO
     {
+        public Guid id { get; set; }
         public DateTime Date { get; set; }
         public int StartTime { get; set; }
         public String Type { get; set; }
