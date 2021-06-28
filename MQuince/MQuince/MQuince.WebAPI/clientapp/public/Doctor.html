@@ -128,16 +128,16 @@
                                     <td style="width: 50%">
                                         <select required v-model="patient" class="form-control" style="text-indent: 1%">
                                             <option value="" selected disabled></option>
-                                            <option v-for="patient in patients" :value="patient">{{patient.name}}&nbsp();{{patient.surname}}</option>
+                                            <option v-for="patient in patients" :value="patient">{{patient.name}} &nbsp; {{patient.surname}}</option>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="width: 100px;">Medication</td>
                                     <td>
-                                        <select required v-model="medicineId" class="form-control" style="text-indent: 1%" data-validation-required-message="Please choose your city.">
+                                        <select required v-model="medicine" class="form-control" style="text-indent: 1%" data-validation-required-message="Please choose your city.">
                                             <option value="" selected disabled></option>
-                                            <option v-for="m in medicines" :value="m.id">{{m.name}}</option>
+                                            <option v-for="m in medicines" :value="m">{{m.name}}</option>
                                         </select>
                                     </td>
                                 </tr>

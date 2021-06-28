@@ -42,6 +42,9 @@ namespace MQuince.WebAPI
             services.AddTransient(typeof(IAppointmentService), s => application.GetAppointmentService());
             services.AddTransient(typeof(IWorkScheduleService), s => application.GetWorkScheduleService());
             services.AddTransient(typeof(IReferralService), s => application.GetReferralService());
+            services.AddTransient(typeof(IMedicineService), s => application.GetMedicineService());
+            services.AddTransient(typeof(IPrescriptionService), s => application.GetPrescriptionService());
+            services.AddTransient(typeof(IMedicineInPharmacyService), s => application.GetMedicineInPharmacyService());
             services.AddControllers();
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp"; });
             var key = Encoding.ASCII.GetBytes(secret);

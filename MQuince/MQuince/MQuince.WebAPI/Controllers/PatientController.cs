@@ -74,6 +74,13 @@ namespace MQuince.WebAPI.Controllers
             return Ok(doctor);
         }
 
+        [HttpGet("GetAllNotBanned")]
+        public IActionResult GetAllNotBanned()
+        {
+            IEnumerable<Patient> patients = _patientService.GetAllNotBanned();
+            return Ok(patients);
+        }
+
         public static Patient CreatePatientFromDTO(PatientDTO patient, Guid? id = null)
     => id == null ? new Patient(Enums.Usertype.Patient, patient.Name, patient.Surname, patient.Email, patient.Password, patient.Jmbg, patient.BirthDate, patient.Gender, patient.Telephone,
         patient.ResidenceId, patient.ChosenDoctorId, patient.Lbo, patient.MissedAppointments, patient.Banned)

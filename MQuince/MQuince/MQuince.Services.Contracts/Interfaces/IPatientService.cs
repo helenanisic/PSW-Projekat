@@ -17,5 +17,6 @@ namespace MQuince.Services.Contracts.Interfaces
         IEnumerable<Patient> GetMaliciousPatients();
         Patient BanPatient(Guid id);
         Patient GetById(Guid id);
+        IEnumerable<Patient> GetAllNotBanned();
     }
 }

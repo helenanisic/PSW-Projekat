@@ -14,5 +14,6 @@ namespace MQuince.Repository.Contracts
         IEnumerable<Patient> GetMaliciousPatients();
         Patient BanPatient(Patient patient);
         Patient GetById(Guid id);
+        IEnumerable<Patient> GetAllNotBanned();
     }
 }

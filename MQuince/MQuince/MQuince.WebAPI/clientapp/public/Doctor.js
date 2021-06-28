@@ -16,86 +16,25 @@
 
 
 		patient: null,
-		patients: []
+		patients: [],
+		medicines: [],
+		medicine: null,
+		quantity: 0
 	},
 	methods: {
-		specializationChanged: function (event) {
-			if (this.specializationId == this.chosenDoctor.specializationId) {
-				this.doctors.splice(0, this.doctors.length);
-				this.doctors.push(this.chosenDoctor);
-				console.log(this.chosenDoctor)
-			} else {
-				axios
-					.get('/api/Doctor/GetDoctorBySpecialization', {
-						params: {
-							id: this.specializationId
-						}
-					})
-					.then(response => {
-						this.doctors = response.data
-					})
-			}
-
-		},
 		submit: function () {
-			console.log("Usao")
-			for (i = 0; i < this.referrals.length; i++) {
-				console.log(this.referrals[i].specialization.id);
-				console.log(this.specializationId);
-				if (this.referrals[i].specialization.id == this.specializationId) {
-					console.log("hhh");
-					this.referralId = this.referrals[i].id;
-					console.log(this.referralId);
-				}
-			}
-
 			axios
-				.post('/api/Appointment/Recommend',
+				.post('/api/Prescription',
 
 					{
-						StartDate: this.startDate,
-						EndDate: this.endDate,
-						StartTime: parseInt(this.startTime),
-						EndTime: parseInt(this.endTime),
-						DoctorId: this.doctorId,
-						SpecializationId: this.specializationId,
-						AppointmentPriority: parseInt(this.appointmentPriority),
-						ReferralId: this.referralId
+						MedicineId: parseInt(this.medicine.id),
+						Patient: this.patient,
+						Quantity: parseInt(this.quantity)
 
 					})
 				.then(response => {
-					this.recommendation = response.data;
-					console.log(this.recommendation);
-					let th = this;
-					JSAlert.confirm("On " + this.recommendation.date.substring(0, 10) + " at " + this.recommendation.startTime + " with doctor " + this.recommendation.doctorName + this.recommendation.doctorSurname)
-						.then(function (result) {
-							if (!result)
-								return;
-							console.log(th.recommendation);
-							axios
-								.post('/api/Appointment/Create', {
-									Date: th.recommendation.date,
-									StartTime: th.recommendation.startTime,
-									Type: "",
-									DoctorId: th.recommendation.doctorId,
-									DoctorName: "",
-									DoctorSurname: "",
-									Status: ""
-
-								}, {
-									headers: {
-										'Authorization': "Bearer " + localStorage.getItem("access_token")
-									}
-								})
-								.then(response => {
-									JSAlert.alert("Success");
-								})
-								.catch(error => {
-									console.log(error)
-									JSAlert.alert(error.response.data);
-
-								})
-						})
+					JSAlert.alert("Prescription Id: " + response.data);
+					alert(response.data);
 				})
 				.catch(error => {
 					console.log(error)
@@ -108,13 +47,23 @@
 	},
 	created() {
 		axios
-			.get('/api/Patient/GetAll', {
+			.get('/api/Patient/GetAllNotBanned', {
 				headers: {
 					'Authorization': "Bearer " + localStorage.getItem("access_token")
 				}
 			})
 			.then(response => {
 				this.patients = response.data;
+
+				axios
+				.get('/api/Medicine', {
+					headers: {
+						'Authorization': "Bearer " + localStorage.getItem("access_token")
+					}
+				})
+				.then(response => {
+					this.medicines = response.data;
+				})
 			})
 
 	}

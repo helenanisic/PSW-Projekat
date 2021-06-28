@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MQuince.Entities.Drug;
+using MQuince.Entities.Users;
+using MQuince.Services.Contracts.DTO.Users;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,10 +9,9 @@ namespace MQuince.Services.Contracts.DTO.MedicalRecords
 {
     public class PrescriptionDTO
     {
-        public bool Reserved { get; set; }
-        public DateTime ReservedFrom { get; set; }
-        public DateTime ReservedTo { get; set; }
-        public List<Guid> TheraphyId = new List<Guid>();
+        public PatientDTO Patient { get; set; }
+        public int MedicineId { get; set; }
+        public int Quantity { get; set; }
 
     }
 }

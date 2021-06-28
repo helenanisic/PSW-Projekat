@@ -6,15 +6,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MQuince.Repository.SQL.PersistenceEntities.MedicalRecords
 {
-    [Table("Prescription")]
+    [Table("reserved_medicine")]
     public class PrescriptionPersistence
     {
         [Key]
-        public Guid Id { get; set; }
-        public bool Reserved { get; set; }
-        public DateTime ReservedFrom { get; set; }
-        public DateTime ReservedTo { get; set; }
-
-        public List<Guid> TheraphyId = new List<Guid>();
+        public string uid { get; set; }
+        public bool approved { get; set; }
+        public DateTime date { get; set; }
+        public string patient_name { get; set; }
+        public int quantity { get; set; }
+        public int medicine_id { get; set; }
+        public int patient_id { get; set; }       
+        public int pharmacy_id { get; set; }
     }
 }

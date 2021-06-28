@@ -87,5 +87,10 @@ namespace MQuince.Services.Implementation
         {
             return _patientRepository.GetById(id);
         }
+
+        public IEnumerable<Patient> GetAllNotBanned()
+        {
+            return _patientRepository.GetAllNotBanned();
+        }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MQuince.Entities.Drug;
+using MQuince.Entities.Users;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,19 +9,37 @@ namespace MQuince.Entities.MedicalRecords
 {
     public class Prescription
     {
-        private Guid _id;
-        public bool Reserved { get; set; }
-        public DateTime ReservedFrom { get; set; }
-        public DateTime ReservedTo { get; set; }
-        public List<Guid> TheraphyId = new List<Guid>();
+        public string Id { get; set; }
+        public bool IsApproved { get; set; }
+        public DateTime Date { get; set; }
+        public string PatientName { get; set; }
+        public int Quantity { get; set; }
+        public int MedicineId { get; set; }
+        public int PatientId { get; set; }       
+        public int PharmacyId { get; set; }
 
-        public Guid Id
+        public Prescription()
         {
-            get { return _id; }
-            private set
-            {
-                _id = value == Guid.Empty ? throw new ArgumentException("Argument can not be Guid.Empty", nameof(Id)) : value;
-            }
+            Id = Guid.NewGuid().ToString();
         }
+        public Prescription(string id, bool isApproved, DateTime date, int quantity, int medicineId, int patientId, string patientName, int pharmacyId)
+        {
+            Id = id.ToString();
+            IsApproved = isApproved;
+            Date = date;
+            Quantity = quantity;
+            MedicineId = medicineId;
+            PatientId = patientId;
+            PatientName = patientName;
+            PharmacyId = pharmacyId;
+
+        }
+
+        public Prescription(int quantity, int medicineId, string patientName) :
+            this(Guid.NewGuid().ToString(), false, DateTime.Now.AddDays(14), quantity, medicineId, 999, patientName, 1)
+        { }
+        public Prescription(Guid id, int quantity, int medicineId, string patientName) :
+            this(id.ToString(), false, DateTime.Now.AddDays(14), quantity, medicineId, 999, patientName, 1)
+        { }
     }
 }

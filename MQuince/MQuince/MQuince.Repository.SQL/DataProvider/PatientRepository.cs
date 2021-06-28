@@ -62,5 +62,10 @@ namespace MQuince.Repository.SQL.DataProvider
             return PatientMapper.MapPatientPersistenceToPatientEntity(context.Patients.SingleOrDefault(p => p.Id.Equals(id)));
         }
 
+        public IEnumerable<Patient> GetAllNotBanned()
+        {
+            using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
+            return PatientMapper.MapPatientPersistenceCollectionToPatientEntityCollection(_context.Patients.Where(p => p.Banned == false & p.UserType == Enums.Usertype.Patient).ToList());
+        }
     }
 }

@@ -22,7 +22,7 @@ namespace MQuince.Application
             //_optionsBuilder.UseSqlServer(configuration.GetConnectionString("FeedbackExampleDB"));
             _optionsBuilder.UseMySql(@"server=localhost;port=3306;database=mquince;user=root;password=root");
             _optionsBuilderPostgres = new DbContextOptionsBuilder();
-            _optionsBuilderPostgres.UseNpgsql("Host=localhost;port=5432;Database=apoteka;Username=postgres;Password=postgres");
+            _optionsBuilderPostgres.UseNpgsql("Host=localhost;port=5432;Database=apoteka;Username=postgres;Password=root");
         }
 
         public ICountryService GetCountryService()
@@ -48,9 +48,6 @@ namespace MQuince.Application
 
         public IAdressService GetAdressService()
             => new AdressService(this.GetAdressRepository());
-
-        /*public IMedicineService GetMedicineService()
-           => new MedicneService(this.GetMedicineRepository());*/
 
         private IAdressRepository GetAdressRepository()
             => new AdressRepository(_optionsBuilder);
@@ -80,10 +77,25 @@ namespace MQuince.Application
 
         private IReferralRepository GetReferralRepository()
             => new ReferralRepository(_optionsBuilder);
-        /*private IMedicineRepository GetMedicneRepository()
-            => new MedicineRepository(_optionsBuilderPostgres);*/
 
         public IReferralService GetReferralService()
            => new ReferralService(this.GetReferralRepository());
+
+        public IMedicineService GetMedicineService()
+           => new MedicineService(this.GetMedicineRepository());
+        private IMedicineRepository GetMedicineRepository()
+           => new MedicineRepository(_optionsBuilderPostgres);
+
+        private IPrescriptionRepository GetPrescriptionRepository()
+           => new PrescriptionRepository(_optionsBuilderPostgres);
+
+        public IPrescriptionService GetPrescriptionService()
+           => new PrescriptionService(this.GetPrescriptionRepository(), this.GetMedicineInPharmacyRepository());
+
+        private IMedicineInPharmacyRepository GetMedicineInPharmacyRepository()
+           => new MedicineInPharmacyRepository(_optionsBuilderPostgres);
+
+        public IMedicineInPharmacyService GetMedicineInPharmacyService()
+           => new MedicineInPharmacyService(this.GetMedicineInPharmacyRepository());
     }
 }

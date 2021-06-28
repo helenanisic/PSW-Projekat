@@ -10,7 +10,7 @@ namespace MQuince.Repository.SQL.PersistenceEntities.Drug
     public class MedicinePersistence
     {
         [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
     }
 }
