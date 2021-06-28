@@ -1,4 +1,5 @@
-﻿using MQuince.Entities.Appointment;
+﻿using CSharpFunctionalExtensions;
+using MQuince.Entities.Appointment;
 using MQuince.Entities.Users;
 using MQuince.Enums;
 using MQuince.Repository.Contracts;
@@ -156,6 +157,32 @@ namespace MQuince.Services.Implementation
             if (recommendAppointment == null)
                 recommendAppointment = findAppointmentByPriority(startDate, endDate, startTime, endTime, DoctorId, appointmentPriority, specializationId);
             return recommendAppointment;
+        }
+
+        public Result<bool> Delete(Guid id)
+        {
+            Appointment appointment = _appointmentRepository.GetById(id);
+            Boolean result;
+            if (checkIfLessThan48Hours(appointment))
+            {
+                 result = _appointmentRepository.Delete(id);
+                 return result ? Result.Success(true) : Result.Failure<bool>("Neuspesno otkazivanje!");
+            }
+            return Result.Failure<bool>("Proslo je vreme za otkazivanje");
+       }
+
+        public Appointment GetById(Guid id)
+        {
+            return _appointmentRepository.GetById(id);
+        }
+
+        private bool checkIfLessThan48Hours(Appointment appointment)
+        {
+            DateTime today = DateTime.Now;
+            DateTime appointmentDateTime = appointment.Date.AddHours(appointment.StartTime);
+            if (appointmentDateTime.CompareTo(DateTime.Now.AddDays(2)) < 0)
+                return false;
+            return true;
         }
     }
 }

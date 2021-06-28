@@ -19,13 +19,12 @@
                         }
 					})
 					.then(response => {
-						for (i = 0; i < self.feedbacks.length; i++) {
-							if (self.feedbacks[i].id == fdb.id) {
-								self.feedbacks.splice(i, 1);
-								break;
-							}
-						}
-						JSAlert.alert("Success!");
+						JSAlert.alert("Success");
+					})
+					.catch(error => {
+						console.log(error)
+						JSAlert.alert(error.response.data);
+
 					})
 			})
 		}

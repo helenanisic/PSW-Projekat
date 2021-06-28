@@ -1,4 +1,6 @@
-﻿using Moq;
+﻿using CSharpFunctionalExtensions;
+using Moq;
+using MQuince.Application;
 using MQuince.Entities.Appointment;
 using MQuince.Entities.Users;
 using MQuince.Repository.Contracts;
@@ -546,7 +548,61 @@ namespace MQuince.Unit.Tests
 
         }
 
-        
+        [Fact]
+        public void cancel_appointment_success()
+        {
+            Doctor doctor1 = new Doctor()
+            {
+            };
+            Patient patient = new Patient();
+            Appointment app1 = new Appointment()
+            {
+                Id = Guid.NewGuid(),
+                Date = new DateTime(2021, 08, 15),
+                Doctor = doctor1,
+                StartTime = 10,
+                Status = Enums.AppointmentStatus.Pending,
+                Patient = patient,
+                Type = Enums.TreatmentType.Examination
+            };
+
+            var stubRepository = new Mock<IAppointmentRepository>();
+            var stubRepository2 = new Mock<IWorkScheduleRepository>();
+            stubRepository.Setup(p => p.GetById(app1.Id)).Returns(app1);
+            stubRepository.Setup(p => p.Delete(app1.Id)).Returns(true);
+            AppointmentService appointmentService = new AppointmentService(stubRepository.Object, stubRepository2.Object);
+            Result<bool> result = appointmentService.Delete(app1.Id);
+            result.ShouldBe(true);
+        }
+
+        [Fact]
+        public void cancel_appointment_less_than_48h_fail()
+        {
+            Doctor doctor1 = new Doctor()
+            {
+            };
+            Patient patient = new Patient();
+            Appointment app1 = new Appointment()
+            {
+                Id = Guid.NewGuid(),
+                Date =  DateTime.Now.AddDays(1),
+                Doctor = doctor1,
+                StartTime = 10,
+                Status = Enums.AppointmentStatus.Pending,
+                Patient = patient,
+                Type = Enums.TreatmentType.Examination
+            };
+
+            var stubRepository = new Mock<IAppointmentRepository>();
+            var stubRepository2 = new Mock<IWorkScheduleRepository>();
+            stubRepository.Setup(p => p.GetById(app1.Id)).Returns(app1);
+            stubRepository.Setup(p => p.Delete(app1.Id)).Returns(true);
+            AppointmentService appointmentService = new AppointmentService(stubRepository.Object, stubRepository2.Object);
+            Result<bool> result = appointmentService.Delete(app1.Id);
+            Result<bool> rez = Result.Failure<bool>("Proslo je vreme za otkazivanje");
+            result.ShouldBe(rez);
+        }
+
     }
 }
  

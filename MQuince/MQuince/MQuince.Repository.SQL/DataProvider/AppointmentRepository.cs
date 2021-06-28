@@ -45,5 +45,22 @@ namespace MQuince.Repository.SQL.DataProvider
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
             return AppointmentMapper.MapAppointmentPersistenceCollectionToAppointmentEntityCollection(context.Appointments.Include("Doctor").Where(a => a.Date.Date >= startDate.Date & a.Date.Date <= endDate.Date).ToList());
         }
+
+        public bool Delete(Guid id)
+        {
+            using (MQuinceDbContext _context = new MQuinceDbContext())
+            {
+                var appointment = _context.Appointments.SingleOrDefault(c => c.Id.Equals(id));
+                if (appointment == null)
+                    return false;
+                _context.Appointments.Remove(appointment);
+                return _context.SaveChanges() > 0 ? true : false;
+            }
+        }
+        public Appointment GetById(Guid id)
+        {
+            using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
+            return AppointmentMapper.MapAppointmentPersistenceToAppointmentEntity(_context.Appointments.SingleOrDefault(d => d.Id == id));
+        }
     }
 }

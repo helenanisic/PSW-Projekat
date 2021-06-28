@@ -96,10 +96,20 @@ namespace MQuince.WebAPI.Controllers
             return Ok();
         }
 
+        [HttpGet("Cancel")]
+        [Authorize]
+        public IActionResult DeleteAppointment(Guid id)
+        {
+            var result = _appointmentService.Delete(id);
+            if (result.IsFailure)
+                return BadRequest(result.Error);
+            return Ok();
+        }
         private AppointmentDTO CreateAppointmentDTO(Appointment appointment)
         {
             return new AppointmentDTO()
             {
+                id = appointment.Id,
                 Date = appointment.Date,
                 StartTime = appointment.StartTime,
                 Type = appointment.Type.ToString(),

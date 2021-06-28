@@ -11,5 +11,8 @@ namespace MQuince.Repository.Contracts
         Guid Create(Appointment appointment);
         IEnumerable<Appointment> GetBookedAppointmentsForDoctorInDateRange(DateTime startDate, DateTime endDate, Guid DoctorId);
         IEnumerable<Appointment> GetAppointmentsAnyDoctor(DateTime startDate, DateTime endDate);
+        bool Delete(Guid id);
+        Appointment GetById(Guid id);
+
     }
 }
