@@ -803,9 +803,6 @@ C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debu
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.pdb
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.genruntimeconfig.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\CSharpFunctionalExtensions.dll
-C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.csproj.CoreCompileInputs.cache
-C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\EmptyFiles\archive\empty.7z
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\EmptyFiles\archive\empty.bz2
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\EmptyFiles\archive\empty.gz
@@ -928,3 +925,8 @@ C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debu
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Text.Encoding.CodePages.dll
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Threading.AccessControl.dll
 C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\Npgsql.dll
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\bin\Debug\netcoreapp3.1\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\helen\Desktop\proj\PSW-Projekat\MQuince\MQuince\MQuince.WebAPI\obj\Debug\netcoreapp3.1\MQuince.WebAPI.MvcApplicationPartsAssemblyInfo.cache

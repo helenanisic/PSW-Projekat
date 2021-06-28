@@ -14,12 +14,15 @@ namespace MQuince.Application
     public class App
     {
         private DbContextOptionsBuilder _optionsBuilder;
+        private DbContextOptionsBuilder _optionsBuilderPostgres;
 
         public App(IConfiguration configuration)
         {
             _optionsBuilder = new DbContextOptionsBuilder();
             //_optionsBuilder.UseSqlServer(configuration.GetConnectionString("FeedbackExampleDB"));
             _optionsBuilder.UseMySql(@"server=localhost;port=3306;database=mquince;user=root;password=root");
+            _optionsBuilderPostgres = new DbContextOptionsBuilder();
+            _optionsBuilderPostgres.UseNpgsql("Host=localhost;port=5432;Database=apoteka;Username=postgres;Password=postgres");
         }
 
         public ICountryService GetCountryService()
@@ -45,6 +48,9 @@ namespace MQuince.Application
 
         public IAdressService GetAdressService()
             => new AdressService(this.GetAdressRepository());
+
+        /*public IMedicineService GetMedicineService()
+           => new MedicneService(this.GetMedicineRepository());*/
 
         private IAdressRepository GetAdressRepository()
             => new AdressRepository(_optionsBuilder);
@@ -74,6 +80,8 @@ namespace MQuince.Application
 
         private IReferralRepository GetReferralRepository()
             => new ReferralRepository(_optionsBuilder);
+        /*private IMedicineRepository GetMedicneRepository()
+            => new MedicineRepository(_optionsBuilderPostgres);*/
 
         public IReferralService GetReferralService()
            => new ReferralService(this.GetReferralRepository());
