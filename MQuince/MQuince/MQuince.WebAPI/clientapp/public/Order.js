@@ -74,7 +74,7 @@
 					this.newMedication.splice(i, 1);
 				}
 			}
-			this.orderMed.quantity = this.medQuantity;
+			this.orderMed.quantity = parseInt(this.medQuantity);
 			this.orderedMedication.push(this.orderMed);
 			this.medQuantity = null;
 			this.changeOrder = false;
@@ -99,14 +99,15 @@
 				JSAlert.alert("Your order is empty!");
 			axios
 
-				.post('/api/errand/newErrand',
-					{
-						deadline: this.deadline,
-					},
+				.get('/api/Order',
+					
 					{
 						headers: {
 							'Authorization': "Bearer " + localStorage.getItem('access_token')
-						}
+						},
+						params: {
+							deadline: this.deadline,
+						},
 					})
 				.then(response => {
 					this.errandId = response.data
@@ -115,9 +116,9 @@
 					}
 
 					axios
-						.post('/api/errand/errandMedication',
+						.post('/api/Order/medications',
 							{
-								dto: JSON.stringify(this.orderedMedication)
+								orders: this.orderedMedication
 							},
 							{
 								headers: {

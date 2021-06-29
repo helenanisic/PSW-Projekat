@@ -5,6 +5,8 @@
 #pragma warning disable 1591, 0612, 3021
 #region Designer generated code
 
+using System;
+using System.Net.Http;
 using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
@@ -389,9 +391,14 @@ namespace MQuince.WebAPI.Controllers {
         }
       }
     }
-    #endif
 
-  }
+        public static implicit operator ErrandResponse(HttpResponseMessage v)
+        {
+            throw new NotImplementedException();
+        }
+#endif
+
+    }
 
   public sealed partial class ErrandMedication : pb::IMessage<ErrandMedication>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
