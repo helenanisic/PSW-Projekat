@@ -1,0 +1,2 @@
+obj\Debug\netcoreapp3.1\Controllers/ErrandService.cs \
+obj\Debug\netcoreapp3.1\Controllers/ErrandServiceGrpc.cs: Controllers/ErrandService.proto
