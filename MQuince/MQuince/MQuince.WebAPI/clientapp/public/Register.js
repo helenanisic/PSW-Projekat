@@ -66,6 +66,7 @@
                         .then(response => {
                             this.info = response.data
                             JSAlert.alert("You have successfully created an account!");
+                            window.location.href = "login.html";
                         })
                         .catch(error => {
                             console.log(error)
@@ -90,7 +91,7 @@
                 this.countries = response.data
             })
         axios
-            .get('/api/Doctor/GetAll')
+            .get('/api/Doctor/GetAllGenerals')
             .then(response => {
                 this.doctors = response.data
             })

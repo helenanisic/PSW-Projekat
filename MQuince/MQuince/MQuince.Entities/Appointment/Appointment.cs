@@ -1,5 +1,4 @@
-﻿using MQuince.Entities.MedicalRecords;
-using MQuince.Entities.Rooms;
+﻿
 using MQuince.Entities.Users;
 using MQuince.Enums;
 using System;

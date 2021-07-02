@@ -31,6 +31,12 @@ namespace MQuince.Repository.SQL.DataProvider
             return DoctorMapper.MapDoctorPersistenceCollectionToDoctorEntityCollection(_context.Doctors.ToList());
         }
 
+        public IEnumerable<Doctor> GetAllGenerals()
+        {
+            using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
+            return DoctorMapper.MapDoctorPersistenceCollectionToDoctorEntityCollection(_context.Doctors.Include("Specialization").Where(d => d.Specialization.Name == "General").ToList());
+        }
+
         public IEnumerable<Doctor> GetDoctorBySpecialization(Guid specializationId)
         {
             using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);

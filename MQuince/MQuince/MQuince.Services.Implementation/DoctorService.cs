@@ -62,6 +62,7 @@ namespace MQuince.Services.Implementation
             return _doctorRepository.GetById(id);
         }
 
-
+        public IEnumerable<IdentifiableDTO<DoctorDTO>> GetAllGenerals()
+        => _doctorRepository.GetAllGenerals().Select(c => CreateDoctorDTO(c));
     }
 }

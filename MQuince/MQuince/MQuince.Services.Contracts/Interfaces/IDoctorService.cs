@@ -13,5 +13,6 @@ namespace MQuince.Services.Contracts.Interfaces
         Guid Create(DoctorDTO entityDTO);
         IEnumerable<Doctor> GetDoctorBySpecialization(Guid specializationId);
         Doctor GetById(Guid id);
+        public IEnumerable<IdentifiableDTO<DoctorDTO>> GetAllGenerals();
     }
 }

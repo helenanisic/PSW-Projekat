@@ -41,6 +41,12 @@ namespace MQuince.WebAPI.Controllers
             return _doctorService.GetAll();
         }
 
+        [HttpGet("GetAllGenerals")]
+        public IEnumerable<IdentifiableDTO<DoctorDTO>> GetAllGenerals()
+        {
+            return _doctorService.GetAllGenerals();
+        }
+
         [HttpGet("GetDoctorBySpecialization")]
         public IActionResult GetDoctorBySpecialization(Guid id)
         {

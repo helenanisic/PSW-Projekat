@@ -31,7 +31,8 @@ namespace MQuince.Integration.Tests
             PatientDTO patient = new PatientDTO()
             {
                 Name = "Milan",
-                Id = new Guid("60fe121f-c4ee-4591-9d55-47c07c7c5616")
+                Id = new Guid("60fe121f-c4ee-4591-9d55-47c07c7c5616"),
+                Jmbg = "1234567891234"
             };
             PrescriptionDTO prescriptionDTO = new PrescriptionDTO()
             {
