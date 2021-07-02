@@ -1,7 +1,8 @@
 ﻿var app = new Vue({
 	el: '#appointments',
 	data: {
-		appointments: []
+		appointments: [],
+		UserRole: ""
 	},
 	methods: {
 		cancel: function (fdb) {
@@ -31,14 +32,35 @@
 	},
 	created() {
 		axios
-			.get('/api/Appointment/GetAppointmentsForPatient', {
+			.get('/api/User/GetRole', {
 				headers: {
 					'Authorization': "Bearer " + localStorage.getItem("access_token")
 				}
 			})
 			.then(response => {
-				this.appointments = response.data
+				this.UserRole = response.data
+				if (this.UserRole != "Patient") {
+					window.location.href = 'login.html';
+				}
+
+				axios
+					.get('/api/Appointment/GetAppointmentsForPatient', {
+						headers: {
+							'Authorization': "Bearer " + localStorage.getItem("access_token")
+						}
+					})
+					.then(response => {
+						this.appointments = response.data
+					})
 			})
+			.catch(error => {
+				console.log(error);
+				if (error.response.status == 401) {
+					window.location.href = 'login.html';
+				}
+			})
+
+
 
 	}
 })

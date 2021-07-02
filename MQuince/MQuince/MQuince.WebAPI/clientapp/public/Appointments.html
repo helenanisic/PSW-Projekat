@@ -123,7 +123,7 @@
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                     <div class="short-info2">Appointment type: &nbsp; {{appointment.type}}</div>
                     <div class="short-info2">Status: &nbsp; {{appointment.status}}</div>
-                    <div class="apartment-name2">Date: &nbsp; {{appointment.date}}</div>
+                    <div class="apartment-name2">Date: &nbsp; {{appointment.date.split('T')[0]}}</div>
                     <div class="apartment-name2">Time: &nbsp; {{appointment.startTime}}</div>
                     <div class="apartment-name2">
                         Doctor: &nbsp; {{appointment.doctorName}} &nbsp; {{appointment.doctorSurname}}

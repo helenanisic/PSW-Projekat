@@ -2,7 +2,8 @@
 	el: '#adminFeedback',
 	data: {
 		status: "Published",
-		feedbacks: []
+		feedbacks: [],
+		UserRole: ""
 	},
 	methods: {
 		statusChanged() {
