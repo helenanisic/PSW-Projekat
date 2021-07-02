@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,15 @@ namespace MQuince.WebAPI.Controllers
                 return Unauthorized(result.Error);
             return Ok(result.Value);
             
+        }
+
+        [HttpGet("GetRole")]
+        [Authorize]
+        public IActionResult GetRole()
+        {
+            string token = Request.Headers["Authorization"];
+            var role = _userService.GetRoleFromJwtToken(token.Split(" ")[1]);
+            return Ok(role);
         }
     }
 }

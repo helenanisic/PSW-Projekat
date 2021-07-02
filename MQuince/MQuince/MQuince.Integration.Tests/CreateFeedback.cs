@@ -59,5 +59,16 @@ namespace MQuince.Integration.Tests
             HttpResponseMessage response = await Client.PostAsync("/api/Feedback", Helpers.GetByteArrayContent(feedbackDTO));
             Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
         }
+
+        [Fact]
+        public async Task create_feedback_unauthorized_fail()
+        {
+            FeedbackCommentDTO feedbackDTO = new FeedbackCommentDTO()
+            {
+                Comment = "Test!"
+            };
+            HttpResponseMessage response = await Client.PostAsync("/api/Feedback", Helpers.GetByteArrayContent(feedbackDTO));
+            Assert.Equal(StatusCodes.Status401Unauthorized, (double)response.StatusCode);
+        }
     }
 }
