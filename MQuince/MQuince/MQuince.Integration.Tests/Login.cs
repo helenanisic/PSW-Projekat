@@ -41,6 +41,15 @@ namespace MQuince.Integration.Tests
             HttpResponseMessage response = await Client.GetAsync("/api/User?email=" + email + "&password=" + password);
             Assert.Equal(StatusCodes.Status200OK, (double)response.StatusCode);
         }
+
+        [Fact]
+        public async Task user_login_wrong_credentials_fail()
+        {
+            String email = "helena@gmail.com";
+            String password = "Helena12";
+            HttpResponseMessage response = await Client.GetAsync("/api/User?email=" + email + "&password=" + password);
+            Assert.Equal(StatusCodes.Status401Unauthorized, (double)response.StatusCode);
+        }
     }
 }
 

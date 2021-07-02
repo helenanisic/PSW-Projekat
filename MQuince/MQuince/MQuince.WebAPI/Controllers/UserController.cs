@@ -33,12 +33,9 @@ namespace MQuince.WebAPI.Controllers
 
             var result = _userService.Authenticate(user);
             if (result.IsFailure)
-            {
                 return Unauthorized(result.Error);
-            }
-            else {
-                return Ok(result.Value);
-            }
+            return Ok(result.Value);
+            
         }
     }
 }
