@@ -60,14 +60,9 @@ namespace MQuince.WebAPI.Controllers
         {
             Feedback updatedFeedback = _feedbackService.Update(new FeedbackDTO() { Comment = feedback.Comment, PatientId = feedback.PatientId, Published = feedback.Published }, feedback.Id);
             if (updatedFeedback != null)
-            {
-
                 return Ok(updatedFeedback);
-            }
-            else
-            {
-                return BadRequest();
-            }
+            return BadRequest();
+            
         }
 
         private Feedback CreateFeedbackFromDTO(String comment, Guid patientId, bool published, Guid? id = null)

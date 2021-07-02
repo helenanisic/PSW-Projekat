@@ -54,8 +54,9 @@ namespace MQuince.Repository.SQL.DataProvider
         public Feedback Update(Feedback entity)
         {
             using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
-            return FeedbackMapper.MapFeedbackPersistenceToFeedbackEntity(_context.Update(FeedbackMapper.MapFeedbackEntityToFeedbackPersistence(entity)).Entity);
-            
+            Feedback feedback =  FeedbackMapper.MapFeedbackPersistenceToFeedbackEntity(_context.Update(FeedbackMapper.MapFeedbackEntityToFeedbackPersistence(entity)).Entity);
+            _context.SaveChanges();
+            return feedback;
         }
         
     }

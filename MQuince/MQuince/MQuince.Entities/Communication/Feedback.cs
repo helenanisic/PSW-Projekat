@@ -12,7 +12,7 @@ namespace MQuince.Entities
         private Guid _id;
         public string Comment { get; set; }
         public Guid PatientId { get; set; }
-        public bool Published { get; set; } = false;
+        public bool Published { get; set; }
 
         public Feedback() { }
 

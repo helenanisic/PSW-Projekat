@@ -35,7 +35,12 @@
 						PatientId: fdb.patientId,
 						PatientName: fdb.patientName,
 						PatientSurname: fdb.PatientSurname
-					})
+					},
+						{
+							headers: {
+								'Authorization': "Bearer " + localStorage.getItem("access_token")
+							}
+						})
 					.then(response => {
 						for (i = 0; i < self.feedbacks.length; i++) {
 							if (self.feedbacks[i].id == fdb.id) {
@@ -78,22 +83,41 @@
 		}
 	},	
 	created() {
-            axios
+		axios
+		.get('/api/User/GetRole', {
+			headers: {
+				'Authorization': "Bearer " + localStorage.getItem("access_token")
+			}
+		})
+		.then(response => {
+			this.UserRole = response.data
+			if (this.UserRole != "Admin") {
+				window.location.href = 'login.html';
+			}
+			axios
 				.get('/api/Feedback/GetPublishedFeedbacks', {
 					headers: {
 						'Authorization': "Bearer " + localStorage.getItem("access_token")
 					}
 				})
 				.then(response => {
-                        this.feedbacks = response.data
-                })
-            
+					this.feedbacks = response.data
+				})
+
 				.catch(error => {
 					console.log(error);
 					if (error.response.status == 400) {
 						window.location.href = 'login.html';
 					}
 				})
+		})
+		.catch(error => {
+			console.log(error);
+			if (error.response.status == 401) {
+				window.location.href = 'login.html';
+			}
+		})
+           
 		
 
     }

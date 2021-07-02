@@ -14,6 +14,6 @@ namespace MQuince.Services.Contracts.DTO
         [Required]
         public Guid PatientId { get; set; }
 
-        public bool Published { get; set; } = false;
+        public bool Published { get; set; }
     }
 }
