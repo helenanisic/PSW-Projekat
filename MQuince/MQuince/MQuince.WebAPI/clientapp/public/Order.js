@@ -21,7 +21,7 @@
 		finishOrder: false,
 		deadline: null,
 		takeBack: null,
-
+		UserRole: ""
 	},
 	methods: {
 		changeState() {
@@ -130,7 +130,7 @@
 							JSAlert.alert("You have successfully created an order!");
 							console.log(this.orderedMedication)
 							setTimeout(function () {
-								//window.location.href = '/pharmacyAdmin/newOrder.html';
+								window.location.reload();
 							}, 2000);
 						}).catch(error => {
 							if (error.response.status == 401 || error.response.status == 400 || error.response.status == 500) {
@@ -164,15 +164,33 @@
 		}
 	},
 	created() {
-
 		axios
-			.get('/api/Medicine', {
+			.get('/api/User/GetRole', {
 				headers: {
 					'Authorization': "Bearer " + localStorage.getItem("access_token")
 				}
 			})
 			.then(response => {
-				this.newMedication = response.data;
+				this.UserRole = response.data
+				if (this.UserRole != "Manager") {
+					window.location.href = 'login.html';
+				}
+				axios
+					.get('/api/Medicine', {
+						headers: {
+							'Authorization': "Bearer " + localStorage.getItem("access_token")
+						}
+					})
+					.then(response => {
+						this.newMedication = response.data;
+					})
 			})
+			.catch(error => {
+				console.log(error);
+				if (error.response.status == 401) {
+					window.location.href = 'login.html';
+				}
+			})
+		
 	}
 })
