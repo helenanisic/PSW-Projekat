@@ -19,7 +19,8 @@
 		patients: [],
 		medicines: [],
 		medicine: null,
-		quantity: 0
+		quantity: 0,
+		UserRole: ""
 	},
 	methods: {
 		submit: function () {
@@ -31,7 +32,11 @@
 						Patient: this.patient,
 						Quantity: parseInt(this.quantity)
 
-					})
+					}, {
+						headers: {
+							'Authorization': "Bearer " + localStorage.getItem("access_token")
+						}
+				})
 				.then(response => {
 					JSAlert.alert("Prescription Id: " + response.data);
 					alert(response.data);
@@ -47,24 +52,43 @@
 	},
 	created() {
 		axios
-			.get('/api/Patient/GetAllNotBanned', {
+			.get('/api/User/GetRole', {
 				headers: {
 					'Authorization': "Bearer " + localStorage.getItem("access_token")
 				}
 			})
 			.then(response => {
-				this.patients = response.data;
-
+				this.UserRole = response.data
+				if (this.UserRole != "Doctor") {
+					window.location.href = 'login.html';
+				}
 				axios
-				.get('/api/Medicine', {
-					headers: {
-						'Authorization': "Bearer " + localStorage.getItem("access_token")
-					}
-				})
-				.then(response => {
-					this.medicines = response.data;
-				})
+					.get('/api/Patient/GetAllNotBanned', {
+						headers: {
+							'Authorization': "Bearer " + localStorage.getItem("access_token")
+						}
+					})
+					.then(response => {
+						this.patients = response.data;
+
+						axios
+							.get('/api/Medicine', {
+								headers: {
+									'Authorization': "Bearer " + localStorage.getItem("access_token")
+								}
+							})
+							.then(response => {
+								this.medicines = response.data;
+							})
+					})
 			})
+			.catch(error => {
+				console.log(error);
+				if (error.response.status == 401) {
+					window.location.href = 'login.html';
+				}
+			})
+
 
 	}
 })
