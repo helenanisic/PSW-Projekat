@@ -58,7 +58,11 @@
 						AppointmentPriority: parseInt(this.appointmentPriority),
 						ReferralId: this.referralId
 
-					})
+					}, {
+						headers: {
+							'Authorization': "Bearer " + localStorage.getItem("access_token")
+						}
+				})
 				.then(response => {
 					this.recommendation = response.data;
 					console.log(this.recommendation);
