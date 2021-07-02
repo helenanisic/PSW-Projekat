@@ -54,13 +54,9 @@ namespace MQuince.WebAPI.Controllers
         {
             Patient patient = _patientService.BanPatient(id);
             if(patient == null)
-            {
                 return BadRequest();
-            }
-            else
-            {
-                return Ok(patient);
-            }
+            return Ok(patient);
+            
         }
 
         [HttpGet("GetChosenDoctor")]

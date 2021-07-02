@@ -46,8 +46,10 @@ namespace MQuince.Unit.Tests
             Assert.True(patient2.Banned);
         }
 
+
+
         [Fact]
-        public void ban_patient_unsuccess()
+        public void ban_patient_user_not_found_fail()
         {
             var stubRepository = new Mock<IPatientRepository>();
             stubRepository.Setup(p => p.GetById(patient.Id));

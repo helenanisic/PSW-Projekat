@@ -1,7 +1,8 @@
 ﻿var app = new Vue({
 	el: '#patientBan',
 	data: {
-		patients: []
+		patients: [],
+		UserRole: ""
 	},
 	methods: {
 		ban: function (patient) {
@@ -28,14 +29,35 @@
 	},
 	created() {
 		axios
-			.get('/api/Patient/GetMaliciousPatient', {
+			.get('/api/User/GetRole', {
 				headers: {
 					'Authorization': "Bearer " + localStorage.getItem("access_token")
 				}
 			})
 			.then(response => {
-				this.patients = response.data
+				this.UserRole = response.data
+				if (this.UserRole != "Admin") {
+					window.location.href = 'login.html';
+				}
+
+				axios
+					.get('/api/Patient/GetMaliciousPatient', {
+						headers: {
+							'Authorization': "Bearer " + localStorage.getItem("access_token")
+						}
+					})
+					.then(response => {
+						this.patients = response.data
+					})
 			})
+			.catch(error => {
+				console.log(error);
+				if (error.response.status == 401) {
+					window.location.href = 'login.html';
+				}
+			})
+
+
 
 	}
 })

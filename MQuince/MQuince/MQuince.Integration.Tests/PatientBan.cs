@@ -99,5 +99,20 @@ namespace MQuince.Integration.Tests
             HttpResponseMessage response1 = await Client.GetAsync("/api/User?email=" + email + "&password=" + password);
             Assert.Equal(StatusCodes.Status401Unauthorized, (double)response1.StatusCode);
         }
+
+        [Fact]
+        public async Task ban_patient_wrong_role_fail()
+        {
+            AuthenticateRequest user = new AuthenticateRequest
+            {
+                Email = "helena@gmail.com",
+                Password = "Helena123"
+            };
+
+            var result = _userService.Authenticate(user);
+            Client.DefaultRequestHeaders.Add("Authorization", "Bearer " + result.Value.Token);
+            HttpResponseMessage response = await Client.GetAsync("/api/Patient/BanPatient?id=" + new Guid("4ac0ccd6-4efa-4f19-924c-0936ac10e506"));
+            Assert.Equal(StatusCodes.Status403Forbidden, (double)response.StatusCode);
+        }
     }
 }
