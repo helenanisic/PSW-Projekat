@@ -7,6 +7,7 @@ namespace MQuince.Repository.Contracts
 {
     public interface IReferralRepository
     {
-        IEnumerable<Referral> GetReferralOfPatient(Guid patientId);
+        IEnumerable<Referral> GetReferralOfPatient(Guid patientId, bool used);
+        Referral Update(Referral entity);
     }
 }

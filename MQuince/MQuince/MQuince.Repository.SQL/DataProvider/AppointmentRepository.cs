@@ -60,7 +60,7 @@ namespace MQuince.Repository.SQL.DataProvider
         public Appointment GetById(Guid id)
         {
             using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
-            return AppointmentMapper.MapAppointmentPersistenceToAppointmentEntity(_context.Appointments.SingleOrDefault(d => d.Id == id));
+            return AppointmentMapper.MapAppointmentPersistenceToAppointmentEntity(_context.Appointments.Include("Doctor").Include("Patient").SingleOrDefault(d => d.Id == id));
         }
     }
 }

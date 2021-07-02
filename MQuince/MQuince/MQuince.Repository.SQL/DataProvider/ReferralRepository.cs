@@ -20,10 +20,18 @@ namespace MQuince.Repository.SQL.DataProvider
             _dbContext = optionsBuilders == null ? throw new ArgumentNullException(nameof(optionsBuilders) + "is set to null") : optionsBuilders.Options;
         }
 
-        public IEnumerable<Referral> GetReferralOfPatient(Guid patientId)
+        public IEnumerable<Referral> GetReferralOfPatient(Guid patientId, bool used)
         {
             using MQuinceDbContext context = new MQuinceDbContext(_dbContext);
-            return ReferralMapper.MapReferralPersistenceCollectionToReferralEntityCollection(context.Referrals.Include("Patient").Include("Specialization").Where(a => a.PatientId == patientId).ToList());
+            return ReferralMapper.MapReferralPersistenceCollectionToReferralEntityCollection(context.Referrals.Include("Patient").Include("Specialization").Where(a => a.PatientId == patientId && a.Used == used).ToList());
+        }
+
+        public Referral Update(Referral entity)
+        {
+            using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
+            Referral referral = ReferralMapper.MapReferralPersistenceToReferralEntity(_context.Update(ReferralMapper.MapReferralEntityToReferralPersistence(entity)).Entity);
+            _context.SaveChanges();
+            return referral;
         }
 
     }

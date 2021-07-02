@@ -85,6 +85,7 @@
 								})
 								.then(response => {
 									JSAlert.alert("Success");
+									window.location.href = 'Appointments.html';
 								})
 								.catch(error => {
 									console.log(error)
@@ -103,24 +104,44 @@
         }
 	},
 	created() {
+
 		axios
-			.get('/api/Appointment/GetReferrals', {
+			.get('/api/User/GetRole', {
 				headers: {
 					'Authorization': "Bearer " + localStorage.getItem("access_token")
 				}
 			})
 			.then(response => {
-				this.referrals = response.data;
+				this.UserRole = response.data
+				if (this.UserRole != "Patient") {
+					window.location.href = 'login.html';
+				}
 				axios
-					.get('/api/Patient/GetChosenDoctor', {
+					.get('/api/Appointment/GetReferrals', {
 						headers: {
 							'Authorization': "Bearer " + localStorage.getItem("access_token")
 						}
 					})
 					.then(response => {
-						this.chosenDoctor = response.data;
-                    })
+						this.referrals = response.data;
+						axios
+							.get('/api/Patient/GetChosenDoctor', {
+								headers: {
+									'Authorization': "Bearer " + localStorage.getItem("access_token")
+								}
+							})
+							.then(response => {
+								this.chosenDoctor = response.data;
+							})
+					})
 			})
+			.catch(error => {
+				console.log(error);
+				if (error.response.status == 401) {
+					window.location.href = 'login.html';
+				}
+			})
+		
 
 	}
 })

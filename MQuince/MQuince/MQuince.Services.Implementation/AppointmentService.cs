@@ -26,7 +26,9 @@ namespace MQuince.Services.Implementation
 
         public Guid Create(Appointment appointment)
         {
-            return _appointmentRepository.Create(appointment);
+           return _appointmentRepository.Create(appointment);
+            
+           
         }
 
         public IEnumerable<Appointment> GetAllAppointmentsByPatientId(Guid patientId)
@@ -81,23 +83,25 @@ namespace MQuince.Services.Implementation
                     if (!appointments.Safe().Any())
                         return createNewAppointmentDTO(workSchedule.Date, i, workSchedule.Doctor.Id);
                     
-
-                    foreach (Appointment appointment in appointments)
-                    {
-                        if (appointment.StartTime == i)
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            return createNewAppointmentDTO(workSchedule.Date, i, workSchedule.Doctor.Id);
-                        }
-                    }
+                    if(IsAppointmentFree(appointments, workSchedule, i))
+                        return createNewAppointmentDTO(workSchedule.Date, i, workSchedule.Doctor.Id);
                 }
 
 
             }
             return null;
+        }
+
+        public bool IsAppointmentFree(IEnumerable<Appointment> appointments, WorkSchedule workSchedule, int time)
+        {
+            foreach (Appointment appointment in appointments.Where(a => a.Date.Equals(workSchedule.Date)).OrderBy(a => a.Date).ThenBy(a => a.StartTime))
+            {
+                if (appointment.StartTime == time && appointment.Date == workSchedule.Date)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public AppointmentDTO findAppointmentDoctorPriority(DateTime startDate, DateTime endDate, int startTime, int endTime, Guid DoctorId)

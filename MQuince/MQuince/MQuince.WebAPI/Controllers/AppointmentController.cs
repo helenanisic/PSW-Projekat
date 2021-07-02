@@ -46,6 +46,7 @@ namespace MQuince.WebAPI.Controllers
         }
 
         [HttpPost("Recommend")]
+        [Authorize(Roles = "Patient")]
         public IActionResult Recommend(AppointmentRequestDTO request)
         {
 
@@ -72,15 +73,17 @@ namespace MQuince.WebAPI.Controllers
         }
 
         [HttpGet("GetReferrals")]
+        [Authorize(Roles = "Patient")]
         public IActionResult GetReferrals()
         {
             string token = Request.Headers["Authorization"];
             var id = _userService.GetIdFromJwtToken(token.Split(" ")[1]);
-            IEnumerable<Referral> referrals = _referralService.GetReferralOfPatient(new Guid(id));
+            IEnumerable<Referral> referrals = _referralService.GetReferralOfPatient(new Guid(id), false);
             return Ok(referrals);
         }
 
         [HttpPost("Create")]
+        [Authorize(Roles = "Patient")]
         [Authorize]
         public IActionResult CreateAppointment(AppointmentDTO appointmentDTO)
         {
@@ -88,21 +91,26 @@ namespace MQuince.WebAPI.Controllers
             var id = _userService.GetIdFromJwtToken(token.Split(" ")[1]);
             Patient patient = _patientService.GetById(new Guid(id));
             Doctor doctor = _doctorService.GetById(appointmentDTO.DoctorId);
-            Guid result = _appointmentService.Create(CreateAppointmentFromDTO(appointmentDTO, doctor, patient));
-            if(result == Guid.Empty)
-            {
+            Guid result = _appointmentService.Create(CreateAppointmentFromDTO(appointmentDTO, doctor, patient));           
+            if (result == Guid.Empty)
                 return BadRequest("Something went wrong, please try again!");
-            }
+            
+            if(!_referralService.ReferralUsage(new Guid(id), doctor.SpecializationId, true))
+                return BadRequest("Something went wrong, please try again!");
             return Ok();
         }
 
         [HttpGet("Cancel")]
+        [Authorize(Roles = "Patient")]
         [Authorize]
         public IActionResult DeleteAppointment(Guid id)
         {
+            var appointment = _appointmentService.GetById(id);
             var result = _appointmentService.Delete(id);
             if (result.IsFailure)
                 return BadRequest(result.Error);
+            if (!_referralService.ReferralUsage(appointment.Patient.Id, appointment.Doctor.SpecializationId, false))
+                return BadRequest("Something went wrong, please try again!");
             return Ok();
         }
         private AppointmentDTO CreateAppointmentDTO(Appointment appointment)

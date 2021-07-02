@@ -46,7 +46,7 @@ namespace MQuince.Repository.SQL.DataProvider
         public Doctor GetById(Guid id)
         {
             using MQuinceDbContext _context = new MQuinceDbContext(_dbContext);
-            return DoctorMapper.MapDoctorPersistenceToDoctorEntity(_context.Doctors.SingleOrDefault(d => d.Id == id));
+            return DoctorMapper.MapDoctorPersistenceToDoctorEntity(_context.Doctors.Include("Specialization").SingleOrDefault(d => d.Id == id));
         }
     }
 }
